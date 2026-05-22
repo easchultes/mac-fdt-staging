@@ -1,13 +1,13 @@
 <!--
 AUTHOR: Erik Schultes
 SESSION: Making MAC FAIR/Article - FDT Paper
-DATE: 2026-05-21
+DATE: 2026-05-22
 URL: https://claude.ai/chat/22a7668a-24ce-4533-82fa-7e5a6b6204e9
 CREATED_AT: P23/R23
-DESCRIPTION: Orientation README v1.1 for the Claude Code nanopub-minting session — updated after resolution of vocabulary open items 1–5 with Tobias Kuhn on 21 May 2026. Supersedes v1.0.
+DESCRIPTION: Orientation README v1.2 for the Claude Code nanopub-minting session — updated to track SPS v1.2 (FAIR² citation policy supersedes v1.1) and the workspace reorganisation into `specs/`, `data/`, `minting/`, `extensions/`, `paper/`. Supersedes v1.1.
 -->
 
-# README — Claude Code FDT Minting Session (v1.1)
+# README — Claude Code FDT Minting Session (v1.2)
 
 ## What this is
 
@@ -17,29 +17,28 @@ The session uses the `nanopub-skill` (https://github.com/knowledgepixels/nanopub
 
 **Status (21 May 2026):** All five vocabulary-affecting open items have been resolved (see §"Resolved open items" below). The session is cleared to proceed through Stages 1–3.
 
-## Changes since v1.0
+## Changes since v1.1
 
-* Vocabulary spec updated to v1.1; SPS updated to v1.1. Both supersede their v1.0 predecessors.
-* The five "must be resolved with Tobias before Stage 1" items in v1.0 are now **resolved**; the table is reproduced below for the record but no longer gates the session.
-* `cito:` namespace (SPAR Citation Typing Ontology, `http://purl.org/spar/cito/`) is now used in Types 9–11, replacing `schema:citation`.
-* Type 2 `mac:hasCollectionLocation` instance values are GeoNames URIs (working candidates in SPS v1.1; verify at minting time).
+* SPS updated to v1.2 (FAIR² citation policy: data article DOI mandatory on Type 1; FAIR² Package DOI + portal URL mandatory on Types 3–6). Vocabulary v1.1 unchanged.
+* Workspace reorganised into `specs/`, `data/`, `minting/`, `extensions/`, `paper/`. File paths in this README updated accordingly.
+* Filename conventions normalised to underscores (`v1_2`, `v1_1`).
 
 ## How to use this directory with Claude Code
 
 1. From `~/nanopub-work/`, ensure `nanopub-skill/` has been cloned and `mac-fdt-staging/` (this directory) contains all the files listed below.
 2. Start Claude Code in `~/nanopub-work/`.
-3. Instruct Claude Code: *"Load the skill in the `nanopub-skill` subfolder. Then read `mac-fdt-staging/README_for_Claude_Code_v1.1.md` and the v1.1 vocabulary and SPS specs, and report back with your understanding of the task before taking any action."*
+3. Instruct Claude Code: *"Load the skill in the `nanopub-skill` subfolder. Then read `mac-fdt-staging/minting/README_for_Claude_Code_v1_1.md` and the v1.1 vocabulary and v1.2 SPS specs, and report back with your understanding of the task before taking any action."*
 4. Verify the understanding with Tobias before any minting begins.
 
 ## Inventory of working materials
 
 | File | Role |
 |---|---|
-| `MAC_FDT_SPS_v1.1.md` | **Authoritative specification (v1.1).** 11 FDO types, 26 predicates, 14 classes, three-layer architecture. Updated for resolved open items. Structural source of truth. |
-| `MAC_FDT_Vocabulary_v1.1.md` | **Definitions for every MAC-namespace predicate and class (v1.1).** Records the five resolutions. Semantic source of truth. |
-| `FDT4Claude_small_v1.csv` | The empirical content: per-variant values for all observation types, for the three initial variants. |
-| `MAC_FAIR_v2.0.md` | Foundational paper for the np-FDO substrate (context, not a minting target). |
-| `README_for_Claude_Code_v1.1.md` | This document. |
+| `../specs/MAC_FDT_SPS_v1_2.md` | **Authoritative specification (v1.2).** 11 FDO types, 26 predicates, 14 classes, three-layer architecture. Updated for resolved open items. Structural source of truth. |
+| `../specs/MAC_FDT_Vocabulary_v1_1.md` | **Definitions for every MAC-namespace predicate and class (v1.1).** Records the five resolutions. Semantic source of truth. |
+| `../data/FDT4Claude_small_v1_1.csv` | The empirical content: per-variant values for all observation types, for the three initial variants. |
+| `(not in this repo — see companion paper)` | Foundational paper for the np-FDO substrate (context, not a minting target). |
+| `README_for_Claude_Code_v1_1.md` | This document. |
 
 ## Task summary
 
@@ -47,13 +46,13 @@ Mint, in this order, the following nanopublications to the Nanopublication Serve
 
 ### Stage 1 — Vocabulary (26 predicate + 14 class nanopubs = 40)
 
-For each entry in `MAC_FDT_Vocabulary_v1.1.md` Parts A and B: one nanopub asserting the term as either an `owl:ObjectProperty` (predicates) or `owl:Class` (classes), with `rdfs:label`, `rdfs:comment` (from the document), `dct:creator`, `dct:license` (CC BY 4.0), and standard provenance. Use the namespace `https://w3id.org/spaces/mac/r/ontology/MAC-Ontology` (Item 1, resolved); the term URI separator (slash or hash) is assigned by NanoDash. Record the Trusty URI of each vocabulary term for use in Stage 2.
+For each entry in `../specs/MAC_FDT_Vocabulary_v1_1.md` Parts A and B: one nanopub asserting the term as either an `owl:ObjectProperty` (predicates) or `owl:Class` (classes), with `rdfs:label`, `rdfs:comment` (from the document), `dct:creator`, `dct:license` (CC BY 4.0), and standard provenance. Use the namespace `https://w3id.org/spaces/mac/r/ontology/MAC-Ontology` (Item 1, resolved); the term URI separator (slash or hash) is assigned by NanoDash. Record the Trusty URI of each vocabulary term for use in Stage 2.
 
 ### Stage 2 — Templates (11 NanoDash templates)
 
-For each of the 11 FDO types in `MAC_FDT_SPS_v1.1.md`: one NanoDash-compatible template nanopub encoding the assertion structure, with mandatory and optional statement patterns, controlled-vocabulary constraints, and references to the Stage 1 vocabulary URIs. Record the Trusty URI of each template.
+For each of the 11 FDO types in `../specs/MAC_FDT_SPS_v1_2.md`: one NanoDash-compatible template nanopub encoding the assertion structure, with mandatory and optional statement patterns, controlled-vocabulary constraints, and references to the Stage 1 vocabulary URIs. Record the Trusty URI of each template.
 
-Key template properties confirmed in v1.1:
+Key template properties confirmed in v1.2:
 
 * Types 2–8 carry `mac:isObservationOf` with object range = **referent URI** (the `sub:fdo` declared by the Type 1 anchor), not the anchor's Trusty URI.
 * Type 2 carries `mac:hasCollectionLocation` with object range = **GeoNames URI** of the form `https://sws.geonames.org/{id}/`.
@@ -62,7 +61,7 @@ Key template properties confirmed in v1.1:
 
 ### Stage 3 — Instances (38 instance nanopubs)
 
-Following the count breakdown in `MAC_FDT_SPS_v1.1.md` §"Nanopub count":
+Following the count breakdown in `../specs/MAC_FDT_SPS_v1_2.md` §"Nanopub count":
 
 * 3 Type 1 (Spike RBD Variant — the anchor FDOs $A_r$, one per variant)
 * 3 Type 2 (Real-World Occurrence)
@@ -97,12 +96,12 @@ Following the count breakdown in `MAC_FDT_SPS_v1.1.md` §"Nanopub count":
 | GISAID accession numbers (EPI_ISL_XXXXXXX) for Alpha, Epsilon, Eta | Supply at minting time if available; otherwise leave optional fields unset and add in follow-up instances |
 | FAIR² source dataset URL resolution | Verify each FAIR² resource URL resolves correctly before publishing |
 | StayAhead dataset FDO Trusty URIs | Substitute for raw OSF URLs in `dct:source` of Types 3–6 once StayAhead FDOs are minted |
-| GeoNames feature IDs | Verify the working candidates in SPS v1.1 §Type 2 resolve to the intended features (England `6269131`, California `5332921`, Nigeria `2328926`); substitute precise IDs from GeoNames if any differs |
+| GeoNames feature IDs | Verify the working candidates in SPS v1.2 §Type 2 resolve to the intended features (England `6269131`, California `5332921`, Nigeria `2328926`); substitute precise IDs from GeoNames if any differs |
 | `dct:publisher` ROR URI for Leiden / LACDR | Tobias to confirm at session start |
 
-## Source data — `FDT4Claude_small_v1.csv`
+## Source data — `../data/FDT4Claude_small_v1_1.csv`
 
-The CSV contains seven rows (one per variant × ESM/AlphaFold for the structural metrics, with AgMata as a single per-variant value carried on the ESM row by convention). Values for the three Type 7 (DMS) instances and the three Type 8 (WHO Classification) instances are supplied in `MAC_FDT_SPS_v1.1.md` directly.
+The CSV contains seven rows (one per variant × ESM/AlphaFold for the structural metrics, with AgMata as a single per-variant value carried on the ESM row by convention). Values for the three Type 7 (DMS) instances and the three Type 8 (WHO Classification) instances are supplied in `../specs/MAC_FDT_SPS_v1_2.md` directly.
 
 Per-variant content map:
 
@@ -138,4 +137,5 @@ Generate a catalogue file listing all 89 Trusty URIs (40 vocabulary + 11 templat
 | Version | Date | Notes |
 |---|---|---|
 | v1.0 | 20 May 2026 | Initial README; seven open items gating Stage 1. |
-| v1.1 | 21 May 2026 | Open items 1–7 resolved or captured; this document. Session cleared to proceed. |
+| v1.1 | 21 May 2026 | Open items 1–7 resolved or captured. Session cleared to proceed. |
+| v1.2 | 22 May 2026 | Updated to track SPS v1.2 (FAIR² citation policy supersedes v1.1); paths updated for the workspace reorganisation into `specs/`, `data/`, `minting/`, `extensions/`, `paper/`. This document. |
