@@ -14,7 +14,7 @@ DESCRIPTION: Stakeholder Participation Sheets v1.2 — FAIR² citation policy co
 **Project:** StayAhead / MAC — Leiden University LACDR
 **Date:** 21 May 2026
 **Status:** Approved for NanoDash template implementation. FAIR² citation policy committed.
-**Companion spec:** `MAC_FDT_Vocabulary_v1.1.md` (authoritative for predicate and class definitions; unchanged in this revision).
+**Companion spec:** `MAC_FDT_Vocabulary_v1_2.md` (authoritative for predicate and class definitions; updated 22 May 2026 to add class hierarchy, predicate domain/range, and `dct:partOf` per Tobias Kuhn's PR #1 review).
 **Supersedes:** `MAC_FDT_SPS_v1.1.md` (21 May 2026).
 
 ---
@@ -387,15 +387,19 @@ For Type 6 (AgMata): both mandatory values are the Package DOI and the ESM resou
 | **`cito:citesAsAuthority`** | 9,10,11 | Method's authoritative published description — repeatable (Item 4; replaces `schema:citation`) |
 | `schema:url` | 9,10,11 | Software, data resource, or platform URL |
 
-### MAC-namespace classes to mint (14 total — Item 6 corrected)
+### MAC-namespace classes to mint (19 total: 14 concrete + 5 abstract)
 
-**FDT and observation classes (8):** `mac:SpikeRBDVariant`, `mac:RealWorldOccurrence`, `mac:ComputationalPredictionRMSD`, `mac:ComputationalPredictionSASA`, `mac:ComputationalPredictionPLDDT`, `mac:ComputationalPredictionAgMata`, `mac:ExperimentalDMSObservation`, `mac:WHOVariantClassification`
+**Abstract parent classes (5, added in Vocabulary v1.2 per PR #1 item 2):** `mac:Observation`, `mac:ComputationalPrediction`, `mac:ExperimentalObservation`, `mac:Method`, `mac:WHODesignation`. These carry no direct instances and exist to type predicate domains/ranges and to accommodate future siblings (e.g., the Bosch extension's `mac:ExperimentalCellSortingObservation`).
 
-**Method classes (3):** `mac:ComputationalMethod`, `mac:ExperimentalMethod`, `mac:ObservationalMethod`
+**FDT and observation classes (8, concrete):** `mac:SpikeRBDVariant`, `mac:RealWorldOccurrence`, `mac:ComputationalPredictionRMSD`, `mac:ComputationalPredictionSASA`, `mac:ComputationalPredictionPLDDT`, `mac:ComputationalPredictionAgMata`, `mac:ExperimentalDMSObservation`, `mac:WHOVariantClassification`
 
-**WHO classification controlled values (3):** `mac:VOC`, `mac:VOI`, `mac:VUM`
+**Method classes (3, concrete):** `mac:ComputationalMethod`, `mac:ExperimentalMethod`, `mac:ObservationalMethod`
 
-> *Note (Item 6 resolution).* SPS v1.0 header text gave a class count of "16"; enumeration consistently yields 14 (8 + 3 + 3). The "16" value was a counting error and is corrected here.
+**WHO classification controlled values (3, concrete):** `mac:VOC`, `mac:VOI`, `mac:VUM`
+
+The Stage 3 instance count (38 nanopubs) is unchanged: instances type themselves with the concrete classes only. The class hierarchy and per-predicate `rdfs:domain` / `rdfs:range` declarations are encoded in the Stage 1 vocabulary nanopubs and are documented in `MAC_FDT_Vocabulary_v1_2.md` §"Class hierarchy" and §"Predicate domain and range".
+
+> *Note (Item 6 resolution).* SPS v1.0 header text gave a class count of "16"; enumeration in v1.1 consistently yielded 14 (8 + 3 + 3) concrete classes. The "16" value was a counting error and was corrected in v1.1. The class total rises to 19 in v1.2 with the addition of 5 abstract parents.
 
 ### Nanopub count — 3-variant initial dataset
 
@@ -438,4 +442,4 @@ For Type 6 (AgMata): both mandatory values are the Package DOI and the ESM resou
 |---|---|---|
 | v1.0 | 20 May 2026 | Initial working document. Seven vocabulary-related open items. |
 | v1.1 | 21 May 2026 | Items 1–5 resolved with Tobias Kuhn; Item 6 corrected (class count = 14). |
-| v1.2 | 21 May 2026 | FAIR² citation policy committed: data article DOI mandatory on Type 1 via `dct:references`; FAIR² Package DOI + resource URL mandatory on Types 3–6 via `dct:source`. This document. |
+| v1.2 | 21–22 May 2026 | FAIR² citation policy committed: data article DOI mandatory on Type 1 via `dct:references`; FAIR² Package DOI + resource URL mandatory on Types 3–6 via `dct:source`. Companion vocabulary spec updated 22 May 2026 to `MAC_FDT_Vocabulary_v1_2.md`: class hierarchy (5 new abstract parents → 19 classes), predicate domain/range, and `dct:partOf` per Tobias Kuhn's PR #1 review. This document. |

@@ -1,42 +1,60 @@
 <!--
 AUTHOR: Erik Schultes
 SESSION: Making MAC FAIR/Article - FDT Paper
-DATE: 2026-05-21
+DATE: 2026-05-22
 URL: https://claude.ai/chat/22a7668a-24ce-4533-82fa-7e5a6b6204e9
-CREATED_AT: P23/R23
-DESCRIPTION: Vocabulary specification v1.1 — Open Items 1–5 resolved with Tobias Kuhn (21 May 2026). Supersedes v1.0.
+CREATED_AT: P25/R25
+DESCRIPTION: Vocabulary specification v1.2 — class hierarchy added (5 new abstract classes; total 19), predicate domain/range declared, `dct:partOf` replaces `rdfs:isDefinedBy`. Reflects Tobias Kuhn's PR #1 review (22 May 2026), accepted via `Stage1_hierarchy_and_domain_range_proposal.md`. Supersedes v1.1.
 -->
 
 # MAC FAIR Digital Twin — Vocabulary Specification
 
-## Working Document v1.1 — Open Items 1–5 resolved
+## Working Document v1.2 — class hierarchy, domain/range, and `dct:partOf`
 
 **Project:** StayAhead / MAC — Leiden University LACDR
-**Date:** 21 May 2026
-**Status:** Ready for nanopub minting. All vocabulary-affecting open items resolved with Tobias Kuhn.
-**Companion spec:** `MAC_FDT_SPS_v1.1.md` (the 11-type FDT specification; updated in parallel).
-**Supersedes:** `MAC_FDT_Vocabulary_v1.0.md` (20 May 2026).
+**Date:** 22 May 2026
+**Status:** Ready for nanopub minting. All vocabulary-affecting open items resolved with Tobias Kuhn; Stage 1 PR review items 1–4 applied.
+**Companion spec:** `MAC_FDT_SPS_v1_2.md` (the 11-type FDT specification; updated in parallel to reference this vocabulary version).
+**Supersedes:** `MAC_FDT_Vocabulary_v1_1.md` (21 May 2026).
 
 ---
 
-## Changes since v1.0
+## Changes since v1.1
 
-This revision applies the resolutions reached with Tobias Kuhn on 21 May 2026 for the five open items affecting vocabulary minting. The resolutions are recorded in §"Resolutions" below; the affected predicate and class definitions are updated accordingly throughout Parts A and B. Item 6 (class-count reconciliation) is resolved by inspection: the class inventory totals 14, including the three WHO controlled values; the SPS v1.0 header value of "16" was a counting error and is corrected in SPS v1.1. Item 7 (minting order) is procedural and is captured in `README_for_Claude_Code_v1.1.md`.
+This revision applies the four items from Tobias Kuhn's review of Stage 1 PR #1 (22 May 2026), as enumerated and justified in `../Stage1_hierarchy_and_domain_range_proposal.md`:
+
+1. **`dct:partOf` replaces `rdfs:isDefinedBy`** as the predicate linking each vocabulary term to the MAC ontology anchor. The semantic intent (membership in the ontology) is more precisely conveyed by `dct:partOf`; `rdfs:isDefinedBy` is more often used for "the document that defines this term," which here would point to this specification file rather than to the ontology resource itself.
+2. **Class hierarchy introduced.** Five new abstract classes (`mac:Observation`, `mac:ComputationalPrediction`, `mac:ExperimentalObservation`, `mac:Method`, `mac:WHODesignation`) bring the 14 concrete classes of v1.1 into a 3-level taxonomy. The class total rises to 19 (14 concrete + 5 abstract). `rdfs:subClassOf` triples are added per the hierarchy in §"Class hierarchy".
+3. **Predicate `rdfs:domain` and `rdfs:range` declared.** Each of the 26 MAC-namespace predicates carries domain and range as specified in §"Predicate domain and range". Predicates whose range is an `xsd:*` datatype are declared `owl:DatatypeProperty`; predicates whose range is a class (or whose range is omitted) remain `owl:ObjectProperty`. Five edge cases per the proposal's §3 are resolved per the recommended option 1 (omit the constraint): `mac:hasGISAIDAccession` omits domain (dual-use); `mac:hasParentProtein`, `mac:hasCollectionLocation`, and `mac:hasWHOClassificationReference` omit range (foreign or generic URIs); `mac:hasOccurrenceDate` uses `xsd:string` to admit imprecision.
+4. **Slash separator confirmed** for the `mac:` namespace expansion. Per Item 1's resolution, the term URI separator is assigned by NanoDash; the slash form `https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/{local}` has been adopted in the draft TriGs and is retained in v1.2.
+
+Predicate count is unchanged at 26. Class count rises from 14 to 19 (14 concrete + 5 abstract).
+
+---
+
+## Changes since v1.0 (carried forward from v1.1)
+
+v1.1 applied the resolutions reached with Tobias Kuhn on 21 May 2026 for the five open items affecting vocabulary minting. The resolutions are recorded in §"Resolutions" below; the affected predicate and class definitions are updated accordingly throughout Parts A and B. Item 6 (class-count reconciliation) is resolved by inspection: in v1.1 the class inventory totalled 14, including the three WHO controlled values; the SPS v1.0 header value of "16" was a counting error and is corrected in SPS v1.1. In v1.2 the class inventory rises to 19 with the addition of 5 abstract classes (see §"Class hierarchy"). Item 7 (minting order) is procedural and is captured in `../minting/README_for_Claude_Code_v1_1.md`.
 
 ---
 
 ## Purpose and scope
 
-This document supplies `rdfs:comment` definitions (and, where appropriate, accompanying notes) for every MAC-namespace predicate and class enumerated in `MAC_FDT_SPS_v1.1`. The definitions are the **source of truth** from which the nanopublished vocabulary terms will be generated in the Claude Code minting session.
+This document supplies `rdfs:comment` definitions (and, where appropriate, accompanying notes) for every MAC-namespace predicate and class enumerated in `MAC_FDT_SPS_v1_2.md`. The definitions, the class hierarchy, and the predicate domain/range declarations are the **source of truth** from which the nanopublished vocabulary terms are generated in the Claude Code minting session.
 
 Each predicate or class will be published as a nanopublication in the MAC NanoDash ontology space, following the FAIR Funder Framework (FFF) precedent established in `MAC_FAIR_v2.0`: the vocabulary itself is composed of np-FDOs, making it machine-actionable, persistently identified, and openly available under the same substrate as the FDOs that use it.
 
-This is the *human-readable* specification. The nanopublished form will encode each term as an FDO with at minimum:
+This is the *human-readable* specification. The nanopublished form encodes each term as an FDO with at minimum:
 
-* `rdf:type` → `owl:ObjectProperty` (predicates) or `owl:Class` (classes)
+* `rdf:type` →
+    * `owl:ObjectProperty` for predicates whose range is a class (or omitted); or
+    * `owl:DatatypeProperty` for predicates whose range is an `xsd:*` datatype; or
+    * `owl:Class` for classes.
 * `rdfs:label` → human-readable label (from SPS)
 * `rdfs:comment` → the definition below
-* `rdfs:isDefinedBy` → MAC FDT vocabulary anchor URI
+* `rdfs:domain`, `rdfs:range` → domain and range as declared in §"Predicate domain and range" (predicates only; omitted where the proposal's §3 edge cases apply)
+* `rdfs:subClassOf` → immediate parent class per §"Class hierarchy" (classes only; omitted for hierarchy roots `mac:SpikeRBDVariant`, `mac:Observation`, `mac:Method`, `mac:WHODesignation`)
+* `dct:partOf` → MAC FDT ontology anchor URI (replaces `rdfs:isDefinedBy` in v1.1)
 * `dct:creator`, `dct:created`, `dct:license` → standard provenance
 
 ---
@@ -53,7 +71,7 @@ https://w3id.org/spaces/mac/r/ontology/MAC-Ontology
 
 (viewable via NanoDash at `https://nanodash.petapico.org/resource?5&id=https://w3id.org/spaces/mac/r/ontology/MAC-Ontology`).
 
-The `mac:` prefix used throughout this document and in SPS v1.1 expands to the term-URI pattern within this space. The exact slash-or-hash separator and the per-term URI suffix are assigned by NanoDash at the time of minting; the shorthand `mac:TermName` in this document refers unambiguously to the term published in the MAC ontology space with `rdfs:label = "TermName"` (or, in lower-camel cased label form, the corresponding predicate label).
+The `mac:` prefix used throughout this document and in SPS v1.2 expands to the term-URI pattern within this space. The exact slash-or-hash separator and the per-term URI suffix are assigned by NanoDash at the time of minting; the shorthand `mac:TermName` in this document refers unambiguously to the term published in the MAC ontology space with `rdfs:label = "TermName"` (or, in lower-camel cased label form, the corresponding predicate label).
 
 ### Item 2 — `mac:isObservationOf` resolution target: resolved
 
@@ -109,6 +127,107 @@ Standard-vocabulary predicates adopted without minting are namespaced as follows
 | `nt:` | `http://www.nanopub.org/nschema#` |
 | `fair:` | `https://w3id.org/fair/principles/terms/` |
 | **`cito:`** (new in v1.1) | `http://purl.org/spar/cito/` |
+
+---
+
+## Class hierarchy
+
+The 19 classes of v1.2 form a three-level taxonomy. Five abstract parents (no direct instances) group the 14 concrete classes; the anchor type `mac:SpikeRBDVariant` is parentless.
+
+```
+mac:SpikeRBDVariant                                  (anchor type — no parent)
+
+mac:Observation                              [abstract]
+├── mac:RealWorldOccurrence
+├── mac:ComputationalPrediction              [abstract]
+│   ├── mac:ComputationalPredictionRMSD
+│   ├── mac:ComputationalPredictionSASA
+│   ├── mac:ComputationalPredictionPLDDT
+│   └── mac:ComputationalPredictionAgMata
+├── mac:ExperimentalObservation              [abstract]
+│   └── mac:ExperimentalDMSObservation
+└── mac:WHOVariantClassification
+
+mac:Method                                   [abstract]
+├── mac:ComputationalMethod
+├── mac:ExperimentalMethod
+└── mac:ObservationalMethod
+
+mac:WHODesignation                           [abstract]
+├── mac:VOC
+├── mac:VOI
+└── mac:VUM
+```
+
+**Abstractness convention.** The five abstract classes carry no `owl:disjointWith` axioms, no `owl:deprecated`, and no further OWL-DL machinery distinguishing them from concrete classes. Their abstract status is asserted in prose only — each `rdfs:comment` includes the sentence: *"This class is abstract: it carries no direct instances; all instances belong to one of its concrete subclasses."* This convention is consistent with the RDFS-level vocabulary the rest of v1.2 uses; a formal abstractness signal can be added in v2 without breaking instances.
+
+**`mac:WHOVariantClassification` is kept under `mac:Observation`.** It is structurally an observation: it records the WHO's authoritative assignment of a designation to a variant at a point in time, and is linked to the variant anchor by `mac:isObservationOf` just as every other observation type is.
+
+**`mac:SpikeRBDVariant` has no MAC-namespace parent.** It could in principle subclass a foreign protein-variant class (e.g., from UniProt/PR), but no such constraint adds expressive value at this stage. Leaving it parentless is the conservative choice.
+
+**Anticipated extensions.** The Bosch extension (future cycle) adds `mac:ExperimentalCellSortingObservation` under `mac:ExperimentalObservation` and a new predicate `mac:hasAPCPositivePercentage`. The hierarchy in v1.2 accommodates this insertion without restructuring.
+
+---
+
+## Predicate domain and range
+
+Each of the 26 MAC-namespace predicates is declared with `rdfs:domain` and `rdfs:range` per the table below. Predicates whose range is an `xsd:*` datatype are declared `owl:DatatypeProperty`; predicates with a class range or with range omitted remain `owl:ObjectProperty`. Per the proposal's §3, five predicates omit either domain or range, with the rationale recorded in the "Notes" column.
+
+### Type 1 — identity predicates (subject: `mac:SpikeRBDVariant`)
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:hasWHOVariantName` | DatatypeProperty | `mac:SpikeRBDVariant` | `xsd:string` | |
+| `mac:hasPangoLineage` | DatatypeProperty | `mac:SpikeRBDVariant` | `xsd:string` | |
+| `mac:hasGISAIDSeqId` | DatatypeProperty | `mac:SpikeRBDVariant` | `xsd:string` | |
+| `mac:hasMACSeqId` | DatatypeProperty | `mac:SpikeRBDVariant` | `xsd:string` | |
+| `mac:hasParentProtein` | ObjectProperty | `mac:SpikeRBDVariant` | *(omitted)* | Foreign UniProt URI; no MAC class applies. Range omitted per proposal §3(b). |
+| `mac:hasRBDSequence` | DatatypeProperty | `mac:SpikeRBDVariant` | `xsd:string` | 195-char one-letter code |
+| `mac:hasGISAIDAccession` | DatatypeProperty | *(omitted)* | `xsd:string` | Dual use at Type 1 and Type 2; domain omitted per proposal §3(a). |
+
+### Cross-type predicate
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:isObservationOf` | ObjectProperty | `mac:Observation` | `mac:SpikeRBDVariant` | The load-bearing FDT cross-link. |
+
+### Type 2 — real-world occurrence predicates
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:hasSurveillanceMethod` | ObjectProperty | `mac:RealWorldOccurrence` | `mac:ObservationalMethod` | |
+| `mac:hasOccurrenceDate` | DatatypeProperty | `mac:RealWorldOccurrence` | `xsd:string` | Loose to admit imprecision ("late 2020–2021"); per proposal §3(e). |
+| `mac:hasCollectionLocation` | ObjectProperty | `mac:RealWorldOccurrence` | *(omitted)* | Foreign GeoNames URI; range omitted per proposal §3(c). |
+
+### Types 3–6 — computational prediction predicates
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:hasPredictionMethod` | ObjectProperty | `mac:ComputationalPrediction` | `mac:ComputationalMethod` | Abstract parent on both sides. |
+| `mac:hasRMSD` | DatatypeProperty | `mac:ComputationalPredictionRMSD` | `xsd:decimal` | Units Å. |
+| `mac:hasSASA` | DatatypeProperty | `mac:ComputationalPredictionSASA` | `xsd:decimal` | Units Å². |
+| `mac:haspLDDT` | DatatypeProperty | `mac:ComputationalPredictionPLDDT` | `xsd:decimal` | Unitless, 0–100. |
+| `mac:hasAgMataScore` | DatatypeProperty | `mac:ComputationalPredictionAgMata` | `xsd:decimal` | Unitless. |
+
+### Type 7 — experimental DMS predicates
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:hasExperimentalMethod` | ObjectProperty | `mac:ExperimentalObservation` | `mac:ExperimentalMethod` | Abstract parents (Bosch will reuse). |
+| `mac:hasBind` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | log K_D, unitless. |
+| `mac:hasDeltaBind` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | |
+| `mac:hasExpr` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | log MFI. |
+| `mac:hasDeltaExpr` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | |
+| `mac:hasConfidenceBind` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | |
+| `mac:hasConfidenceExpr` | DatatypeProperty | `mac:ExperimentalDMSObservation` | `xsd:decimal` | |
+
+### Type 8 — WHO classification predicates
+
+| Predicate | Property type | Domain | Range | Notes |
+|---|---|---|---|---|
+| `mac:hasWHOClassification` | ObjectProperty | `mac:WHOVariantClassification` | `mac:WHODesignation` | Range is the abstract parent of `{VOC, VOI, VUM}`. |
+| `mac:hasClassificationDate` | DatatypeProperty | `mac:WHOVariantClassification` | `xsd:date` | ISO 8601. |
+| `mac:hasWHOClassificationReference` | ObjectProperty | `mac:WHOVariantClassification` | *(omitted)* | Generic web URL; range omitted per proposal §3(d). |
 
 ---
 
@@ -273,55 +392,88 @@ Standard-vocabulary predicates adopted without minting are namespaced as follows
 
 ---
 
-## Part B — Class definitions (14 total)
+## Part B — Class definitions (19 total: 14 concrete + 5 abstract)
+
+### B.0 Abstract parent classes (5, new in v1.2)
+
+These classes carry no direct instances. Their role is to group their concrete subclasses for the purpose of typing predicate domains and ranges (see §"Predicate domain and range") and to make future extensions (e.g., the Bosch extension) accommodate additional siblings without restructuring.
+
+#### `mac:Observation`
+An abstract parent class for all observation-layer FDOs in a MAC FAIR Digital Twin. Concrete subclasses include `mac:RealWorldOccurrence` (Type 2), `mac:ComputationalPrediction` and its sub-hierarchy (Types 3–6), `mac:ExperimentalObservation` and its sub-hierarchy (Type 7), and `mac:WHOVariantClassification` (Type 8). Every member links to the FDT's anchor (a `mac:SpikeRBDVariant`) via `mac:isObservationOf`. This class is abstract: it carries no direct instances; all instances belong to one of its concrete subclasses.
+
+#### `mac:ComputationalPrediction`
+An abstract parent class for computational predictions about a Spike RBD variant, produced by a named computational method. Concrete subclasses cover specific predicted quantities (`mac:ComputationalPredictionRMSD`, `…SASA`, `…PLDDT`, `…AgMata`). Anticipates additional computational prediction types as siblings without restructuring the hierarchy. This class is abstract: all instances belong to one of its concrete subclasses.
+
+#### `mac:ExperimentalObservation`
+An abstract parent class for empirical observations produced by laboratory assays on a Spike RBD variant. Currently has one concrete child (`mac:ExperimentalDMSObservation`, deep mutational scanning); the forthcoming Bosch extension adds `mac:ExperimentalCellSortingObservation` as a sibling. This class is abstract: all instances belong to one of its concrete subclasses.
+
+#### `mac:Method`
+An abstract parent class for methods, tools, assays, or surveillance platforms that produce observations within the MAC FAIR Digital Twin substrate. Concrete subclasses distinguish computational methods (`mac:ComputationalMethod`), experimental methods (`mac:ExperimentalMethod`), and observational/surveillance methods (`mac:ObservationalMethod`). Instances of any concrete subclass carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the method. This class is abstract: all instances belong to one of its concrete subclasses.
+
+#### `mac:WHODesignation`
+An abstract parent class for the World Health Organization's controlled-vocabulary risk designations applied to SARS-CoV-2 variants: Variant of Concern (`mac:VOC`), Variant of Interest (`mac:VOI`), and Variant Under Monitoring (`mac:VUM`). Used as the range of `mac:hasWHOClassification`. This class is abstract: all instances belong to one of its concrete subclasses.
 
 ### B.1 FDT and observation classes (8)
 
 #### `mac:SpikeRBDVariant`
 A variant of the SARS-CoV-2 Spike receptor-binding domain (RBD, 195 residues) produced by one or more amino-acid substitutions from the wild-type Wuhan isolate (UniProt P0DTC2). This class is the type of the anchor FDO ($A_r$) of a FAIR Digital Twin; all observation FDOs link to it via `mac:isObservationOf` and collectively constitute the FDT.
+*Subclass of:* — (no MAC-namespace parent).
 
 #### `mac:RealWorldOccurrence`
 A documented detection of a SARS-CoV-2 Spike variant in the real world, as reported in a surveillance database (typically GISAID). The occurrence is anchored to a specific collection date and to a GeoNames-identified location.
+*Subclass of:* `mac:Observation`.
 
 #### `mac:ComputationalPredictionRMSD`
 A computed prediction of the Root Mean Square Deviation between a predicted structure of a Spike RBD variant and a reference structure, produced by a named computational structure-prediction method.
+*Subclass of:* `mac:ComputationalPrediction`.
 
 #### `mac:ComputationalPredictionSASA`
 A computed prediction of the Solvent Accessible Surface Area of a Spike RBD variant's predicted structure, produced by a named computational structure-prediction method.
+*Subclass of:* `mac:ComputationalPrediction`.
 
 #### `mac:ComputationalPredictionPLDDT`
 A computed prediction confidence score (predicted Local Distance Difference Test) for the structural prediction of a Spike RBD variant, produced by a named computational structure-prediction method.
+*Subclass of:* `mac:ComputationalPrediction`.
 
 #### `mac:ComputationalPredictionAgMata`
 A computed prediction of the aggregation propensity of a Spike RBD variant, produced by the Bio2Byte AgMata method. The score is sequence-derived and is therefore predicted once per variant rather than once per structural-prediction method.
+*Subclass of:* `mac:ComputationalPrediction`.
 
 #### `mac:ExperimentalDMSObservation`
 An experimental observation of binding affinity and expression level measurements for a Spike RBD variant, determined by deep mutational scanning (Bloom Lab protocol). One FDO records all six DMS metrics (`bind`, `delta_bind`, `expr`, `delta_expr`, `confidence_bind`, `confidence_expr`) for a single variant.
+*Subclass of:* `mac:ExperimentalObservation`.
 
 #### `mac:WHOVariantClassification`
 A classification of a SARS-CoV-2 lineage according to the WHO risk framework (VOC / VOI / VUM), with a specified assignment date and reference URL. Time-stamped because designation status changes over time.
+*Subclass of:* `mac:Observation`.
 
 ### B.2 Method classes (3)
 
 #### `mac:ComputationalMethod`
 A computational method, tool, or algorithm that produces predictions or scores from biological sequence or structure data. Referenced by observation FDOs of Types 3–6 via `mac:hasPredictionMethod`. Instances carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the method.
+*Subclass of:* `mac:Method`.
 
 #### `mac:ExperimentalMethod`
 An experimental assay or measurement protocol that produces empirical observations about biological entities. Referenced by Type 7 observation FDOs via `mac:hasExperimentalMethod`. Instances carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the assay.
+*Subclass of:* `mac:Method`.
 
 #### `mac:ObservationalMethod`
 An epidemiological surveillance system or data-collection platform through which real-world occurrences of biological entities are documented. Referenced by Type 2 observation FDOs via `mac:hasSurveillanceMethod`. Instances carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the surveillance platform.
+*Subclass of:* `mac:Method`.
 
 ### B.3 WHO classification controlled values (3)
 
 #### `mac:VOC` — Variant of Concern
 A SARS-CoV-2 variant designated by the WHO as carrying evidence of increased transmissibility, increased disease severity, or significant reduction in vaccine or therapeutic effectiveness.
+*Subclass of:* `mac:WHODesignation`.
 
 #### `mac:VOI` — Variant of Interest
 A SARS-CoV-2 variant designated by the WHO as carrying genetic markers associated with phenotypic changes and demonstrated epidemiological impact warranting enhanced monitoring.
+*Subclass of:* `mac:WHODesignation`.
 
 #### `mac:VUM` — Variant Under Monitoring
 A SARS-CoV-2 variant for which the WHO has identified evidence of growth advantage or immune escape and that is being monitored precautionarily pending further characterisation.
+*Subclass of:* `mac:WHODesignation`.
 
 ---
 
@@ -329,10 +481,11 @@ A SARS-CoV-2 variant for which the WHO has identified evidence of growth advanta
 
 | Category | Count | Members |
 |---|---:|---|
-| FDT + observation classes | 8 | `SpikeRBDVariant`, `RealWorldOccurrence`, `ComputationalPredictionRMSD`, `ComputationalPredictionSASA`, `ComputationalPredictionPLDDT`, `ComputationalPredictionAgMata`, `ExperimentalDMSObservation`, `WHOVariantClassification` |
-| Method classes | 3 | `ComputationalMethod`, `ExperimentalMethod`, `ObservationalMethod` |
-| WHO classification controlled values | 3 | `VOC`, `VOI`, `VUM` |
-| **Total** | **14** | SPS v1.0 header value of "16" was a miscount; corrected in SPS v1.1. |
+| Abstract parent classes (new in v1.2) | 5 | `Observation`, `ComputationalPrediction`, `ExperimentalObservation`, `Method`, `WHODesignation` |
+| FDT + observation classes (concrete) | 8 | `SpikeRBDVariant`, `RealWorldOccurrence`, `ComputationalPredictionRMSD`, `ComputationalPredictionSASA`, `ComputationalPredictionPLDDT`, `ComputationalPredictionAgMata`, `ExperimentalDMSObservation`, `WHOVariantClassification` |
+| Method classes (concrete) | 3 | `ComputationalMethod`, `ExperimentalMethod`, `ObservationalMethod` |
+| WHO classification controlled values (concrete) | 3 | `VOC`, `VOI`, `VUM` |
+| **Total** | **19** | 14 concrete + 5 abstract. SPS v1.0 header value of "16" was a miscount for the concrete inventory; corrected to 14 in SPS v1.1. v1.2 adds the 5 abstract parents. |
 
 ## Predicate inventory
 
@@ -363,4 +516,5 @@ Standard-vocabulary predicates adopted without minting: `rdf:type`, `rdfs:label`
 | Version | Date | Notes |
 |---|---|---|
 | v1.0 | 20 May 2026 | Initial draft prepared for review by Tobias Kuhn. Seven open items recorded. |
-| v1.1 | 21 May 2026 | Items 1–5 resolved (this document). Item 6 corrected (class count = 14). Item 7 captured in `README_for_Claude_Code_v1.1.md`. |
+| v1.1 | 21 May 2026 | Items 1–5 resolved. Item 6 corrected (concrete class count = 14). Item 7 captured in `README_for_Claude_Code_v1.1.md`. |
+| v1.2 | 22 May 2026 | PR #1 review items applied (this document): `dct:partOf` replaces `rdfs:isDefinedBy`; class hierarchy introduced with 5 new abstract parents (total 19 classes); `rdfs:domain` and `rdfs:range` declared on all 26 predicates with 5 edge cases resolved per the proposal. Companion: `Stage1_hierarchy_and_domain_range_proposal.md`. |
