@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RAiPwop7fX9_yWoPpU3Dgl7HjFiddOH1zkw_2kOLkSt5U> .
+@prefix sub: <https://w3id.org/np/RAiPwop7fX9_yWoPpU3Dgl7HjFiddOH1zkw_2kOLkSt5U/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasConfidenceExpr a owl:DatatypeProperty;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "Asserts the confidence score associated with the expression level measurement, as reported by the deep mutational scanning analysis pipeline.";
+    rdfs:domain mac:ExperimentalDMSObservation;
+    rdfs:label "has confidence_expr (expression confidence score)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:hasConfidenceExpr (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "x2eF386hvfLiKE0yb3tDDdrC5+3YDLeWB4NAMqtrmhJPapfOLogz9ng73EClN4tRXaaIxwezqams07t6ppLdB0HwXNG3jIp0W7+BYmF4j8QvZVAx2jEwSBshfbe2wQyvbSlViIUa5LsUknNdgIw700gnyzr9Acl8ZtkUXIVHUv4=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

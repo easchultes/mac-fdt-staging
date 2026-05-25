@@ -1,0 +1,43 @@
+@prefix this: <https://w3id.org/np/RAaD8GY3_4FIzfpW7eau1qLnhpRDbHN9Se3LJU5GTVw-g> .
+@prefix sub: <https://w3id.org/np/RAaD8GY3_4FIzfpW7eau1qLnhpRDbHN9Se3LJU5GTVw-g/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasWHOClassificationReference a owl:ObjectProperty;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "Asserts the URL of the WHO publication or tracking page that documents this classification.";
+    rdfs:domain mac:WHOVariantClassification;
+    rdfs:label "has WHO classification reference URL" .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:hasWHOClassificationReference (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "akOqi3SAEuyP2Z1AKm5QZR/VdPCJSxThBf0fgalMZJ7rKJckMWDvKERt+09W9490A/svDVnXVoY6Zl+QRs7UqEUndp/5jiD6Ff0bvcv4pueYKD45uLT728xM+7S9TQdH5FJgzbwQN0ExyqIw9ji6RWXwvf0nNdO55CFTORmEqN4=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

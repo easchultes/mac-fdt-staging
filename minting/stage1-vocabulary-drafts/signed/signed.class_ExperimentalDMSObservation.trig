@@ -1,0 +1,43 @@
+@prefix this: <https://w3id.org/np/RACHSsdZAamlKVMKk8BDmDfEKyG-HMSe2I8ZHk9QxUICQ> .
+@prefix sub: <https://w3id.org/np/RACHSsdZAamlKVMKk8BDmDfEKyG-HMSe2I8ZHk9QxUICQ/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ExperimentalDMSObservation a owl:Class;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "An experimental observation of binding affinity and expression level measurements for a Spike RBD variant, determined by deep mutational scanning (Bloom Lab protocol). One FDO records all six DMS metrics (`bind`, `delta_bind`, `expr`, `delta_expr`, `confidence_bind`, `confidence_expr`) for a single variant.";
+    rdfs:label "Experimental DMS Observation";
+    rdfs:subClassOf mac:ExperimentalObservation .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:ExperimentalDMSObservation (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "7ydEGICVqQbXYaC1mDQ4WavklmmpRkUuJIJWKCcldbaAkN5BGTMCm9pvL+QEyLPHMIwELFqzmpQS7Al93IOFf0PAxXx9Qxs9WBqxeTEZqAou0JIv2PE3FIMEgqL9PIXOxPup2r1mmgvxdLCvoTJEwS4PfeJGVop/MQ5j9r2c0bQ=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

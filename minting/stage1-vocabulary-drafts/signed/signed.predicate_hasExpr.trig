@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RAM9dbajNn5ePMh9lwkJQmofZPrhs4rtu1gMHCPRYU5W0> .
+@prefix sub: <https://w3id.org/np/RAM9dbajNn5ePMh9lwkJQmofZPrhs4rtu1gMHCPRYU5W0/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasExpr a owl:DatatypeProperty;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "Asserts the protein expression level measurement for this variant, reported as the logarithm of the mean fluorescence intensity (log MFI) from the deep mutational scanning assay.";
+    rdfs:domain mac:ExperimentalDMSObservation;
+    rdfs:label "has expr (expression level)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:hasExpr (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "4f6h40i7Pn2EhVBHS5Sd8c3XHQJyorX61IKX+bPcnZLa2jTDkuZQizD4wmuHxlajmWMp71JtUI4qo5d8PUMEeZVYcP9S5Cl3U31JuZeCn/U+tiq20U/nveglYlSeeFSks9d+M8p2ewUKrQH/SZzJkiHVVuyrX64awM/v6n841jk=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

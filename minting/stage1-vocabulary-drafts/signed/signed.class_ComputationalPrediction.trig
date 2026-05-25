@@ -1,0 +1,43 @@
+@prefix this: <https://w3id.org/np/RAmnRYl97O5nkHRF5F4v4ZXCF28qDHV3FvvktIAKmatbY> .
+@prefix sub: <https://w3id.org/np/RAmnRYl97O5nkHRF5F4v4ZXCF28qDHV3FvvktIAKmatbY/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ComputationalPrediction a owl:Class;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "An abstract parent class for computational predictions about a Spike RBD variant, produced by a named computational method. Concrete subclasses cover specific predicted quantities (`mac:ComputationalPredictionRMSD`, `…SASA`, `…PLDDT`, `…AgMata`). Anticipates additional computational prediction types as siblings without restructuring the hierarchy. This class is abstract: all instances belong to one of its concrete subclasses.";
+    rdfs:label "Computational Prediction";
+    rdfs:subClassOf mac:Observation .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:ComputationalPrediction (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "dGj8+mY7owZn6R0VkGrquvfA5N41RNZaF8QtiAlzs9NqwTplJ9UbNVlE+nJGP1iVP0fK3//s248yyvOxF1oQNX0v+LceLlVNGgsvMazPRm1JwOSIBx65QOIgBWFa0clxXnKhPrY4M3z8rCV5uqkoblgYR7F1nIV5jAF8SvBmV60=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

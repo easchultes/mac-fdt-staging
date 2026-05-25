@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RARALj5zhWyvTN5Jjefs6S3VNIcOpYUT9IQgJvAYrOCWE> .
+@prefix sub: <https://w3id.org/np/RARALj5zhWyvTN5Jjefs6S3VNIcOpYUT9IQgJvAYrOCWE/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasWHOClassification a owl:ObjectProperty;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:comment "Asserts the World Health Organization risk classification assigned to this variant at a given point in time: Variant of Concern (VOC), Variant of Interest (VOI), or Variant Under Monitoring (VUM). Time-stamped because designation status changes over time.";
+    rdfs:domain mac:WHOVariantClassification;
+    rdfs:label "has WHO variant classification";
+    rdfs:range mac:WHODesignation .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:hasWHOClassification (draft, unsigned)" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "C3fC4SjTIANK7nGRWTxKM2TGbdSrJbzQONu7ebJkdBRsuh4qNywZiGy5WBNflBOknSy8HKPvwg8xSMkqgSzfwTq/9p6jAUjkdXRcv/GJmAH8QHOJd56wfxHnOWx9mEB00lwbLa8dNs4CPadPrJ78MdSXhRuLkszqTn/IE9fOVrw=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
