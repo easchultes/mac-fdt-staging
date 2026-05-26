@@ -1,0 +1,45 @@
+@prefix this: <https://w3id.org/np/RAin3nSs_QMqqkVJXnW2Mpt0A8VjSQjctVeZwknZd31TA> .
+@prefix sub: <https://w3id.org/np/RAin3nSs_QMqqkVJXnW2Mpt0A8VjSQjctVeZwknZd31TA/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:Method a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "An abstract parent class for methods, tools, assays, or surveillance platforms that produce observations within the MAC FAIR Digital Twin substrate. Concrete subclasses distinguish computational methods (`mac:ComputationalMethod`), experimental methods (`mac:ExperimentalMethod`), and observational/surveillance methods (`mac:ObservationalMethod`). Instances of any concrete subclass carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the method. This class is abstract: all instances belong to one of its concrete subclasses.";
+    rdfs:label "Method" .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:Method;
+    npx:supersedes <https://w3id.org/np/RAe32RFyesO2SgZZ40ZfVYqV382qHV1Suvv4sBHDjQrOA>;
+    rdfs:label "Vocabulary term: mac:Method" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "9V82l0bQJWfPWaopwQDTFHeD51I0e8UIcVICXm371Dpcoas6tXZgu21CbQH8UOxd0qjE/fyWiCw2sPl8hbHafQVqI6GykGmWhZTOuBs51FFzYNiQ6wF4Dbmt9zAiH91yEDASo4xXjhgbT1EG/47Yk9PshX8gwZTy60vrzh2vI1g=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

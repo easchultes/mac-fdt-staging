@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RASbvkLZcQLl8jACJL7a2ebSLN-b9u6xVC-Dr-wDiDVJU> .
+@prefix sub: <https://w3id.org/np/RASbvkLZcQLl8jACJL7a2ebSLN-b9u6xVC-Dr-wDiDVJU/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasDeltaBind a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the change in binding affinity for this variant relative to the wild-type reference, computed as Δ(−log K_D). Positive values indicate stronger binding than wild-type.";
+    rdfs:domain mac:ExperimentalDMSObservation;
+    rdfs:label "has delta_bind (change in binding affinity)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasDeltaBind;
+    npx:supersedes <https://w3id.org/np/RAUM-as-ig9nAF4qfa0T8SpKN3txVCymfripEZg90LdOI>;
+    rdfs:label "Vocabulary term: mac:hasDeltaBind" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "7OC84zAfGCUgxKprXvJY95XoDxIk2wmTr8/OG3Dtzd2w+g81bGV/9N0FIjqEFj9syNFXYYuFkcFxoMSz1+j2hY47/Mx6YlBIlDAOiX1LaehRpSL1sgUl7g6GyBId2KGQll5do8Lq60baMBV5uUYCSfF/APViQ1sfFsQrsN0dYGM=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

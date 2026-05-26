@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RAlUEgjqST9CBROWFUTqK1ccF2J97REjRtZClPEqLlUQg> .
+@prefix sub: <https://w3id.org/np/RAlUEgjqST9CBROWFUTqK1ccF2J97REjRtZClPEqLlUQg/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasExpr a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the protein expression level measurement for this variant, reported as the logarithm of the mean fluorescence intensity (log MFI) from the deep mutational scanning assay.";
+    rdfs:domain mac:ExperimentalDMSObservation;
+    rdfs:label "has expr (expression level)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasExpr;
+    npx:supersedes <https://w3id.org/np/RAeCODjCdykOJzcgxlDiVdegNsNb0WxVQ6P3tKtfPmp_M>;
+    rdfs:label "Vocabulary term: mac:hasExpr" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "r+GbFIfu3Hb+VGK0qN75PxPalJYlvC4QX5WMftqeD7M13VTq0gcsRw4BdN+l12IXDg3LteAnUVsnMkcnH/1E8zStuNW0sJpgs6vFLkYpZvsDJrKv33DqPzxha6jZg5seiSVCCzIcSHH1cy1Ga0hklqbLPSDaD0cMWs75ev4CTUM=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

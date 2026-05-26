@@ -1,0 +1,46 @@
+@prefix this: <https://w3id.org/np/RAUvoMTnySH1oQy5KgvyAjQjb5lUm1o0cFC3W5FwrVDz8> .
+@prefix sub: <https://w3id.org/np/RAUvoMTnySH1oQy5KgvyAjQjb5lUm1o0cFC3W5FwrVDz8/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasGISAIDAccession a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts a GISAID EpiCoV accession identifier (format `EPI_ISL_XXXXXXX`) of a genome sequence relevant to this FDO. At the Type 1 (variant) level the value is the canonical exemplar sequence chosen to represent the variant; at the Type 2 (real-world occurrence) level the value is the specific surveilled sequence whose collection date and location are recorded by the observation.";
+    rdfs:label "has GISAID accession number";
+    rdfs:range xsd:string .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasGISAIDAccession;
+    npx:supersedes <https://w3id.org/np/RApnJPTRIfJfTxXU_Mue2CN1XmjdEG2CTyrgHH6Lln8-E>;
+    rdfs:label "Vocabulary term: mac:hasGISAIDAccession" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "f2UiDBFwdYNe5PymBPev/STPL/qMS+FY/TnHJnB6Sg4jb3IneA7jy5iIwvrzPkAofVzxZ7qEW2xX6QOH0hwudZZ6bVZpTPnrQkuhZwvkzWgXIiMYgV1r51dvMwkKuE9IcI9SHPZ7zH4TYB8gTmISjp+gIa/M+gBIgDll9fDuVn0=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
