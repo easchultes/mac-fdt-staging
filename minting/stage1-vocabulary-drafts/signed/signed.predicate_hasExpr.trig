@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAr_axxzRfkRltU_s7Pdzsg-UngeaIQH2YdRbxM7Qr8Jc> .
-@prefix sub: <https://w3id.org/np/RAr_axxzRfkRltU_s7Pdzsg-UngeaIQH2YdRbxM7Qr8Jc/> .
+@prefix this: <https://w3id.org/np/RAeCODjCdykOJzcgxlDiVdegNsNb0WxVQ6P3tKtfPmp_M> .
+@prefix sub: <https://w3id.org/np/RAeCODjCdykOJzcgxlDiVdegNsNb0WxVQ6P3tKtfPmp_M/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -32,13 +32,14 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:creator orcid:0000-0001-8888-635X;
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
     dct:license <https://creativecommons.org/licenses/by/4.0/>;
-    rdfs:label "Vocabulary term: mac:hasExpr (draft, unsigned)" .
+    rdfs:label "Vocabulary term: mac:hasExpr" .
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "8lYlg952zWNH+sgVkRTxZGH1RFoxm851WL1Hd+zI7JwNKlymzGP9IJZL1XkeGO4N6unZKXVIFaBEY7fQO9zmBOynmlG8ZgsvaF5f3CnMg7w4zZWyD83pVrERJS4v44JkPwko1TCXoxcMcADv0qTRsttk5mDWSvUNiA//ahJ9e84=";
+    npx:hasSignature "QHP1NwD5fX45H+9pbsZA+MiHtXm988OK+v/YnOPNJzNzhMRMHtqklW+e3ixrgKzRCH81d6RAax1HrfeatP8wtaKlrbik/S+Hh2gv3K5pWpGlN/rLYq722P8/8j2tIeZPuY8jS+nIoROb5L26OwYt0Dn/F5s9x84cBKJtbx6g8p0=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

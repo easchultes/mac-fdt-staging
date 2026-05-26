@@ -32,8 +32,8 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:creator <https://orcid.org/0000-0001-8888-635X> ;
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime ;
+    dct:creator <https://orcid.org/0000-0001-8888-635X> ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    rdfs:label "Vocabulary term: mac:RealWorldOccurrence (draft, unsigned)" .
-  # npx:signedBy placeholder — added by `nanopub sign` at minting time
+    rdfs:label "Vocabulary term: mac:RealWorldOccurrence" .
 }

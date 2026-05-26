@@ -1,6 +1,6 @@
 # Stage 1 vocabulary drafts — for review
 
-**Status:** DRAFT — unsigned, unpublished. Prepared on 2026-05-22 on branch `stage1-vocabulary-draft` for pre-merge review prior to signing and test-server publish. Revised 22 May 2026 to apply all four items from Tobias Kuhn's PR #1 review (see `../../Stage1_hierarchy_and_domain_range_proposal.md`).
+**Status:** Signed and **test-published** (test registry only — NOT production). Prepared 2026-05-22 on branch `stage1-vocabulary-draft`; revised the same day to apply all four items from Tobias Kuhn's PR #1 review (see `../../Stage1_hierarchy_and_domain_range_proposal.md`); namespace corrected 2026-05-26; "(draft, unsigned)" label suffix removed and pubinfo `dct:created` timestamp added per `nanopub-skill/SKILL.md` on the same date. 45 signed nanopubs live on `https://test.registry.knowledgepixels.com/`; Trusty URIs recorded in `manifest_test.csv`. Production publish is gated on Tobias sign-off (see "Intended next step" below).
 
 ## What this folder contains
 
@@ -40,7 +40,7 @@ Each TriG file follows the nanopublication four-graph layout per `nanopub-skill/
 | `sub:Head` | Declares the nanopub and references the other three graphs. |
 | `sub:assertion` | Asserts the term as `owl:ObjectProperty` (predicates with class range or omitted range), `owl:DatatypeProperty` (predicates with `xsd:*` range), or `owl:Class` (classes), with `rdfs:label` and `rdfs:comment` taken verbatim from `../../specs/MAC_FDT_Vocabulary_v1_2.md`; `rdfs:domain` and `rdfs:range` per the same spec (predicates only, with the 5 omission cases noted above); `rdfs:subClassOf` per the hierarchy (classes only, except the 4 hierarchy roots); and `dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>`. |
 | `sub:provenance` | `sub:assertion prov:wasAttributedTo <https://orcid.org/0000-0001-8888-635X> ; dct:created "2026-05-22"^^xsd:date`. |
-| `sub:pubinfo` | `this: dct:creator <ORCID> ; dct:license <CC BY 4.0> ; rdfs:label "Vocabulary term: mac:<local> (draft, unsigned)"`. The `npx:signedBy` triple is recorded as a placeholder comment — it will be inserted by the nanopub jar's `sign` subcommand at minting time. |
+| `sub:pubinfo` | `this: dct:created "<UTC>"^^xsd:dateTime ; dct:creator <ORCID> ; dct:license <CC BY 4.0> ; rdfs:label "Vocabulary term: mac:<local>"`. The `dct:created` timestamp is refreshed each time the generator runs (per `nanopub-skill/SKILL.md` line 465: refresh on every revision before publishing). The RSA signature block (`npx:hasAlgorithm`, `npx:hasPublicKey`, `npx:hasSignature`, `npx:hasSignatureTarget`, `npx:signedBy`) is inserted by the nanopub jar's `sign` subcommand at signing time. |
 
 ## Base URI — why the temp placeholder
 
@@ -66,28 +66,32 @@ Every `rdfs:label` and `rdfs:comment` string for the 14 concrete classes and 26 
 
 - **JDK:** Temurin 21.0.11 LTS, installed self-contained at `~/nanopub-work/jdk/jdk-21.0.11+10/Contents/Home` (the system `/usr/bin/java` is Java 14 and is too old to run the current nanopub jar — see `UnsupportedClassVersionError` note below). The Temurin JDK was downloaded directly from Adoptium because Homebrew is not installed on this machine; no system Java was modified.
 - **Nanopub jar:** `nanopub-1.88.0-jar-with-dependencies.jar` from Maven Central, at `~/nanopub-work/`.
-- **Result:** Each file reports `Summary: 1 valid (not trusty);` — i.e., parses cleanly and is structurally a valid nanopublication; "not trusty" simply indicates the file is unsigned (no Trusty URI yet), which is the expected pre-signing state for a draft.
+- **Result:** When invoked on the 45 unsigned drafts, the jar reports `Summary: 45 valid (not trusty);` — parses cleanly, structurally valid nanopublications; "not trusty" simply indicates the files are unsigned (no Trusty URI yet), which is the expected pre-signing state. The 45 signed files in `signed/` are trusty.
 
 The structural grep used as a fallback in earlier iterations (four-graph layout, label/comment counts, brace balance, `prov:wasAttributedTo` in provenance, `dct:creator` in pubinfo only) was used at 40/40 in the v1.1 round and is retained as a fast sanity check for future regenerations. In v1.2 the canonical `nanopub check` is now passing on the same machine and the structural grep is no longer load-bearing.
 
 > Note for anyone re-running this loop on a fresh machine: if the system Java is < 21, the nanopub jar will refuse to load with `UnsupportedClassVersionError: class file version 65.0 ... only recognizes class file versions up to 58.0`. The fix is to point at a Java 21+ JDK directly (either via `JAVA_HOME` or by invoking its `bin/java` explicitly). Brew install path: `brew install openjdk@21`. Tarball path (used here): download Temurin 21 from `https://api.adoptium.net/v3/binary/latest/21/ga/mac/x64/jdk/hotspot/normal/eclipse`.
 
-## These are drafts — what is, and is not, present
+## Current state — what is, and is not, present
 
-| Aspect | State |
-|---|---|
-| `npx:signedBy` triple | **Not present.** Placeholder comment only; added by `nanopub sign`. |
-| RSA signature block | **Not present.** Added by `nanopub sign`. |
-| Trusty URI | **Not present.** The temp URI `http://purl.org/nanopub/temp/np001/` is in place; `sign` replaces it. |
-| MAC term URI separator | Slash placeholder; NanoDash assigns final form at minting. |
-| Vocabulary content (labels, comments, hierarchy, domain/range, `dct:partOf`) | **Final**, copied verbatim from `MAC_FDT_Vocabulary_v1_2.md`. |
-| Provenance & license | **Final**: ORCID `0000-0001-8888-635X`, CC BY 4.0, date `2026-05-22`. |
+The 45 unsigned drafts in this directory are the canonical pre-signing source; their signed counterparts live in `signed/` and are the artifacts that were test-published.
 
-## Intended next step (after merge)
+| Aspect | State in unsigned drafts (this folder root) | State in `signed/` |
+|---|---|---|
+| Base URI | `http://purl.org/nanopub/temp/np001/` (temp placeholder per skill) | Replaced with the Trusty URI by `nanopub sign` |
+| Trusty URI | Not present | **Present** — recorded in `manifest_test.csv` |
+| RSA signature block (`npx:hasAlgorithm`, `npx:hasPublicKey`, `npx:hasSignature`, `npx:hasSignatureTarget`, `npx:signedBy`) | Not present | **Present** — signed under ORCID `0000-0001-8888-635X` with key at `~/.nanopub/id_rsa` |
+| Pubinfo `dct:created` (publication timestamp) | **Present** — current UTC at generation time (refreshed every regen per `nanopub-skill/SKILL.md` line 465) | Same (carried through signing) |
+| Provenance assertion-creation date | **Present** — `sub:assertion dct:created "2026-05-22"^^xsd:date` (the day the definitions were authored; not refreshed on republish) | Same |
+| `mac:` namespace | `https://w3id.org/spaces/mac/r/ontology/` (slash-terminated; corrected 2026-05-26) | Same |
+| Vocabulary content (labels, comments, hierarchy, domain/range, `dct:partOf`) | **Final**, copied verbatim from `../../specs/MAC_FDT_Vocabulary_v1_2.md` | Same |
+| License | CC BY 4.0 | Same |
 
-1. Confirm the MAC term URI separator (slash vs hash) with NanoDash before signing.
-2. Sign with `java -jar $JAR sign tmp/<name>.trig` against the user key at `~/.nanopub/id_rsa`.
-3. Publish to the **test server** first: `java -jar $JAR publish -u https://test.registry.knowledgepixels.com/ tmp/<name>-signed.trig`.
-4. Only after end-to-end test-server verification (per `../README_for_Claude_Code_v1_1.md` §"Recommended verification"): publish to the live NSN.
+## Intended next step (production gating)
 
-Stage 1 vocabulary URIs feed Stage 2 (templates) which feed Stage 3 (instances); do not begin Stage 2 until all Stage 1 Trusty URIs are captured.
+1. Tobias sign-off on the post-correction post-timestamp set (the 45 Trusty URIs in `manifest_test.csv`).
+2. Optional but recommended before production: build at least one Stage 2 template against the test-registry Trusty URIs to confirm the vocabulary "works" in template context.
+3. Optional: mint an introduction nanopub (key declaration) so consumers can validate the signing key by dereference rather than trust-on-first-use. `profile.yaml`'s `introduction_nanopub_uri` is currently empty.
+4. On explicit go-ahead: publish the 45 signed files to the live NSN with the same batch command but no `-u` flag (default is the live registry). Trusty URIs will be identical to the test ones because the same signed bytes hash to the same content-addressed ID.
+
+Stage 1 vocabulary URIs feed Stage 2 (templates) which feed Stage 3 (instances). Stage 2 work can begin against the test-registry Trusty URIs immediately and will not need rework when those same URIs are promoted to production.

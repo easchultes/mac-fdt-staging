@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RALIwJ-ldKT1lkdgPZXWi4dosyGxZ4fyJg5AlAqYV5jk8> .
-@prefix sub: <https://w3id.org/np/RALIwJ-ldKT1lkdgPZXWi4dosyGxZ4fyJg5AlAqYV5jk8/> .
+@prefix this: <https://w3id.org/np/RAoLE72b_07tpy44hdGZXHlBZD_LSfKm4B8A470dFY9ks> .
+@prefix sub: <https://w3id.org/np/RAoLE72b_07tpy44hdGZXHlBZD_LSfKm4B8A470dFY9ks/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -31,13 +31,14 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:creator orcid:0000-0001-8888-635X;
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
     dct:license <https://creativecommons.org/licenses/by/4.0/>;
-    rdfs:label "Vocabulary term: mac:ComputationalMethod (draft, unsigned)" .
+    rdfs:label "Vocabulary term: mac:ComputationalMethod" .
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "L9P7eET6fCNYUM+PmIBoZtvidCFIe83LKWzXZJfa+6Y9idnDgbscoeI/Y4vh5nyX7laNOwJDzsxUGevsWCkHRvJ6Z9eAi9+rTBA8I7+y8jBT2jCwf/4ZdCZ7dEr/1ExskWAA+m1AdXmengEwRbYt+UzFM37QHCG9H3niQCNQn4o=";
+    npx:hasSignature "oWedk5BMsSCoANs8kkdkclsy+UMEam4jGb42JNgeIldPmCVXGoVbBl4Ey6tr8k4UaOf4ApQl+gZiCJhcUZlVuJoGJ4mRC4XoPz4EILdyEo5+6q5x1wXClJoGu3KF37Ea8oJSJ6jHVQTjkSoRUAGM57EVdgIU/pgj6rFgu+epKTc=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }
