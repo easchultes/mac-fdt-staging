@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAKiGPqaP8B2rJj8P9YrSFBj-lfpoVsqGSTm8ZN9Su7Xg> .
-@prefix sub: <https://w3id.org/np/RAKiGPqaP8B2rJj8P9YrSFBj-lfpoVsqGSTm8ZN9Su7Xg/> .
+@prefix this: <https://w3id.org/np/RAROSf1YCjeH6psVbMxZQgcfgJIM2L91sjTpaVNOGMsDY> .
+@prefix sub: <https://w3id.org/np/RAROSf1YCjeH6psVbMxZQgcfgJIM2L91sjTpaVNOGMsDY/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:Method a owl:Class;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "An abstract parent class for methods, tools, assays, or surveillance platforms that produce observations within the MAC FAIR Digital Twin substrate. Concrete subclasses distinguish computational methods (`mac:ComputationalMethod`), experimental methods (`mac:ExperimentalMethod`), and observational/surveillance methods (`mac:ObservationalMethod`). Instances of any concrete subclass carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the method. This class is abstract: all instances belong to one of its concrete subclasses.";
     rdfs:label "Method" .
 }
@@ -36,7 +36,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "yBM6eO3xvXzcKzwDOt5r10iVf0nfERdlmUuLd/gvAZFqV0BOq74lbHyp05RgcKon/SWx5tBFgsR00sNFzO9mh/KF6JaDQ34AAgMhgP+mMecdeXqz+Zk2jUQTtFGpe3T75kMb/HFQwPtq1jHcRXxH25pOhtqUlgmOGmJF7RT0N7U=";
+    npx:hasSignature "bW92bjvufsfHRlxtSWTcpXSMa78VDf2Xe/7TmLA6WG1hEN+ICFj0316xJhGXui+RzZnZFlVmLKMdAsROu6dXUPpQ4OedHyleaESPaC0w74UudijKj9ypusO0NIMDhqmV3y0vcdy0E9FaGPLHU1nyWp6strtrHCyQakLXlpdAGVg=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

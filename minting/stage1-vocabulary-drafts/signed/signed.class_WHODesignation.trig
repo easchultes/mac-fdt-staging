@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAwAm5TA_3Q_ewTYRXyoMWwd2jRFsUiUeQdsE-ho9cDWQ> .
-@prefix sub: <https://w3id.org/np/RAwAm5TA_3Q_ewTYRXyoMWwd2jRFsUiUeQdsE-ho9cDWQ/> .
+@prefix this: <https://w3id.org/np/RABk9gaQl1l1EW-bRrca5iFi-ntaKM_3bfr5wVPevIrFQ> .
+@prefix sub: <https://w3id.org/np/RABk9gaQl1l1EW-bRrca5iFi-ntaKM_3bfr5wVPevIrFQ/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:WHODesignation a owl:Class;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "An abstract parent class for the World Health Organization's controlled-vocabulary risk designations applied to SARS-CoV-2 variants: Variant of Concern (`mac:VOC`), Variant of Interest (`mac:VOI`), and Variant Under Monitoring (`mac:VUM`). Used as the range of `mac:hasWHOClassification`. This class is abstract: all instances belong to one of its concrete subclasses.";
     rdfs:label "WHO Designation" .
 }
@@ -36,7 +36,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "RwZxWpa7F5OzW9fv3QSB4Jc6TNyycbhnxmn/yPuZTvqYcvjzN2Y6Tno4eZlwqa50dTHhxhvqOtwIi9HLMMW8bLqJA4XZcWXRmYuHjA0Tn7Xd/GQSELxgh2UkSRe+OCNZ654gmKy3vcEW5lvf6JhNxEJ8pN7yKTr60Uc6mxl/dsw=";
+    npx:hasSignature "3rWvx2Z2pycSliY+lro6l4GiyaN3lDimwoXmppmePHpe3+rBNFnidDUgyA59/WloiecOYcck0UqPNzUIJgMziIsfUi198YuoXVPGQgELZ0ZJO1PD0/enz5F0plQaMULLgSbOZHAxrZETetncBureD/7HR/NX4tH3XkWtsxoAXyw=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

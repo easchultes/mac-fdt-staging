@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RA21drMM_Ib8nU8_7AAw8Bsdy_diZIl7xPu-cV5QXHW0A> .
-@prefix sub: <https://w3id.org/np/RA21drMM_Ib8nU8_7AAw8Bsdy_diZIl7xPu-cV5QXHW0A/> .
+@prefix this: <https://w3id.org/np/RA1sXpFnNywmS73Z99HcmgI6_Z6GqFpxYI9Kfi90_NSO8> .
+@prefix sub: <https://w3id.org/np/RA1sXpFnNywmS73Z99HcmgI6_Z6GqFpxYI9Kfi90_NSO8/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasSASA a owl:DatatypeProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the Solvent Accessible Surface Area of the predicted structure of this variant's RBD, computed as the surface area accessible to a standard solvent probe.";
     rdfs:domain mac:ComputationalPredictionSASA;
     rdfs:label "has SASA (Solvent Accessible Surface Area)";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "b05fPBtNf4zuF20DhSi/HsMK5ZJDl937nVCG80aUiW9ohwS5fLFK4Y8F3X0T0a1SJItmzWSh8uSWQpPwyjSfTdE3DhYKVy+PgYahUAsi+CCPYegFv2Rmdnusbnqyxkc95EbY0PdayB4Zrv8KJd5FuvrISDhJ8TyvkkUO6PLmYzM=";
+    npx:hasSignature "R40JSUDJxVVA661zC4ePZ4+f4GoNkBhPuElgsgQtNn2tnLXrUichb0jV8KJD9W0yHLC4+vAq0CYDLOsVPi+6c7Xg4DlSc7ArpfJZrgjqVaS2kf9i3F/K0MX8t1KWRhHj8Gc+0Wr0ugBI3CEKwq5YHqMSmwvHk4GfjhM4ZzMlwTE=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

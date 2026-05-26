@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAN_4brSXeYiGXnHtIQZhRz7wWrpX8abiA2f2DMNe344s> .
-@prefix sub: <https://w3id.org/np/RAN_4brSXeYiGXnHtIQZhRz7wWrpX8abiA2f2DMNe344s/> .
+@prefix this: <https://w3id.org/np/RAOrDvZ9rrvZEXZKCmWWjMbCLsI4JuNyxpm56zxCi9Bk0> .
+@prefix sub: <https://w3id.org/np/RAOrDvZ9rrvZEXZKCmWWjMbCLsI4JuNyxpm56zxCi9Bk0/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:SpikeRBDVariant a owl:Class;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "A variant of the SARS-CoV-2 Spike receptor-binding domain (RBD, 195 residues) produced by one or more amino-acid substitutions from the wild-type Wuhan isolate (UniProt P0DTC2). This class is the type of the anchor FDO (A_r) of a FAIR Digital Twin; all observation FDOs link to it via `mac:isObservationOf` and collectively constitute the FDT.";
     rdfs:label "Spike RBD Variant" .
 }
@@ -36,7 +36,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "F/p4X7g7HprQY999kOOkecx+65VqkSNBNUcyDtGnhKZ4lgOQ4z59HwmjSXuZ/2N9/rdn86o+4J6BOF87a/B2z0gUenjneL/wItSo+ypV4FCCFdDY2h6YamWrXlKWpue9q6wVKntHFcks7UZlzXhcyrNA457+anCNUitn9Um0mok=";
+    npx:hasSignature "nRPcX+XMF/C54llycI6908cv9acPXKIph8AWKR1Xfw5rpT3lDOWN1o/wKiJECo91/hO4eoddUds5ImMlHxIIgLIPqw1DIKAVBYV2lDE4dxFiw9FZ4m0fRzCCpH8Zxc4Jkv+F9wJ2n56MHq3d8mVvQq+LiPsv28H+kCLnv4NoNF4=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

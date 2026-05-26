@@ -46,9 +46,15 @@ Each TriG file follows the nanopublication four-graph layout per `nanopub-skill/
 
 All files use `http://purl.org/nanopub/temp/np001/` as the base URI for both `this:` and `sub:`. This is mandatory per `nanopub-skill/SKILL.md`: the `sign` step rewrites the placeholder into a Trusty URI throughout the file as part of computing the content-addressed hash. Using `https://w3id.org/np/temp` instead "causes the signed trusty URI to be malformed", per the skill's own warning. The trailing slash is required so that `sub:foo` correctly derives a sub-IRI of the eventual trusty root.
 
-## MAC term URI separator — slash confirmed (PR #1 item 4)
+## MAC term namespace — corrected 26 May 2026
 
-These drafts use the slash form `https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/<localName>`. Per Tobias Kuhn's PR #1 review item 4, the slash separator is confirmed and retained in Vocabulary v1.2; see `../../specs/MAC_FDT_Vocabulary_v1_2.md` §"Item 1 — MAC namespace URI: resolved". (NanoDash assigns the final separator at minting time; if at signing time a different form is required, the `@prefix mac:` line in each file accepts a one-character substitution before signing.)
+The `mac:` prefix expands to `https://w3id.org/spaces/mac/r/ontology/` (slash-terminated). Each term sits as a sibling to the `MAC-Ontology` resource in the same namespace:
+
+- `mac:hasWHOVariantName` → `https://w3id.org/spaces/mac/r/ontology/hasWHOVariantName`
+- `mac:SpikeRBDVariant` → `https://w3id.org/spaces/mac/r/ontology/SpikeRBDVariant`
+- `mac:MAC-Ontology` (target of every `dct:partOf`) → `https://w3id.org/spaces/mac/r/ontology/MAC-Ontology`
+
+An earlier round of drafts placed terms under `…/MAC-Ontology/{local}` (one path level too deep); Erik corrected this on 26 May 2026, and the 45 draft files plus the 45 signed-and-test-published nanopubs were regenerated, re-signed, and re-published to the test registry. The Trusty URIs in `manifest_test.csv` are the post-correction set.
 
 ## Provenance for definitions
 

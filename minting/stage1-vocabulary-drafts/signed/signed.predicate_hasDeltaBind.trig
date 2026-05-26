@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAljOTujat2FsELa67KSNWR6DlPTkP2rmvUARqCoB_l34> .
-@prefix sub: <https://w3id.org/np/RAljOTujat2FsELa67KSNWR6DlPTkP2rmvUARqCoB_l34/> .
+@prefix this: <https://w3id.org/np/RAR8Mtq3KaWvo11vG1y1jQkBMr-INPO9KeM9LcnfJYtOk> .
+@prefix sub: <https://w3id.org/np/RAR8Mtq3KaWvo11vG1y1jQkBMr-INPO9KeM9LcnfJYtOk/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasDeltaBind a owl:DatatypeProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the change in binding affinity for this variant relative to the wild-type reference, computed as Δ(−log K_D). Positive values indicate stronger binding than wild-type.";
     rdfs:domain mac:ExperimentalDMSObservation;
     rdfs:label "has delta_bind (change in binding affinity)";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "epXMNG+1yYXb/L7pR3Q1DGsB2HnxxMoc+jJVxSm1+9R1T4LLnTwggNS1axIZ+c+PxL+4tgNlvk0x1inXfrzqAlkcDRcCc7tRIp5NI+Nw0Cq0JAahmsuIkQglYq1UwyRwX2VzHrvpXbCwcZLU4RFRyGodA9PGJ4tvpj4HeLA2G2g=";
+    npx:hasSignature "glCHyFQhRyY17DqYcrjeSv3rzf2bwxABg9WzKCr7m30ZaqUwQzqYTHXIjoDBKZ2qnQjeEu0ofTtL+c/nfb068XC6SjhShb3NaoXl8PbRhp7yuxHeLmCg4+e9coEPwz86/2WK4OHwTtWBwzRyavjD9n2g+q0uq955qVdKZDPTl6M=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

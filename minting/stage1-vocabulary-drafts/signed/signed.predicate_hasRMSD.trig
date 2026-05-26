@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RATYIhLJHUMtbGr29m1iSSuW6slhfAuG23xiCck9ZXvHY> .
-@prefix sub: <https://w3id.org/np/RATYIhLJHUMtbGr29m1iSSuW6slhfAuG23xiCck9ZXvHY/> .
+@prefix this: <https://w3id.org/np/RA7ixpM-OF2yxfc4xgtI8YpztHcouyMrqFLopzAqjdPwM> .
+@prefix sub: <https://w3id.org/np/RA7ixpM-OF2yxfc4xgtI8YpztHcouyMrqFLopzAqjdPwM/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasRMSD a owl:DatatypeProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the Root Mean Square Deviation between the predicted structure of this variant's RBD and a reference structure, measured as the average distance between corresponding atoms after optimal superposition.";
     rdfs:domain mac:ComputationalPredictionRMSD;
     rdfs:label "has RMSD (Root Mean Square Deviation)";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "I1Jb45kSqGfax7pjXqcMmsc+B+FYE5mOunzm++x9sSqHykN1G6xok6Yzc+T1nB2wchJhoDepqpPupYaMQ4TYwl+CmZrGGSHL6HEFYgpQbCAu8MO5o19uGFLf9ik5Ja/Ex4nyITxNJj4tXTo1A+iNrOVoZAauu73nS2m7WTBd7zc=";
+    npx:hasSignature "4uqjhmOJgj2hsWW5hIGFg6JUUS+/JaWbAJU6P4yQASxwnm85TXUWAjGXSzn6GlTEOxyk/iyqcUjI2LClBtX7Uz+lKyZvKz3QPfrrk+3+nQmjK42Azz5mx0hQuyklvPLO5RMIJEJ3kD15rRvj9S4V3TYc/+ekGNzohOJnv+F5Hr8=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

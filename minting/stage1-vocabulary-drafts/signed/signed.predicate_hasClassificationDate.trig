@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAEqO4Y8biYohyZAdO1nGgX0zvfCc7LUOD_w2Nps-7fJQ> .
-@prefix sub: <https://w3id.org/np/RAEqO4Y8biYohyZAdO1nGgX0zvfCc7LUOD_w2Nps-7fJQ/> .
+@prefix this: <https://w3id.org/np/RAPmiJfD-Q_CNKuOgddRHhyD4aj48bBLsKX97V68BulMw> .
+@prefix sub: <https://w3id.org/np/RAPmiJfD-Q_CNKuOgddRHhyD4aj48bBLsKX97V68BulMw/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasClassificationDate a owl:DatatypeProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the date on which the WHO assigned this classification to the variant.";
     rdfs:domain mac:WHOVariantClassification;
     rdfs:label "has WHO classification date";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "EILzdHAe3CU54KGJZLo0El58Fuwsa/doilMngPQz1Q5F8AGG5bQM/SYUHChRIonBEXD1MAwRDCb2fSh4WBUJMkzqQAs1oARIshdP9KtJ2uzo0s34VYfbMeXbtyWSYZz7ZHBW7MoJiQzXLAyVDi2uLe3p8xm70eJyF3wXqGJY/K0=";
+    npx:hasSignature "1Q1w0TDqBDa8QLflIjMdQfnhz3hr1Q9CWkXN2FcL6wog6Pq5i5NSTZhdPGiDTkwDYS//570sculEI3sgC2y5+EctGADjbbJsT6vuE8xHzY1G7kgV+JTir1R2hLkDoLX8m/KhaNhNefw0vVqtNQQYavOfYOYRb1wIKsRguJJ4FNQ=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

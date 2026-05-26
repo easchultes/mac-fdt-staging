@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAg9tr9kWNh5ms6cBvsSyyucka3QNtqmdPxVO9jZGzr68> .
-@prefix sub: <https://w3id.org/np/RAg9tr9kWNh5ms6cBvsSyyucka3QNtqmdPxVO9jZGzr68/> .
+@prefix this: <https://w3id.org/np/RAXa-kIm3vdWXE0RzaPtSJ4f5SQiWah-R0YWMTlPoNTII> .
+@prefix sub: <https://w3id.org/np/RAXa-kIm3vdWXE0RzaPtSJ4f5SQiWah-R0YWMTlPoNTII/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasDeltaExpr a owl:DatatypeProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the change in expression level for this variant relative to the wild-type reference, computed as Δ(log MFI).";
     rdfs:domain mac:ExperimentalDMSObservation;
     rdfs:label "has delta_expr (change in expression level)";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "qf2Tsm56zJUDtA1wzwxQ88/+UYU1VUGWeoCc6T/U1gHa33ijAyAWILyQ5GSWfbYYqjOY33Rewb7uAFNEkQWYXlKyK2steX930UKRp7JOJ7QZQKAaDO+EJdk+drQF5ZYeZMc720Bf9Uety6XS4mvHT26W6m/erhDnoflWJeg/eXo=";
+    npx:hasSignature "p8Djl4h3+GS2iOyip5a6nPKOJx/rS0yMi9nHKbhekiIVhpBtqWcXgT/i3ZnPV5uLSNNBt6a3n3iPwVmyEbo3qxu7rU9u+C53AYXWFbnuRTFFBNkaTclh2HfRWUWlAJgH8QLJEsCnO6WVpoCe6WdHNlSMLI+iv2xXxsyLH/obb64=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

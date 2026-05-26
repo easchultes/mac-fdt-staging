@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAZJ54ci7xP0d5ZWkHqixVp-r9eLSCV1D-mfh0Yo-slSY> .
-@prefix sub: <https://w3id.org/np/RAZJ54ci7xP0d5ZWkHqixVp-r9eLSCV1D-mfh0Yo-slSY/> .
+@prefix this: <https://w3id.org/np/RAO_Z4Qk0QipgG23x3ygi9sKXJ7XQA4gkRkUo_su3V8N4> .
+@prefix sub: <https://w3id.org/np/RAO_Z4Qk0QipgG23x3ygi9sKXJ7XQA4gkRkUo_su3V8N4/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:ExperimentalObservation a owl:Class;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "An abstract parent class for empirical observations produced by laboratory assays on a Spike RBD variant. Currently has one concrete child (`mac:ExperimentalDMSObservation`, deep mutational scanning); the forthcoming Bosch extension adds `mac:ExperimentalCellSortingObservation` as a sibling. This class is abstract: all instances belong to one of its concrete subclasses.";
     rdfs:label "Experimental Observation";
     rdfs:subClassOf mac:Observation .
@@ -37,7 +37,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "YahCT5EMF7v3LyAn4ZZomYjMC9ksNvKkuCyunnl2crqZUObns/iEfK9CDzfJAILc1/omp3CowUYRh8j/jgFGPFr3uSP2xhueSvR4oMSrSsDyblooL27KI6USw8cJAZUgOs8rUSR5hRTdtDo6jqfXj5trFQovJQu658v2jdUC8Ow=";
+    npx:hasSignature "5BeazYbUE84MI3EBavcp/De6VRShM4+UfQ8H4RTPctvEwFNuXLH3dKhG2i5cvtktnmpShlfp8iMdb91/p9xNQKakCOvN2j2S1TQZ1rcGJb1IDzmjG4cyEaw5LKK2TZ4h+b9F0Y8N481+BL/wHAtDrDhp3wvKHQuxr8uTtzyRjwA=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

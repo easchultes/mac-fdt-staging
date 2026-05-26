@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RA4LBgfDmon-10gTOEGRqZ_bUyfuz1w63qm_1NkB2tPZk> .
-@prefix sub: <https://w3id.org/np/RA4LBgfDmon-10gTOEGRqZ_bUyfuz1w63qm_1NkB2tPZk/> .
+@prefix this: <https://w3id.org/np/RApxRmH5hU6BGMWY3rvEq5rb-mvURK1ap9KtCa3CQWzZI> .
+@prefix sub: <https://w3id.org/np/RApxRmH5hU6BGMWY3rvEq5rb-mvURK1ap9KtCa3CQWzZI/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasPredictionMethod a owl:ObjectProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the computational method, tool, or algorithm that produced this prediction.";
     rdfs:domain mac:ComputationalPrediction;
     rdfs:label "has prediction method";
@@ -38,7 +38,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "NCHD7ZbJvetW3arkHogwkdPa9dilyjG4WDdsX1kQM8CktLhZy7v/853fM0D1ww6Wqad+Bn7LlVqvJzX3U0YbcXOv8rSrla9wreNYbf6WaMo6tbN+oWs3V2Qy0+llzr2yCwjb4bxrZ3NkXwrzX+OrXqsjDt+lQUAQ6HsORea0U/k=";
+    npx:hasSignature "16mXlvH7l/LSnWYB3sWYs6xcXoFxbtk7WfuxhC3+kELtxPzpFqQtfsIsVrZWlVm3dCfbvZREpZwy7GF6CXDWo84PuDBGliyxxuvNgWUJmWHkBUC23lY/WFtWQm6Y/8WWTitZzTh6JfMVXVwSONNq9bm4CmnZhbnrRT8cPD9hTR0=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

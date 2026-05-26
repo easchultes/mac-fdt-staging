@@ -9,7 +9,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 
 sub:Head {
   this: a np:Nanopublication ;

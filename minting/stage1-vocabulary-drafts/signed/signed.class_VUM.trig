@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RAf657zr6uiVHW40p-xByBdmWxRek052ZhTkh4kHE6sSY> .
-@prefix sub: <https://w3id.org/np/RAf657zr6uiVHW40p-xByBdmWxRek052ZhTkh4kHE6sSY/> .
+@prefix this: <https://w3id.org/np/RAp1zRyrqIyc4iKqTmUJDIwG-kAAQAVQpBZ4TGSKZQDKI> .
+@prefix sub: <https://w3id.org/np/RAp1zRyrqIyc4iKqTmUJDIwG-kAAQAVQpBZ4TGSKZQDKI/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:VUM a owl:Class;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "A SARS-CoV-2 variant for which the WHO has identified evidence of growth advantage or immune escape and that is being monitored precautionarily pending further characterisation.";
     rdfs:label "Variant Under Monitoring";
     rdfs:subClassOf mac:WHODesignation .
@@ -37,7 +37,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "KidpXo5YU32Im7CKnrivwakR9jXKd2KnCp6eEhhk4kWoKnvfVYWmD7xh8ce/giiw22/putYHI8u+bo2ST+hgB1LWYmD7EVy3lMJh6tA2ycq8cl2Kd3Zip2dwxafdzsvp0oYZYM4JjqAReWk9GOFKe7sSV8jJQhKw1dZXjS43m+8=";
+    npx:hasSignature "5Y3Bzp6mh30XWsqqWJLFDXQIkwB379CUXRYIUQfKm/8iMvf8if+riYuu4k3eQt4l+9L0RlDOgQjVz8b/vzQN4LrDDb/x4mmfWJ0wBNJOGE0SSiCNSQIWPiy0UhDLEUUg9rq+QNdSfI8b9dKIKf3BZr/muPmr1pXt62Omx89IANM=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }

@@ -1,5 +1,5 @@
-@prefix this: <https://w3id.org/np/RANJbs_1CFPHGnYejSTotL8SNGEXCW8HLj4JeqMW8YDYQ> .
-@prefix sub: <https://w3id.org/np/RANJbs_1CFPHGnYejSTotL8SNGEXCW8HLj4JeqMW8YDYQ/> .
+@prefix this: <https://w3id.org/np/RA9hiexVnPp9INY4Hx6pMpdc3yZodQRnxw_ScWpbyZhYs> .
+@prefix sub: <https://w3id.org/np/RA9hiexVnPp9INY4Hx6pMpdc3yZodQRnxw_ScWpbyZhYs/> .
 @prefix np: <http://www.nanopub.org/nschema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix orcid: <https://orcid.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix mac: <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
 @prefix npx: <http://purl.org/nanopub/x/> .
 
 sub:Head {
@@ -19,7 +19,7 @@ sub:Head {
 
 sub:assertion {
   mac:hasCollectionLocation a owl:ObjectProperty;
-    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    dct:partOf mac:MAC-Ontology;
     rdfs:comment "Asserts the geographic location at which the sample exemplifying this real-world occurrence was collected. The value is a URI identifying a feature in the GeoNames gazetteer (https://www.geonames.org), of the form `https://sws.geonames.org/{geonameId}/`. The granularity (country, administrative subdivision, populated place) follows the granularity of the source surveillance record.";
     rdfs:domain mac:RealWorldOccurrence;
     rdfs:label "has collection location" .
@@ -37,7 +37,7 @@ sub:pubinfo {
   
   sub:sig npx:hasAlgorithm "RSA";
     npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
-    npx:hasSignature "7kKGisreNYG4AxuV0rGvxc2N03MxCFhG7QtO2QB38TEhz+MGeaPbNE/KEWr6L4FiVnsnL/5xUuapJLfSYJYDpDOon+w0AEbWStYj4ETO1dQAmEa3J6elBQVFDmerf6/j38u9a7hgj/yWEpqVPgP6ad0iiuIE/cu/+Z2SBi3Zxdk=";
+    npx:hasSignature "nXruo2Pe1thLflsNX1Z9LmNW9RVg+iGYIY0igSk/sSykjhQVR4O30kxIOhc6itbpNgUnkN5dnA1BywFkLgNGeHVGbt3MbKlgG8lvkyByQL5/KU/USD08q0Ko97et7gS9RDNjwYU22S3oVBfjkoXOOX95/u/6877yVGz+K7tDstY=";
     npx:hasSignatureTarget this:;
     npx:signedBy orcid:0000-0001-8888-635X .
 }
