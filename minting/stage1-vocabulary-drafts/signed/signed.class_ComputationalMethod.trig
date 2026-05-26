@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RAoLE72b_07tpy44hdGZXHlBZD_LSfKm4B8A470dFY9ks> .
+@prefix sub: <https://w3id.org/np/RAoLE72b_07tpy44hdGZXHlBZD_LSfKm4B8A470dFY9ks/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ComputationalMethod a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "A computational method, tool, or algorithm that produces predictions or scores from biological sequence or structure data. Referenced by observation FDOs of Types 3–6 via `mac:hasPredictionMethod`. Instances carry one or more `cito:citesAsAuthority` URIs identifying the published descriptions of the method.";
+    rdfs:label "Computational Method";
+    rdfs:subClassOf mac:Method .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:ComputationalMethod" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "oWedk5BMsSCoANs8kkdkclsy+UMEam4jGb42JNgeIldPmCVXGoVbBl4Ey6tr8k4UaOf4ApQl+gZiCJhcUZlVuJoGJ4mRC4XoPz4EILdyEo5+6q5x1wXClJoGu3KF37Ea8oJSJ6jHVQTjkSoRUAGM57EVdgIU/pgj6rFgu+epKTc=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

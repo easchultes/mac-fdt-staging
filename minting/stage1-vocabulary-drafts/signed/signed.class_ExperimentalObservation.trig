@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RA0c_t2cAXegzuLb56pIOa2xgoiRWOT_oz5btPyCJc7Tk> .
+@prefix sub: <https://w3id.org/np/RA0c_t2cAXegzuLb56pIOa2xgoiRWOT_oz5btPyCJc7Tk/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ExperimentalObservation a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "An abstract parent class for empirical observations produced by laboratory assays on a Spike RBD variant. Currently has one concrete child (`mac:ExperimentalDMSObservation`, deep mutational scanning); the forthcoming Bosch extension adds `mac:ExperimentalCellSortingObservation` as a sibling. This class is abstract: all instances belong to one of its concrete subclasses.";
+    rdfs:label "Experimental Observation";
+    rdfs:subClassOf mac:Observation .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:ExperimentalObservation" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "L9/9477JuBddJJrJo0v4BIuOCkARCbg+fYLOGTo2aDDq7byx3ndOMKKYa6iKeUuOI4rxkcm1v+RMpGIxiEhvUVv0003Aa1CE3TknvsOeKKJG6njIN/KK1RGLjrnTIrg2HXQt7T2vsY0eCREOrWFtRE4Q5a8ia6yyB725e8RY7es=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

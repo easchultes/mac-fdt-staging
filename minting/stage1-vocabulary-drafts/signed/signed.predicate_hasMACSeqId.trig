@@ -1,0 +1,45 @@
+@prefix this: <https://w3id.org/np/RAoebNFv5sKihzm4RKjGedZ7hnzb70T3rYazRQ7QUz-Mg> .
+@prefix sub: <https://w3id.org/np/RAoebNFv5sKihzm4RKjGedZ7hnzb70T3rYazRQ7QUz-Mg/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasMACSeqId a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the amino-acid substitution notation, referenced to the 195-residue Spike Receptor Binding Domain (RBD; UniProt P0DTC2 positions 331–525), that identifies the defining mutation of this variant in the MAC StayAhead RBD-focused pipelines. Differs from `mac:hasGISAIDSeqId` only in the residue numbering reference frame.";
+    rdfs:domain mac:SpikeRBDVariant;
+    rdfs:label "has MAC seq_id (RBD mutation notation)";
+    rdfs:range xsd:string .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:hasMACSeqId" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "M3onAK1a1FiPboCWBD6JxO7YRWA8CLAM//6HnEeK4QN5CysmAcLY3GSVDvrGpSg4TMzqrLrKzX6/kWHVF43yH2T0hQ1Z2lYGKmaSGDlVJVjKPwgHW9tCoSkCEY77AENeUpcGne0HKe86gu1kEPsp6iplrP55TmvLJwkM1gYIoGw=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

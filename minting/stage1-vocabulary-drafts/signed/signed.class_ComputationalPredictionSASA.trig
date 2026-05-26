@@ -1,0 +1,44 @@
+@prefix this: <https://w3id.org/np/RAVLZNW5HY9Fv-D5v61yayy0zmJtC6WaEsY8Pow6kfKYI> .
+@prefix sub: <https://w3id.org/np/RAVLZNW5HY9Fv-D5v61yayy0zmJtC6WaEsY8Pow6kfKYI/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ComputationalPredictionSASA a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "A computed prediction of the Solvent Accessible Surface Area of a Spike RBD variant's predicted structure, produced by a named computational structure-prediction method.";
+    rdfs:label "Computational Prediction SASA";
+    rdfs:subClassOf mac:ComputationalPrediction .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T12:32:10Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    rdfs:label "Vocabulary term: mac:ComputationalPredictionSASA" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "JGaja65VjEJjPISbez62cC9GuBFYEyVk5kNr3871nLDTyQz35Cb6Z+chkb5nCw/I+oyMaBSY0EnG8zG1Ms4rwwBvrd5kKeIWe1GXzP+N0S39k0KuViI6es/i2ywna8p7EucwHKmmjrvXXy0FvzrqlS7sRYZ8fnQO3AMnTXRzb+w=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
