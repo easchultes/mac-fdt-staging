@@ -131,8 +131,9 @@ sub:st5d rdf:subject nt:NANOPUB ;
    - **Epsilon location:** GeoNames `6252001` (United States — broader than v1.3's California).
    - **Eta date:** `2020-12-15`.
 2. **Stage 3 — 38 instance nanopubs** (3 variants + 30 observations + 5 method FDOs, approximate). Gated on (1).
-3. **Optional: pinned SPARQL queries on incubator/project4** — via NanoDash UI.
-4. **Optional: merge all 7 `stage2-templates-*` branches into `main`** as a single batched PR for repo audit consolidation. No functional dependency.
+3. **Post-demonstration cleanup (deferred):** see [`Post_demonstration_cleanup.md`](Post_demonstration_cleanup.md). Coordinated MAC v2 + MAC FDT revision pass before paper submission — covers (a) promoting StayAhead Project FDO + the 2 Dataset FDOs from `npx:DraftNanopub` to non-draft (with AphaFold2 → AlphaFold2 typo fix), and (b) per-observation `cito:citesAsAuthority` for Types 2-8 where canonical observation-specific publications exist. Stage 3 demonstration minting proceeds against current drafts; cleanup is consolidated.
+4. **Optional: pinned SPARQL queries on incubator/project4** — via NanoDash UI.
+5. **Optional: merge all 7 `stage2-templates-*` branches into `main`** as a single batched PR for repo audit consolidation. No functional dependency.
 
 ## Tobias-pending
 
