@@ -1,0 +1,46 @@
+@prefix this: <https://w3id.org/np/RAOl10N1APJsds8GIjzGIzhvDT2P5PbIeIhZL5viRaK2Y> .
+@prefix sub: <https://w3id.org/np/RAOl10N1APJsds8GIjzGIzhvDT2P5PbIeIhZL5viRaK2Y/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasParentProtein a owl:ObjectProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the wild-type parent protein from which this RBD variant is derived by amino-acid substitution. In the present catalogue the value is hardcoded to the UniProt record for the Wuhan reference SARS-CoV-2 Spike glycoprotein.";
+    rdfs:domain mac:SpikeRBDVariant;
+    rdfs:label "has parent protein" .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasParentProtein;
+    npx:supersedes <https://w3id.org/np/RA9Oqn4IBabkYmAIWkhEGJv-g5A0VgrHen9DXazxs_Mhk>;
+    rdfs:label "Vocabulary term: mac:hasParentProtein" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "LlO4M92oIs6KSYJ285isUGEZ6udaaX4u/9b7U18s+G9ZrMPyAwFkw6IVSxJX5aViuiaHIOreTQI9R2VShXVqE3s3ElOej9e8tzNHTnsmlFCSjB4zFy+RG4a0afGh38m5/1bVpVoLd8S3QyOeWeslKT7NVojeVyQRYoG9QE2M5XY=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

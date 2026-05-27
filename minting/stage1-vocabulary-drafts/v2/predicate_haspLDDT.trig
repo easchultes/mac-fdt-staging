@@ -1,0 +1,42 @@
+@prefix this: <http://purl.org/nanopub/temp/np001/> .
+@prefix sub: <http://purl.org/nanopub/temp/np001/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:haspLDDT a owl:DatatypeProperty ;
+    rdfs:label "has pLDDT score" ;
+    rdfs:comment """Asserts the predicted Local Distance Difference Test (pLDDT) score, a per-residue or aggregated confidence measure for the predicted protein structure, ranging from 0 (lowest confidence) to 100 (highest confidence). The aggregation convention (e.g., mean over residues) is specified by the predicting method's documentation.""" ;
+    rdfs:domain mac:ComputationalPredictionPLDDT ;
+    rdfs:range xsd:decimal ;
+    dct:partOf <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology> .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo <https://orcid.org/0000-0001-8888-635X> ;
+    dct:created "2026-05-22"^^xsd:date .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime ;
+    dct:creator <https://orcid.org/0000-0001-8888-635X> ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:label "Vocabulary term: mac:haspLDDT" ;
+    npx:introduces mac:haspLDDT ;
+    npx:supersedes <https://w3id.org/np/RANcVZs0NZevoNZlMdE6OW5cQKXVrUMDDqVFuACEhexMM> .
+}

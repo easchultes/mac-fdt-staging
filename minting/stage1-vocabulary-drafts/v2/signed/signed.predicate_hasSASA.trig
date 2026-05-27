@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RAmv7NH7NrCuGZhsH8GA3ZI9KSREwJ_S9biUnQR3ZDHbA> .
+@prefix sub: <https://w3id.org/np/RAmv7NH7NrCuGZhsH8GA3ZI9KSREwJ_S9biUnQR3ZDHbA/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasSASA a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the Solvent Accessible Surface Area of the predicted structure of this variant's RBD, computed as the surface area accessible to a standard solvent probe.";
+    rdfs:domain mac:ComputationalPredictionSASA;
+    rdfs:label "has SASA (Solvent Accessible Surface Area)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasSASA;
+    npx:supersedes <https://w3id.org/np/RAgQGdNx-D3d0kRm26ILp7x0tM0Lq9v4iv4AlO8_dn-A0>;
+    rdfs:label "Vocabulary term: mac:hasSASA" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "EQajvlkc7BKe7wdB/sRI6u2ev6tvy1ON6qR4oxY1dG79ETLmctuHsLY6D4wwDNVoi/WMjPvljRDKqqiWbSnPH8d4nMkp+D0uUOzJY7DDkzYk9PwYK7buzDWYfVzBMdyAFZNN6etZn2bzWco9W+mXv9QO6GfzK6qXxv7wdYz899g=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

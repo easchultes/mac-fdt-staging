@@ -1,0 +1,46 @@
+@prefix this: <https://w3id.org/np/RAopqX_RYM3fl5sAzy2pEOWQb4Qp4szll01XzilsakLDQ> .
+@prefix sub: <https://w3id.org/np/RAopqX_RYM3fl5sAzy2pEOWQb4Qp4szll01XzilsakLDQ/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:ComputationalPredictionRMSD a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "A computed prediction of the Root Mean Square Deviation between a predicted structure of a Spike RBD variant and a reference structure, produced by a named computational structure-prediction method.";
+    rdfs:label "Computational Prediction RMSD";
+    rdfs:subClassOf mac:ComputationalPrediction .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:ComputationalPredictionRMSD;
+    npx:supersedes <https://w3id.org/np/RAGlJbsekIzKgyh6xmMfKRpqRQeLBkneAWqhnpzXmdy-k>;
+    rdfs:label "Vocabulary term: mac:ComputationalPredictionRMSD" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "8IYC2/E9tt5BQJjSw+9RPuGnqi8kuO4yFXC389lYZgm1tbZjjK9LmFBs6LlfWHSTjjYlYOSv8L8ebdmojgqL73XZ+GumRYMs8IA3FDZ6crC6aYmQ8L+acYjQrk2I+wJTH5xbP3QPIWXLmoFS2CWJIEuCVXZWF91YyicPc/tyneo=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

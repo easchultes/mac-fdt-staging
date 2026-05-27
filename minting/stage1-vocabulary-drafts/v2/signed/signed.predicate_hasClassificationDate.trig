@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RAtbKj58yNhJdAUthlTKf0iVzCAtN1w-U0rZxW7WvgXW4> .
+@prefix sub: <https://w3id.org/np/RAtbKj58yNhJdAUthlTKf0iVzCAtN1w-U0rZxW7WvgXW4/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasClassificationDate a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the date on which the WHO assigned this classification to the variant.";
+    rdfs:domain mac:WHOVariantClassification;
+    rdfs:label "has WHO classification date";
+    rdfs:range xsd:date .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasClassificationDate;
+    npx:supersedes <https://w3id.org/np/RAwxoNJih1JFRlBm_ITsd4CCYgr_feqx4cy4zTh8D5MmI>;
+    rdfs:label "Vocabulary term: mac:hasClassificationDate" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "HHt7ddxdycOzJIaZC4Qb5P7BR4/nOw8VNGw13guDonE3Vb/UiTj7lGFfsha+pxlwnIAQik4jFx0boftwMLyrWmNU/bqGOd9QLG1rMJMiYW39RKaphWNZ8WyVdWBR9bE6sxeGXHxBcao8TWn3dxj9H+z7sHOyt8IGD5HZqa/1eYE=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

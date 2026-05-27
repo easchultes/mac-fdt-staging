@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RAWvjyY6rAIBNhr7_y-aqU1JRBoorX3vkN9JNmqLAu8ug> .
+@prefix sub: <https://w3id.org/np/RAWvjyY6rAIBNhr7_y-aqU1JRBoorX3vkN9JNmqLAu8ug/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasDeltaExpr a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the change in expression level for this variant relative to the wild-type reference, computed as Δ(log MFI).";
+    rdfs:domain mac:ExperimentalDMSObservation;
+    rdfs:label "has delta_expr (change in expression level)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasDeltaExpr;
+    npx:supersedes <https://w3id.org/np/RApBa5U8_PFW22ToYBKTsVDbfqDTmAy24-uhoMKgReljw>;
+    rdfs:label "Vocabulary term: mac:hasDeltaExpr" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "60q3+60NNEGrumLOLEYX0ci3M1F9UWcj+sEupQyccVwNvo75X8344wGDq/YZ0Rnvon8ufeyCRE9WDyZKOxBPeAAktP7HErlaAADG1d94UkXUXYMZUz/7R8uKncE8X1urpUL9zo1ZTVdO/N0ZYjor8VZ9gbuRK2Tqb+ZbDXufVdk=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

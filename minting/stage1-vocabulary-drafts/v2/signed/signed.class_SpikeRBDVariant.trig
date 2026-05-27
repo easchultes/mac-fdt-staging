@@ -1,0 +1,45 @@
+@prefix this: <https://w3id.org/np/RAG1yQSjgjX2cH7UA2fgm5UE5JMOgZ9XNx8GpdHVF5aww> .
+@prefix sub: <https://w3id.org/np/RAG1yQSjgjX2cH7UA2fgm5UE5JMOgZ9XNx8GpdHVF5aww/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:SpikeRBDVariant a owl:Class;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "A variant of the SARS-CoV-2 Spike receptor-binding domain (RBD, 195 residues) produced by one or more amino-acid substitutions from the wild-type Wuhan isolate (UniProt P0DTC2). This class is the type of the anchor FDO (A_r) of a FAIR Digital Twin; all observation FDOs link to it via `mac:isObservationOf` and collectively constitute the FDT.";
+    rdfs:label "Spike RBD Variant" .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:SpikeRBDVariant;
+    npx:supersedes <https://w3id.org/np/RAa1Igfzz_27ZsbO3KyJ4BbHAyNeCntzKYAMaX29FlHio>;
+    rdfs:label "Vocabulary term: mac:SpikeRBDVariant" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "rVVPAFg/npNPA8tNgJ+Y2mNgIOLLrf4rMrVv6/LwE/gU3Vdym6vmRrpOk86N8il9WQFb7rlyABIr0pOW529pSx83Ha4728JYQ5P0sp8TxKRIrQPqddtxwMW/GkG8HJFdVzEDwvSMlPSg14ObJgNK1qx1qJ+7R8F02NWMaiMxRNw=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

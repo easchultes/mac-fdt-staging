@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RAvjfB8BqV0Qdbnx2lNXHiCu8UCTM9Rgtc9QTPv5D5dO8> .
+@prefix sub: <https://w3id.org/np/RAvjfB8BqV0Qdbnx2lNXHiCu8UCTM9Rgtc9QTPv5D5dO8/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasGISAIDSeqId a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the canonical amino-acid substitution notation, referenced to the full-length SARS-CoV-2 Spike protein numbering, that identifies the defining mutation of this variant as catalogued in GISAID surveillance records.";
+    rdfs:domain mac:SpikeRBDVariant;
+    rdfs:label "has GISAID seq_id (full Spike mutation notation)";
+    rdfs:range xsd:string .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasGISAIDSeqId;
+    npx:supersedes <https://w3id.org/np/RA7fIFybLghl4Pedlk7AQRluSoTceFAHvmE1sc5yubKYk>;
+    rdfs:label "Vocabulary term: mac:hasGISAIDSeqId" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "kF7yv1QUh64U7kxuxZFjeCnYARkdvyjhskfa8b2gnjK2IngF4pmScYGNtAakwtGUjZ1qXeUEl3QBuZ7/hHALGBas7lDEmFUq54EUpY4edWj92Z12+uDmZdKWbb0ZH7C8L8IkQx1Nl/P+KheVfHsCGPgh+RzdbWqkf+WYU7S8+P0=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

@@ -1,0 +1,47 @@
+@prefix this: <https://w3id.org/np/RA2XwqylI4nGNIJHNCNId_L6RZz07XiyVUzd-qVs0T9d8> .
+@prefix sub: <https://w3id.org/np/RA2XwqylI4nGNIJHNCNId_L6RZz07XiyVUzd-qVs0T9d8/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  mac:hasRMSD a owl:DatatypeProperty;
+    dct:partOf mac:MAC-Ontology;
+    rdfs:comment "Asserts the Root Mean Square Deviation between the predicted structure of this variant's RBD and a reference structure, measured as the average distance between corresponding atoms after optimal superposition.";
+    rdfs:domain mac:ComputationalPredictionRMSD;
+    rdfs:label "has RMSD (Root Mean Square Deviation)";
+    rdfs:range xsd:decimal .
+}
+
+sub:provenance {
+  sub:assertion dct:created "2026-05-22"^^xsd:date;
+    prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-26T21:47:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces mac:hasRMSD;
+    npx:supersedes <https://w3id.org/np/RAhjpumUaRvBkcVXEB80VPKQQ9gHUxY4R9_R24s2OI7dg>;
+    rdfs:label "Vocabulary term: mac:hasRMSD" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "zlK/kFv/EeS0Eu07WlVyH3YkoGNYCIp7DHDYlCi6ebHCEBcCG3iZWB7uKUUB74xlygr20rIcsQa5MfcampCz9js0fUP51LyMVWdtm+NuGKi4ZwkcHh/1tsPfquH5Hd+Zu4y2BuN/GDIKQNiaQnFnTLhH1MmLJjHbpPmhUXifrAg=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
