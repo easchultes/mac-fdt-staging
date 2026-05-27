@@ -9,6 +9,12 @@ CONFIG = {
     "type_label_short": "Type 1",
     "class_curie": "mac:SpikeRBDVariant",
 
+    # SPS v1.3: Type 1 (anchor FDO) carries the mandatory FAIR² citation
+    # pair (st_f2a → article DOI, st_f2p → package DOI). Types 2–8 emit
+    # dct:source as a per-observation statement instead; Types 9–11 omit
+    # FAIR² references entirely.
+    "includes_fair2": True,
+
     "template_label": "Declaring a Spike RBD Variant (MAC FDT Type 1)",
     "template_description": (
         "Template for the central anchor of a MAC FAIR Digital Twin: a "

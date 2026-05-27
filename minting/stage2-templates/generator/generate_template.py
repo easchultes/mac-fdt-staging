@@ -90,17 +90,31 @@ def render_mac_term_labels(config) -> str:
     return "\n" + body  # preceded by a blank line separator
 
 
-def render_type_specific_statement_list(config) -> str:
-    """Comma-separated list of type-specific statement IDs in nt:hasStatement.
+def render_statement_list(config) -> str:
+    """Full nt:hasStatement value list (without the leading nt:hasStatement
+    header line, without the trailing nt:hasTag line).
 
-    Sits on its own line between the common st_pp and the common
-    FAIR² entries (st_f2a, st_f2p). Empty string if the type has no
-    type-specific statements.
+    Lines end with `,` except the final line which ends with ` ;`.
+    Type-specific statements (if any) splice in after st_pp; FAIR²
+    statements (st_f2a, st_f2p) splice in last when
+    `config["includes_fair2"]` is True (default False).
     """
-    ids = config.get("type_specific_statement_ids", [])
-    if not ids:
-        return ""
-    return "      " + ", ".join(ids) + ",\n"
+    common = [
+        "      sub:st0, sub:st3, sub:st4,",
+        "      sub:st1, sub:st2,",
+        "      sub:st6, sub:st7, sub:st8,",
+        "      sub:st91, sub:st92, sub:st95,",
+        "      sub:st5, sub:st5b, sub:st5c, sub:st5d,",
+        "      sub:st_pp,",
+    ]
+    lines = list(common)
+    type_ids = config.get("type_specific_statement_ids", [])
+    if type_ids:
+        lines.append("      " + ", ".join(type_ids) + ",")
+    if config.get("includes_fair2", False):
+        lines.append("      sub:st_f2a, sub:st_f2p,")
+    lines[-1] = lines[-1].rstrip(",") + " ;"
+    return "\n".join(lines) + "\n"
 
 
 def render_placeholder(ph: dict) -> str:
@@ -230,9 +244,10 @@ EXTERNAL_LABELS_COMMON_3 = """\
 """
 
 # Template declaration. The label, description, label pattern, and the
-# middle line of nt:hasStatement (containing type-specific st IDs) are
-# slotted from config.
-TEMPLATE_DECLARATION = """\
+# nt:hasStatement list (which depends on type-specific statements and
+# whether the type carries SPS v1.3 FAIR² cross-references) are slotted
+# from config.
+TEMPLATE_DECLARATION_PREFIX = """\
 
   # ---- Template declaration ----
 
@@ -241,14 +256,9 @@ TEMPLATE_DECLARATION = """\
     dct:description "{template_description}" ;
     nt:hasNanopubLabelPattern "{label_pattern}" ;
     nt:hasStatement
-      sub:st0, sub:st3, sub:st4,
-      sub:st1, sub:st2,
-      sub:st6, sub:st7, sub:st8,
-      sub:st91, sub:st92, sub:st95,
-      sub:st5, sub:st5b, sub:st5c, sub:st5d,
-      sub:st_pp,
-{type_specific_statement_list}\
-      sub:st_f2a, sub:st_f2p ;
+"""
+
+TEMPLATE_DECLARATION_SUFFIX = """\
     nt:hasTag "MAC" .
 """
 
@@ -448,12 +458,13 @@ def generate(config, created: str) -> str:
     parts.append(EXTERNAL_LABELS_COMMON_2)
     parts.append(EXTERNAL_LABELS_COMMON_3)
     parts.append(render_mac_term_labels(config))
-    parts.append(TEMPLATE_DECLARATION.format(
+    parts.append(TEMPLATE_DECLARATION_PREFIX.format(
         template_label=config["template_label"],
         template_description=config["template_description"],
         label_pattern=config["label_pattern"],
-        type_specific_statement_list=render_type_specific_statement_list(config),
     ))
+    parts.append(render_statement_list(config))
+    parts.append(TEMPLATE_DECLARATION_SUFFIX)
     parts.append(STANDARD_PLACEHOLDERS.format(
         fdo_label_text=config["fdo_label_text"],
         label_placeholder_text=config["label_placeholder_text"],
@@ -474,8 +485,9 @@ def generate(config, created: str) -> str:
         type_label_short=config["type_label_short"],
     ))
     parts.append(render_type_specific_statements(config))
-    parts.append("\n")  # blank line before FAIR² comment
-    parts.append(FAIR2_STATEMENTS_BLOCK)
+    parts.append("\n")
+    if config.get("includes_fair2", False):
+        parts.append(FAIR2_STATEMENTS_BLOCK)
     parts.append(ASSERTION_CLOSE)
     parts.append(PROVENANCE_BLOCK)
     parts.append(PUBINFO_BLOCK.format(
