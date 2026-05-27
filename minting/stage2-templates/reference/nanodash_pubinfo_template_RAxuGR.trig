@@ -1,0 +1,61 @@
+@prefix this: <http://purl.org/np/RAxuGRKID6yNg63V5Mf0ot2NjncOnodh-mkN3qT_1txGI> .
+@prefix sub: <http://purl.org/np/RAxuGRKID6yNg63V5Mf0ot2NjncOnodh-mkN3qT_1txGI#> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix ns1: <http://purl.org/np/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  npx:DraftNanopub rdfs:label "draft nanopublication - a nanopublication that is not yet in a complete or stable state" .
+  
+  sub:assertion a nt:PubinfoTemplate;
+    rdfs:label "Draft";
+    nt:hasStatement sub:st1 .
+  
+  sub:st1 rdf:object npx:DraftNanopub;
+    rdf:predicate rdf:type;
+    rdf:subject nt:NANOPUB .
+  
+  rdf:type rdfs:label "is a" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0002-1267-0234 .
+}
+
+sub:pubinfo {
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjDGQCS1S+SRnERDuYDXOugdYUP0efEquHJEEHAbU/uLzBVlga89zqrNPCS7fBE6lArBUWEmT8eLKdMapyqvAzI1J3jUWTMhDJF+XFBkUiuiFfNSc4vJJcmi0yujtnuzXsRIG202jyaP4f5ULoskFwaZOSBZJfiE0dsB3D7DTIAQIDAQAB";
+    npx:hasSignature "HRqKkb5UdxrvCHFFOGKyY7DVjEbP/UogTGrXgAFRWRI9xlaKq/1pkrTWgk6dAR7l6rXhWP/VTy9dXiDWKHdBQF5b6IfNju1r9LEjoMSHgSXSsKQJlBUQCUUG1z0i/TSvmNoz+16jB1YEyT1YjSAEK4J9tK2kRP14DozbT97Zz/Y=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0002-1267-0234 .
+  
+  this: dct:created "2024-11-18T12:38:21.565Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0002-1267-0234;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:supersedes ns1:RAbi5DDAdvk1G9P8KsHY_3-hDG6Ev5j0Ax0mKhJuM2gbE;
+    npx:wasCreatedAt <https://nanodash.petapico.org/>;
+    rdfs:label "Pubinfo template: Draft";
+    nt:wasCreatedFromProvenanceTemplate ns1:RANwQa4ICWS5SOjw7gp99nBpXBasapwtZF1fIM3H2gYTM;
+    nt:wasCreatedFromPubinfoTemplate ns1:RAA2MfqdBCzmz9yVWjKLXNbyfBNcwsMmOqcNUxkk1maIM,
+      ns1:RAfvIvxTx8LRS2646kVkqvcrSf8fbIyxVjMe_vewrqQHM, ns1:RAh1gm83JiG5M6kDxXhaYT1l49nCzyrckMvTzcPn-iv90,
+      ns1:RAjpBMlw3owYhJUBo3DtsuDlXsNAJ8cnGeWAutDVjuAuI;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAyHFpLzPjkspX5zCC3mU8gow33Ah4tCH06xsveR_iaG0> .
+  
+  orcid:0000-0002-1267-0234 foaf:name "Tobias Kuhn" .
+}
+

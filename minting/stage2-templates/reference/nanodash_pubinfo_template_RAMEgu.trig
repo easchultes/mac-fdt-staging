@@ -1,0 +1,77 @@
+@prefix this: <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI> .
+@prefix sub: <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI#> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix ns1: <http://purl.org/np/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:assertion a nt:PubinfoTemplate;
+    rdfs:label "Hand-coded statements";
+    nt:hasStatement sub:st1, sub:st2 .
+  
+  sub:obj a nt:ValuePlaceholder;
+    rdfs:label "Object URI or literal" .
+  
+  sub:objx a nt:ValuePlaceholder;
+    rdfs:label "Object URI or literal" .
+  
+  sub:pred a nt:UriPlaceholder;
+    rdfs:label "Predicate URI" .
+  
+  sub:predx a nt:UriPlaceholder;
+    rdfs:label "Predicate URI" .
+  
+  sub:st1 a nt:RepeatableStatement;
+    rdf:object sub:obj;
+    rdf:predicate sub:pred;
+    rdf:subject nt:NANOPUB .
+  
+  sub:st2 a nt:OptionalStatement, nt:RepeatableStatement;
+    rdf:object sub:objx;
+    rdf:predicate sub:predx;
+    rdf:subject sub:subjx .
+  
+  sub:subjx a nt:UriPlaceholder;
+    rdfs:label "Subject URI" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0002-1267-0234 .
+}
+
+sub:pubinfo {
+  orcid:0000-0002-1267-0234 foaf:name "Tobias Kuhn" .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCwUtewGCpT5vIfXYE1bmf/Uqu1ojqnWdYxv+ySO80ul8Gu7m8KoyPAwuvaPj0lvPtHrg000qMmkxzKhYknEjq8v7EerxZNYp5B3/3+5ZpuWOYAs78UnQVjbHSmDdmryr4D4VvvNIiUmd0yxci47dTFUj4DvfHnGd6hVe5+goqdcwIDAQAB";
+    npx:hasSignature "WK7QpeNwz0gb+tkSlpUEs8s8ttnnYMokzR4b7KZujb3pn3eOXYuDqaRXvW4a2/C9XA650uk0MiMYPHWFCPEirOIxW7O6ffxROdiEmb8c1m3dppeJPZPw4xNZWk4uTGS4u0uujRC56J4CDOuKzQagQ/ay6GQq8gjFlQLNnb56clk=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0002-1267-0234 .
+  
+  this: dct:created "2024-11-18T12:47:19.231Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0002-1267-0234;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:supersedes ns1:RA_xO_GPHDHD8TYflv1Ud2Q4EtzMP67auxFmM04U6IWRs;
+    npx:wasCreatedAt <http://localhost:37373/>;
+    rdfs:label "Pubinfo template: Hand-coded statements";
+    nt:wasCreatedFromProvenanceTemplate ns1:RANwQa4ICWS5SOjw7gp99nBpXBasapwtZF1fIM3H2gYTM;
+    nt:wasCreatedFromPubinfoTemplate ns1:RAA2MfqdBCzmz9yVWjKLXNbyfBNcwsMmOqcNUxkk1maIM,
+      ns1:RAfvIvxTx8LRS2646kVkqvcrSf8fbIyxVjMe_vewrqQHM, ns1:RAjpBMlw3owYhJUBo3DtsuDlXsNAJ8cnGeWAutDVjuAuI;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAyHFpLzPjkspX5zCC3mU8gow33Ah4tCH06xsveR_iaG0> .
+}
+
