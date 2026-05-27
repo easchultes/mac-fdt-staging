@@ -17,7 +17,7 @@ tracking document.
 
 - **v1.3** merged into `main` via **PR #3** (merge commit `8471c63`); merged ahead of Tobias's review per Erik's decision. PR description's review items (a) and (b) remain open for asynchronous comment.
 - v1.3 introduces: mandatory `dct:isPartOf → Project FDO referent URI` on all 11 templates; optional `cito:citesAsAuthority` on Types 2–8 for observation-specific publications.
-- **v1.4 update log**: now ready to draft — all Stage 2 learnings in hand. See "Pending tasks" below.
+- **v1.4** merged 2026-05-27 via **PR #4** (merge commit `b141a71`). Locks SPS to Stage 2 implementation. Adds: self-materialization commitment, per-type provenance-obligation table, implementation-notes appendix (regex, label patterns, naming, prefix handling, space membership, derived analytics).
 
 ## Stage 2 — templates (COMPLETE)
 
@@ -112,27 +112,27 @@ sub:st5d rdf:subject nt:NANOPUB ;
 | **FDT validation space** | KP incubator project4 — `https://w3id.org/spaces/knowledgepixels/incubator/project4`. **11 templates pinned manually by Erik (admin) via NanoDash UI on 2026-05-27.** |
 | **Standing SPARQL views (pinned queries)** | Not yet added. Optional; can be added via NanoDash UI when desired. |
 | **Permanent FDT space** | Deferred; likely MAC-namespace eventually. |
-| **`cito:` and `schema:` prefix handling** | Emitted as **full URIs** at predicate positions and as `external_resource_labels` entries — not in common scaffold @prefix header (would break Type 1 v4 round-trip). Worth documenting in SPS v1.4 so future contributors don't trip on it. |
+| **`cito:` and `schema:` prefix handling** | Emitted as **full URIs** at predicate positions and as `external_resource_labels` entries — not in common scaffold @prefix header (would break Type 1 v4 round-trip). Documented in SPS v1.4 §"Implementation notes". |
 | **Mutation analytics** | External script over `mac:hasRBDSequence` (P60) — not in vocabulary. |
 | **Tiered analytics architecture** | Paper material only (P61). |
 
 ## Pending tasks
 
-1. **SPS v1.4 draft** — now ready to start. All Stage 2 learnings in hand:
-   - Document `cito:` / `schema:` prefix policy (emitted as full URIs).
-   - Codify the 4-statement self-materialization block as a Stage-2 invariant.
-   - Confirm Types 9-11 `cito:citesAsAuthority` as mandatory + repeatable (deviation from Types 2-8).
-   - Confirm Types 3-6 `dct:source` mandatory + repeatable; Type 7 `dct:source` optional + repeatable; Type 8 omits `dct:source` entirely.
-2. **Stage 3 pre-minting checklist** (`Stage3_pre_minting_notes.md` — user-side; not yet uploaded). Items to resolve before any Stage 3 minting:
+1. **Stage 3 pre-minting checklist** (`Stage3_pre_minting_notes.md` — user-side; not yet uploaded).
+   The user-side `FDT4Claude_small_v1_2.csv` supplies most observation values:
+   GISAID accessions, FAIR² URLs, MAC OSF URLs, all metric values
+   (RMSD / SASA / pLDDT / AgMata / DMS), dates, locations.
+   Open lookups still required:
    - StayAhead Project FDO Trusty URI verification (for `dct:isPartOf` on all instances).
-   - GISAID accession numbers for Alpha / Epsilon / Eta.
-   - GeoNames feature ID verification (Type 2 instances).
-   - FAIR² resource URL verification (Types 3-6 `dct:source` instances).
-   - StayAhead Dataset FDO Trusty URIs (for Types 3-6 `dct:source` instances).
-   - Observation-specific authority instance values (Types 2-8 `cito:citesAsAuthority`).
-3. **Stage 3 — 38 instance nanopubs** (3 variants + 30 observations + 5 method FDOs, approximate). Gated on (2).
-4. **Optional: pinned SPARQL queries on incubator/project4** — via NanoDash UI.
-5. **Optional: merge all 7 `stage2-templates-*` branches into `main`** as a single batched PR for repo audit consolidation. No functional dependency.
+   - GeoNames feature URIs (Type 2 instances).
+   - StayAhead Dataset FDO Trusty URIs status (for Types 3-6 `dct:source` instances).
+
+   Confirmed flags from CSV review:
+   - **Epsilon location:** GeoNames `6252001` (United States — broader than v1.3's California).
+   - **Eta date:** `2020-12-15`.
+2. **Stage 3 — 38 instance nanopubs** (3 variants + 30 observations + 5 method FDOs, approximate). Gated on (1).
+3. **Optional: pinned SPARQL queries on incubator/project4** — via NanoDash UI.
+4. **Optional: merge all 7 `stage2-templates-*` branches into `main`** as a single batched PR for repo audit consolidation. No functional dependency.
 
 ## Tobias-pending
 
@@ -149,8 +149,8 @@ comment; no decisions gated on them.
 | Signing profile | `~/.nanopub/profile.yaml` (also mirrored in repo at `signing_profile.yaml`) |
 | Signing key | `~/.nanopub/id_rsa` (mode 0600) |
 | Key intro nanopub | `https://w3id.org/np/RAV0JEgLu0mUsZiQBJds4JbV-nVR_bGvFsjo0p-hdRB28` |
-| SPS v1.3 (current) | `specs/MAC_FDT_SPS_v1_3.md` |
-| SPS v1.4 update log | user-side (will be uploaded when v1.4 drafts) |
+| SPS v1.4 (current) | `specs/MAC_FDT_SPS_v1_4.md` |
+| SPS v1.3 (previous) | `specs/MAC_FDT_SPS_v1_3.md` |
 | Vocabulary spec (current) | `specs/MAC_FDT_Vocabulary_v1_2.md` |
 | Stage 1 generator | `minting/stage1-vocabulary-drafts/gen_vocab_trigs.py` |
 | Stage 1 manifest (live) | `minting/stage1-vocabulary-drafts/manifest_live_v2.csv` |
