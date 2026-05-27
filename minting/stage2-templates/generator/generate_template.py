@@ -31,10 +31,14 @@ from pathlib import Path
 # Column at which `rdfs:label` aligns inside the URI external-labels block.
 # 2-space indent + URI + padding-to-col-53 + `rdfs:label`.
 URI_LABEL_COL = 53
-
-# Column at which `rdfs:label` aligns inside the curie (mac:*) labels block.
-# 2-space indent + curie + padding-to-col-26 + `rdfs:label`.
-CURIE_LABEL_COL = 26
+# Baseline column for `rdfs:label` inside the curie (mac:*) labels block.
+# 2-space indent + curie + padding + `rdfs:label`. The actual column
+# is auto-extended when the type's longest curie exceeds 22 chars, so
+# each type's block is internally aligned to its widest curie with a
+# 2-space minimum gap. Type 1 (max 22 chars) lands at 26; Type 2 (max
+# 25 chars) at 29.
+CURIE_LABEL_BASELINE_COL = 26
+CURIE_LABEL_MIN_GAP = 2
 
 
 # ============================================================
@@ -57,10 +61,10 @@ def render_uri_label(uri: str, label: str) -> str:
     return f'{prefix}\n{indent}rdfs:label "{label}" .'
 
 
-def render_curie_label(curie: str, label: str) -> str:
+def render_curie_label(curie: str, label: str, align_col: int) -> str:
     """Emit one external-term label line for a prefixed name (e.g. mac:Foo)."""
     prefix = "  " + curie
-    padding = " " * max(1, CURIE_LABEL_COL - len(prefix))
+    padding = " " * max(1, align_col - len(prefix))
     return f'{prefix}{padding}rdfs:label "{label}" .'
 
 
@@ -86,7 +90,9 @@ def render_mac_term_labels(config) -> str:
     items = config.get("mac_term_labels", [])
     if not items:
         return ""
-    body = "".join(render_curie_label(c, l) + "\n" for (c, l) in items)
+    max_prefixed = 2 + max(len(curie) for curie, _ in items)
+    align_col = max(CURIE_LABEL_BASELINE_COL, max_prefixed + CURIE_LABEL_MIN_GAP)
+    body = "".join(render_curie_label(c, l, align_col) + "\n" for (c, l) in items)
     return "\n" + body  # preceded by a blank line separator
 
 
