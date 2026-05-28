@@ -241,7 +241,123 @@ def check_mandatory_statements(trig_text: str) -> list:
 
 
 # ============================================================
-# Generation
+# Method-instance template (Types 9 / 10 / 11)
+# ============================================================
+
+# `cito:` and `schema:` prefixes are NOT declared in PREFIXES_AND_HEAD
+# (matching the Stage 2 method-template scaffold convention). Both
+# predicates appear as full URIs below. Multiple cito:citesAsAuthority
+# values are emitted as a Turtle comma-separated object list.
+METHOD_ASSERTION = """\
+
+sub:assertion {{
+  sub:{instance_id} a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, {class_curie} ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "{instance_label}" ;
+    rdfs:comment "{instance_description}" ;
+    dct:creator orcid:{creator_orcid} ;
+    <https://www.w3.org/ns/dcat#contactPoint> "{contact_email}" ;
+    dct:publisher <{publisher_ror}> ;
+    dct:isPartOf <{project_fdo}> ;
+    <http://purl.org/spar/cito/citesAsAuthority> {authorities} ;
+    <http://schema.org/url> <{url}> .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:{instance_id} ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <{trig_media_type}> ;
+    dct:license <{license}> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}}
+"""
+
+
+def validate_method_config(config: dict) -> list:
+    errors = []
+    required = [
+        "instance_id", "instance_label", "instance_description",
+        "class_curie", "template_uri", "authorities", "url",
+        "creator_orcid", "contact_email", "publisher_ror",
+    ]
+    for key in required:
+        if key not in config or config[key] in (None, "", []):
+            errors.append(f"missing required config key: {key}")
+    if "authorities" in config:
+        if not isinstance(config["authorities"], list) or len(config["authorities"]) < 1:
+            errors.append("authorities must be a non-empty list (mandatory + repeatable cito:citesAsAuthority)")
+    if "class_curie" in config:
+        if not config["class_curie"].startswith("mac:"):
+            errors.append(f"class_curie should be a mac:* curie, got {config['class_curie']!r}")
+    return errors
+
+
+def check_mandatory_method_statements(trig_text: str, class_curie: str) -> dict:
+    """Return {'missing': [...], 'forbidden_present': [...]}."""
+    missing = []
+    required = {
+        "rdf:type fdof:FAIRDigitalObject": r"<https://w3id\.org/fdof/ontology#FAIRDigitalObject>",
+        f"rdf:type {class_curie}":          re.escape(class_curie),
+        "fdof:hasMetadata":                  r"<https://w3id\.org/fdof/ontology#hasMetadata>",
+        "rdfs:label":                        r"rdfs:label",
+        "dct:creator":                       r"dct:creator",
+        "dcat:contactPoint":                 r"<https://www\.w3\.org/ns/dcat#contactPoint>",
+        "dct:publisher":                     r"dct:publisher",
+        "dct:isPartOf":                      r"dct:isPartOf",
+        "cito:citesAsAuthority":             r"<http://purl\.org/spar/cito/citesAsAuthority>",
+        "fdof:materializes":                 r"<https://w3id\.org/fdof/ontology#materializes>",
+        "fdof:hasEncodingFormat":            r"<https://w3id\.org/fdof/ontology#hasEncodingFormat>",
+        "dct:license":                       r"dct:license",
+        "dcat:accessURL":                    r"<https://www\.w3\.org/ns/dcat#accessURL>",
+    }
+    for name, pattern in required.items():
+        if not re.search(pattern, trig_text):
+            missing.append(name)
+
+    forbidden = {
+        "mac:isObservationOf": r"mac:isObservationOf",
+        "dct:source":           r"dct:source",
+        "dct:references":       r"dct:references",
+    }
+    forbidden_present = [name for name, pattern in forbidden.items()
+                         if re.search(pattern, trig_text)]
+    return {"missing": missing, "forbidden_present": forbidden_present}
+
+
+def generate_method_instance(config: dict, created: str) -> str:
+    authorities_turtle = ", ".join(f"<{a}>" for a in config["authorities"])
+    return (
+        PREFIXES_AND_HEAD
+        + METHOD_ASSERTION.format(
+            instance_id=config["instance_id"],
+            class_curie=config["class_curie"],
+            instance_label=config["instance_label"],
+            instance_description=config["instance_description"],
+            creator_orcid=config["creator_orcid"],
+            contact_email=config["contact_email"],
+            publisher_ror=config["publisher_ror"],
+            project_fdo=STAYAHEAD_PROJECT_FDO,
+            authorities=authorities_turtle,
+            url=config["url"],
+            trig_media_type=TRIG_MEDIA_TYPE,
+            license=CC_BY_4,
+        )
+        + PROVENANCE.format(creator_orcid=config["creator_orcid"])
+        + PUBINFO.format(
+            created=created,
+            creator_orcid=config["creator_orcid"],
+            license=CC_BY_4,
+            instance_label=config["instance_label"],
+            instance_id=config["instance_id"],
+            template_uri=config["template_uri"],
+            provenance_template_uri=PROVENANCE_TEMPLATE_URI,
+            pubinfo_template_1=PUBINFO_TEMPLATES[0],
+            pubinfo_template_2=PUBINFO_TEMPLATES[1],
+            pubinfo_template_3=PUBINFO_TEMPLATES[2],
+            pubinfo_template_4=PUBINFO_TEMPLATES[3],
+        )
+    )
+
+
+# ============================================================
+# Generation (Type 1)
 # ============================================================
 
 def generate(config: dict, created: str) -> str:
@@ -303,29 +419,53 @@ def main():
     args = ap.parse_args()
 
     config = load_config(args.config)
-
-    errors = validate_config(config)
-    if errors:
-        sys.stderr.write("Config validation errors:\n")
-        for e in errors:
-            sys.stderr.write(f"  - {e}\n")
-        return 1
+    kind = config.get("kind", "type1")
 
     created = args.created or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    output = generate(config, created)
 
-    missing = check_mandatory_statements(output)
-    if missing:
-        sys.stderr.write("Mandatory statements missing in generated TriG:\n")
-        for m in missing:
-            sys.stderr.write(f"  - {m}\n")
-        return 1
+    if kind == "method":
+        errors = validate_method_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate_method_instance(config, created)
+        result = check_mandatory_method_statements(output, config["class_curie"])
+        if result["missing"]:
+            sys.stderr.write("Mandatory method statements missing in generated TriG:\n")
+            for m in result["missing"]:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        if result["forbidden_present"]:
+            sys.stderr.write("Forbidden statements present (method instances must not carry these):\n")
+            for f in result["forbidden_present"]:
+                sys.stderr.write(f"  - {f}\n")
+            return 1
+        ok_note = (f"OK: wrote {args.out} ({len(output)} bytes, method instance "
+                   f"({config['class_curie']}), {len(config['authorities'])} authority/-ies, "
+                   f"mandatory statements all present, forbidden statements absent)\n")
+    else:
+        errors = validate_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate(config, created)
+        missing = check_mandatory_statements(output)
+        if missing:
+            sys.stderr.write("Mandatory statements missing in generated TriG:\n")
+            for m in missing:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        ok_note = (f"OK: wrote {args.out} ({len(output)} bytes, "
+                   f"RBD seq len {len(config['rbd_sequence'])}, "
+                   f"mandatory statements all present)\n")
 
     if args.out:
         args.out.write_text(output)
-        sys.stderr.write(f"OK: wrote {args.out} ({len(output)} bytes, "
-                         f"RBD seq len {len(config['rbd_sequence'])}, "
-                         f"mandatory statements all present)\n")
+        sys.stderr.write(ok_note)
     else:
         sys.stdout.write(output)
     return 0
