@@ -1,0 +1,65 @@
+@prefix this: <https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE> .
+@prefix sub: <https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  this: dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig>;
+    <https://w3id.org/fdof/ontology#materializes> sub:Epsilon-DMS;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+  
+  sub:Epsilon-DMS a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:ExperimentalDMSObservation;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:isPartOf <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    rdfs:comment "Deep mutational scanning measurements (Bloom Lab) for SARS-CoV-2 Spike RBD variant Epsilon (L120R). Six values: bind=8.93862, delta_bind=0.16701, expr=10.25356, delta_expr=0.06768, confidence_bind=0.0729917177063099, confidence_expr=0.0705230077448188. All unitless.";
+    rdfs:label "Epsilon DMS observation — Bloom Lab (bind=8.93862, expr=10.25356)";
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    mac:hasBind "8.93862"^^xsd:decimal;
+    mac:hasConfidenceBind "0.0729917177063099"^^xsd:decimal;
+    mac:hasConfidenceExpr "0.0705230077448188"^^xsd:decimal;
+    mac:hasDeltaBind "0.16701"^^xsd:decimal;
+    mac:hasDeltaExpr "0.06768"^^xsd:decimal;
+    mac:hasExperimentalMethod <https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method>;
+    mac:hasExpr "10.25356"^^xsd:decimal;
+    mac:isObservationOf <https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant>;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-28T08:20:53Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:Epsilon-DMS;
+    rdfs:label "Epsilon DMS observation — Bloom Lab (bind=8.93862, expr=10.25356)";
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>, <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAp-dZcpmyNxtFsh7G0G1CDzzP2vPqoXVZSnlYRVQ_5Yk> .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "ezR5crftWXvY0h2eTDtJxkxTYKqG9gWWGHsYK9o6i+pKYzn4i3IkvrsH5ieEPGdXeyyGvCMk6C0AylM/UzmuT53ybbNt29S8gCjV/jaASz+8nize4dUZytkGorOa8D9PQ2WUA1VojR/R/d5aDP2BPl7GBUYNc076VbDvhjL6SJQ=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
