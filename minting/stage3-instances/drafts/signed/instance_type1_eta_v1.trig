@@ -1,0 +1,66 @@
+@prefix this: <https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s> .
+@prefix sub: <https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  this: dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig>;
+    <https://w3id.org/fdof/ontology#materializes> sub:Eta-RBD-Variant;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+  
+  sub:Eta-RBD-Variant a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:SpikeRBDVariant;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:isPartOf <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    dct:references <https://doi.org/10.3389/fbinf.2025.1634111>;
+    dct:source <https://doi.org/10.71728/hw56-vj34>;
+    rdfs:comment "SARS-CoV-2 Spike RBD variant Eta, carrying the E152K substitution (corresponding to E484K in the full Spike numbering). Pango lineage B.1.525. Designated a Variant of Interest (VOI) by the WHO. RBD anchor FDO for the MAC FAIR Digital Twin observation cluster — all Type 2-8 observation FDOs of this variant link back here via mac:isObservationOf.";
+    rdfs:label "Spike RBD Variant Eta (E152K)";
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    mac:hasGISAIDAccession "EPI_ISL_941290";
+    mac:hasGISAIDSeqId "E484K";
+    mac:hasMACSeqId "E152K";
+    mac:hasPangoLineage "B.1.525";
+    mac:hasParentProtein <https://www.uniprot.org/uniprot/P0DTC2>;
+    mac:hasRBDSequence "TNLCPFGEVFNATRFASVYAWNRKRISNCVADYSVLYNSASFSTFKCYGVSPTKLNDLCFTNVYADSFVIRGDEVRQIAPGQTGKIADYNYKLPDDFTGCVIAWNSNNLDSKVGGNYNYLYRLFRKSNLKPFERDISTEIYQAGSTPCNGVKGFNCYFPLQSYGFQPTNGVGYQPYRVVVLSFELLHAPATVCGP";
+    mac:hasWHOVariantName "Eta";
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-28T07:38:32Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:Eta-RBD-Variant;
+    rdfs:label "Spike RBD Variant Eta (E152K)";
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>, <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RADOnITa1gjGIQtuENvlB2I7hykzrASzake1bIjGLiAtM> .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "9Mj1A2ZWZGZ/eq9TjlL1AL7s3MLLeBpdqjhWUZXE9P9CGKvvDs1dq9jXDOo5Kj44Zo/8Q/FQQo4NzUbrazbIgyK/WxEO6pYehosjMs1LTGy1XJBJFx66nFwVa/ZEsSH84zxkwGURZM7OsnwA5j3YIgDo8R23yw2WcpkRtEf3NkE=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
