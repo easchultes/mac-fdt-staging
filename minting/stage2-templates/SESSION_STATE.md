@@ -136,6 +136,63 @@ the same `generate_predictions_from_csv.py` driver against the
 Tranche 2 CSV. No new generator code expected; only `VARIANT_ANCHORS`
 expansion after Type 1 anchors are minted for the new variants.
 
+## Stage 4 — standing SPARQL views (COMPLETE)
+
+**4 standing views pinned to incubator/project4 on 2026-05-28.**
+Each view is a separate grlc-query nanopub plus a separate pin-query
+action nanopub that asserts `<project4-space> gen:hasPinnedQuery
+<query>` — the **federated per-action model**, the same pattern
+project4 already uses for the 11 pinned Stage 2 templates. **No
+space-definition supersession needed.**
+
+### View nanopubs (4)
+
+| View | Query Trusty URI | Pin-action Trusty URI | Group tag |
+|---|---|---|---|
+| Catalogue summary by type      | `https://w3id.org/np/RAGlsCUDZrgFmlRQ8RNIpaWHaKAnRX7SGjEqOCGoWsM8A` | `https://w3id.org/np/RAr2do6-Zm_F5tv9NP4iziOpRCX-mJUZzCqUfY-brnNRY` | Catalogue overview |
+| Variants by WHO classification | `https://w3id.org/np/RAlD3u-iOS5P95TlvydUePQCOqKyVsPLebBNTnu4lw7po` | `https://w3id.org/np/RAkwEb52MHk6Xe4uzOruIAkmGZAq4URDyg5bPqx4SXY1Y` | Situational dashboards |
+| Observations per method        | `https://w3id.org/np/RAIKnskDgF8ZX-hOIC1UKLSxDapH1K1FjkNKi5Or-A3ws` | `https://w3id.org/np/RAZge9g-AM2aYodnkKrlt6ag1s1QPYjTYBCJZaPezTZ6M` | Situational dashboards |
+| Alpha digital-twin knowlet     | `https://w3id.org/np/RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` | `https://w3id.org/np/RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE` | Digital twin (worked example) |
+
+### Scale-correct forms
+
+- A, B, C are **GROUP BY aggregates** (row count bounded by the cardinality of MAC types, WHO classes, and method FDOs respectively — independent of instance volume).
+- D is a **fixed-referent knowlet** (all observations of `Alpha-RBD-Variant`) — bounded by Alpha's observation set, not the catalogue. Tranche 2 adds new variants, not new Alpha observations, so D stays constant.
+
+All four queries target the signature-validated endpoint
+`https://w3id.org/np/l/nanopub-query-1.1/repo/full` and use the same
+SPARQL `npa:hasValidSignatureForPublicKey` + `npx:invalidates` filter
+block as the MAC-FDO exemplar (`get-all-datasets`).
+
+### Branch + record
+
+| Branch | HEAD | Record |
+|---|---|---|
+| `stage4-views` | `4509ca2` (off main, un-merged) | `PUBLISHED_views.md` |
+
+NanoDash space-view indexing may lag (minutes-hours); NSN data verified
+via SPARQL immediately (`SELECT … WHERE { <project4> gen:hasPinnedQuery
+?q ; ?q gen:hasPinGroupTag ?tag }` returns the 4 expected rows).
+
+### Pin-query template + grlc-query template
+
+| Role | Trusty URI |
+|---|---|
+| grlc-query template ("Defining a grlc query") | `https://w3id.org/np/RAEFAt-QcFK0ZhqfvlsmS10BnzGJA0xwOICZXkO-ai87k` |
+| Pin-query template ("Declare a pinned query for a Space") | `https://w3id.org/np/RAuLESdeRUlk1GcTwvzVXShiBMI0ntJs2DL2Bm5DzW_ZQ` |
+
+## Demonstration tally (all four stages)
+
+| Stage | Output | Live |
+|---|---|---|
+| Stage 1 — vocabulary | 45 v2 vocab nanopubs (26 predicates + 19 classes) | ✓ |
+| Stage 2 — templates | 11 MAC FDT type templates (Types 1-11) | ✓ |
+| Stage 3 — instances | 38 instance FDOs (3 anchors + 5 methods + 18 predictions + 12 observations) | ✓ |
+| Stage 4 — views | 4 standing SPARQL views pinned to project4 | ✓ |
+
+**Full MAC FDT demonstration live on the NSN** — vocabulary, templates,
+instance catalogue, and discovery surface all in place.
+
 ## Reference templates (audit trail)
 
 `minting/stage2-templates/reference/` (on `stage2-templates-type1` and downstream)
@@ -158,7 +215,7 @@ expansion after Type 1 anchors are minted for the new variants.
 | Topic | Decision |
 |---|---|
 | **FDT validation space** | KP incubator project4 — `https://w3id.org/spaces/knowledgepixels/incubator/project4`. **11 templates pinned manually by Erik (admin) via NanoDash UI on 2026-05-27.** |
-| **Standing SPARQL views (pinned queries)** | Not yet added. Optional; can be added via NanoDash UI when desired. |
+| **Standing SPARQL views (pinned queries)** | 4 views pinned on 2026-05-28 via federated per-action nanopubs (no space-definition supersession). See "Stage 4 — standing SPARQL views" section above. |
 | **Permanent FDT space** | Deferred; likely MAC-namespace eventually. |
 | **`cito:` and `schema:` prefix handling** | Emitted as **full URIs** at predicate positions and as `external_resource_labels` entries — not in common scaffold @prefix header (would break Type 1 v4 round-trip). Documented in SPS v1.4 §"Implementation notes". |
 | **Mutation analytics** | External script over `mac:hasRBDSequence` (P60) — not in vocabulary. |
@@ -167,10 +224,9 @@ expansion after Type 1 anchors are minted for the new variants.
 ## Pending tasks
 
 1. **Post-demonstration cleanup (deferred):** see [`Post_demonstration_cleanup.md`](Post_demonstration_cleanup.md). Coordinated MAC v2 + MAC FDT revision pass before paper submission — covers (a) promoting `StayAhead Project FDO` + the 2 `Dataset FDOs` (ESM + AlphaFold) from `npx:DraftNanopub` to non-draft (with `AphaFold2` → `AlphaFold2` typo fix); (b) per-observation `cito:citesAsAuthority` for Types 2-8 where canonical observation-specific publications exist; (c) SPS v1.3 + CSV patch for Epsilon GISAID seq_id (`L124R` → `L452R`, already correct in live nanopub). Stage 3 demonstration is already published against current drafts; cleanup is consolidated.
-2. **FDT paper draft** — v0.5 → v0.6 (incorporates Stage 2 + Stage 3 completion).
+2. **FDT paper draft** — v0.5 → v0.6 (incorporates Stage 2 + Stage 3 + Stage 4 completion).
 3. **Tranche 2 scale-up** — 3705 1-step mutations × 2 methods × 3 metrics. Gated on the Tranche 2 CSV + Type 1 anchor minting for the new variants. Reuses `generate_predictions_from_csv.py` directly.
-4. **Optional: dashboard SPARQL views on incubator/project4** — pinned via NanoDash UI.
-5. **Optional: merge the 7 `stage2-templates-*` and 4 `stage3-instances-*` branches into `main`** as one batched PR for repo audit consolidation. No functional dependency.
+4. **Optional: merge the 7 `stage2-templates-*` + 4 `stage3-instances-*` + 1 `stage4-views` branches into `main`** as one batched PR for repo audit consolidation. No functional dependency.
 
 ## Tobias-pending
 
