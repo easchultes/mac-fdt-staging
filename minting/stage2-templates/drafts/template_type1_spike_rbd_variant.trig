@@ -1,0 +1,286 @@
+@prefix this: <http://purl.org/nanopub/temp/np001/> .
+@prefix sub: <http://purl.org/nanopub/temp/np001/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+
+  # ---- External-term labels (for NanoDash UI rendering) ----
+
+  <https://w3id.org/fdof/ontology#FAIRDigitalObject> rdfs:label "FAIR Digital Object (FDO)" .
+  <https://w3id.org/fdof/ontology#hasMetadata>       rdfs:label "has its metadata in" .
+  <https://w3id.org/fdof/ontology#materializes>      rdfs:label "is a concrete materialization of" .
+  <https://w3id.org/fdof/ontology#hasEncodingFormat> rdfs:label "has format" .
+  <https://www.w3.org/ns/dcat#accessURL>             rdfs:label "has access URL" .
+  <https://www.w3.org/ns/dcat#contactPoint>          rdfs:label "has contact point" .
+  <https://w3id.org/fair/fip/terms/implements>       rdfs:label "implements" .
+  <https://www.uniprot.org/uniprot/P0DTC2>           rdfs:label "wild-type SARS-CoV-2 Spike (UniProt P0DTC2)" .
+  <https://doi.org/10.3389/fbinf.2025.1634111>       rdfs:label "FAIR² data article (Frontiers in Bioinformatics)" .
+  <https://doi.org/10.71728/hw56-vj34>               rdfs:label "FAIR² Data Package DOI" .
+
+  dct:creator      rdfs:label "has creator" .
+  dct:contributor  rdfs:label "has contributor" .
+  dct:license      rdfs:label "data usage license" .
+  dct:isPartOf     rdfs:label "is part of" .
+  dct:issued       rdfs:label "was published" .
+  dct:subject      rdfs:label "has domain" .
+  dct:publisher    rdfs:label "has publisher" .
+  dct:references   rdfs:label "references" .
+  dct:source       rdfs:label "has source" .
+  rdf:type         rdfs:label "is a" .
+  rdfs:label       rdfs:label "has the label" .
+  rdfs:comment     rdfs:label "has description" .
+
+  mac:SpikeRBDVariant     rdfs:label "Spike RBD Variant" .
+  mac:hasWHOVariantName   rdfs:label "has WHO variant name" .
+  mac:hasPangoLineage     rdfs:label "has Pango lineage" .
+  mac:hasGISAIDSeqId      rdfs:label "has GISAID seq_id (full Spike notation)" .
+  mac:hasMACSeqId         rdfs:label "has MAC seq_id (RBD notation)" .
+  mac:hasParentProtein    rdfs:label "has parent protein" .
+  mac:hasRBDSequence      rdfs:label "has RBD amino acid sequence (one-letter code, 195 residues)" .
+  mac:hasGISAIDAccession  rdfs:label "has GISAID accession number" .
+
+  # ---- Template declaration ----
+
+  sub:assertion a nt:AssertionTemplate ;
+    rdfs:label "Declaring a Spike RBD Variant (MAC FDT Type 1)" ;
+    dct:description "Template for the central anchor of a MAC FAIR Digital Twin: a SARS-CoV-2 Spike RBD variant. All observation FDOs (Types 2–8) link back to an instance of this template via mac:isObservationOf. Per SPS v1.3, every instance also declares its institutional context via dct:isPartOf → a Project FDO referent URI (mandatory; instance-supplied, not hardcoded)." ;
+    nt:hasNanopubLabelPattern "${label}" ;
+    nt:hasStatement
+      sub:st0, sub:st3, sub:st4,
+      sub:st1, sub:st2,
+      sub:st6, sub:st7, sub:st8,
+      sub:st91, sub:st92, sub:st95,
+      sub:st5,
+      sub:st_pp,
+      sub:st_w, sub:st_p, sub:st_g, sub:st_m, sub:st_u, sub:st_s, sub:st_a,
+      sub:st_f2a, sub:st_f2p ;
+    nt:hasTag "MAC" .
+
+  # ---- Placeholders ----
+
+  # Core FDO identifier (introduced resource; this nanopub mints it)
+  sub:fdo a nt:IntroducedResource, nt:LocalResource, nt:UriPlaceholder ;
+    rdfs:label "full URI (e.g. handle.net) or short suffix for this variant FDO" .
+
+  # Standard descriptive placeholders
+  sub:label a nt:LiteralPlaceholder ;
+    rdfs:label "label or name for this variant (e.g. \"Alpha RBD variant (N169Y)\")" .
+
+  sub:description a nt:LongLiteralPlaceholder ;
+    rdfs:label "free-text description of this variant" .
+
+  sub:creator a nt:AgentPlaceholder ;
+    rdfs:label "ORCID of creator" ;
+    nt:hasDefaultValue nt:CREATOR .
+
+  sub:contributor a nt:AgentPlaceholder ;
+    rdfs:label "ORCID of contributor" .
+
+  sub:contact a nt:LiteralPlaceholder ;
+    rdfs:label "contact email" .
+
+  sub:domain a nt:RestrictedChoicePlaceholder ;
+    rdfs:label "domain" ;
+    nt:possibleValuesFrom <https://w3id.org/np/RACXDZHEowTYDAzZvdmD0qIGpXZwY5ghMRBBlt6N8Iu5s> .
+
+  sub:publisher a nt:ExternalUriPlaceholder ;
+    rdfs:label "ROR of the publishing entity" .
+
+  sub:fip a nt:GuidedChoicePlaceholder ;
+    rdfs:label "FAIR Implementation Profile" ;
+    nt:possibleValuesFromApi "http://purl.org/nanopub/api/find_signed_things?type=https%3A%2F%2Fw3id.org%2Ffair%2Ffip%2Fterms%2FFAIR-Implementation-Profile&searchterm=" .
+
+  # SPS v1.3 mandatory institutional-provenance placeholder (no hardcoding)
+  sub:project a nt:UriPlaceholder ;
+    rdfs:label "Project FDO referent URI (e.g. https://w3id.org/np/.../StayAhead-Project)" .
+
+  # Type 1 specific placeholders
+  sub:who_name a nt:LiteralPlaceholder ;
+    rdfs:label "WHO variant name (e.g. \"Alpha\", \"Epsilon\", \"Eta\")" .
+
+  sub:pango a nt:LiteralPlaceholder ;
+    rdfs:label "Pango lineage (e.g. \"B.1.1.7\", \"B.1.427 + B.1.429\")" .
+
+  sub:gisaid_seq_id a nt:LiteralPlaceholder ;
+    rdfs:label "GISAID seq_id — full Spike amino-acid notation (e.g. \"N501Y\")" .
+
+  sub:mac_seq_id a nt:LiteralPlaceholder ;
+    rdfs:label "MAC seq_id — RBD amino-acid notation (e.g. \"N169Y\")" .
+
+  sub:rbd_seq a nt:LongLiteralPlaceholder ;
+    rdfs:label "RBD amino-acid sequence (one-letter code, 195 residues)" .
+
+  sub:gisaid_acc a nt:LiteralPlaceholder ;
+    rdfs:label "canonical GISAID accession (e.g. \"EPI_ISL_601443\")" .
+
+  # Materialization group placeholders (st5)
+  sub:materialization a nt:ExternalUriPlaceholder ;
+    rdfs:label "materialization URI" .
+  sub:format a nt:RestrictedChoicePlaceholder ;
+    rdfs:label "MIME type (e.g. \"application/trig\", \"text/csv\")" ;
+    nt:possibleValuesFrom <https://w3id.org/np/RAHiMahG_NWtiAmqll6OiAc5zkfYoGFzsmieNFR8jtWuQ> .
+  sub:license a nt:GuidedChoicePlaceholder ;
+    rdfs:label "data usage license" ;
+    nt:possibleValuesFromApi "http://purl.org/nanopub/api/find_signed_things?type=https%3A%2F%2Fw3id.org%2Ffair%2Ffip%2Fterms%2FData-usage-license&searchterm=" .
+  sub:URL a nt:ExternalUriPlaceholder ;
+    rdfs:label "access URL" .
+  sub:date a nt:LiteralPlaceholder ;
+    rdfs:label "publication date" .
+
+  # ---- Statement patterns ----
+
+  # Core FDO typing (mandatory, fixed)
+  sub:st0 rdf:object <https://w3id.org/fdof/ontology#FAIRDigitalObject> ;
+    rdf:predicate rdf:type ;
+    rdf:subject sub:fdo .
+
+  sub:st3 rdf:object mac:SpikeRBDVariant ;
+    rdf:predicate rdf:type ;
+    rdf:subject sub:fdo .
+
+  sub:st4 rdf:object nt:NANOPUB ;
+    rdf:predicate <https://w3id.org/fdof/ontology#hasMetadata> ;
+    rdf:subject sub:fdo .
+
+  # Standard descriptive
+  sub:st1 a nt:OptionalStatement ;
+    rdf:object sub:label ;
+    rdf:predicate rdfs:label ;
+    rdf:subject sub:fdo .
+
+  sub:st2 a nt:OptionalStatement ;
+    rdf:object sub:description ;
+    rdf:predicate rdfs:comment ;
+    rdf:subject sub:fdo .
+
+  sub:st6 a nt:RepeatableStatement ;
+    rdf:object sub:creator ;
+    rdf:predicate dct:creator ;
+    rdf:subject sub:fdo .
+
+  sub:st7 a nt:OptionalStatement, nt:RepeatableStatement ;
+    rdf:object sub:contributor ;
+    rdf:predicate dct:contributor ;
+    rdf:subject sub:fdo .
+
+  sub:st8 rdf:object sub:contact ;
+    rdf:predicate <https://www.w3.org/ns/dcat#contactPoint> ;
+    rdf:subject sub:fdo .
+
+  sub:st91 a nt:OptionalStatement ;
+    rdf:object sub:domain ;
+    rdf:predicate dct:subject ;
+    rdf:subject sub:fdo .
+
+  sub:st92 rdf:object sub:publisher ;
+    rdf:predicate dct:publisher ;
+    rdf:subject sub:fdo .
+
+  sub:st95 a nt:OptionalStatement ;
+    rdf:object sub:fip ;
+    rdf:predicate <https://w3id.org/fair/fip/terms/implements> ;
+    rdf:subject sub:fdo .
+
+  # Materialization group (st5) — optional, repeatable
+  sub:st5 a nt:GroupedStatement, nt:OptionalStatement, nt:RepeatableStatement ;
+    nt:hasStatement sub:st5a, sub:st5b, sub:st5c, sub:st5d, sub:st5e .
+
+  sub:st5a rdf:object sub:fdo ;
+    rdf:predicate <https://w3id.org/fdof/ontology#materializes> ;
+    rdf:subject sub:materialization .
+
+  sub:st5b rdf:object sub:format ;
+    rdf:predicate <https://w3id.org/fdof/ontology#hasEncodingFormat> ;
+    rdf:subject sub:materialization .
+
+  sub:st5c rdf:object sub:license ;
+    rdf:predicate dct:license ;
+    rdf:subject sub:materialization .
+
+  sub:st5d rdf:object sub:URL ;
+    rdf:predicate <https://www.w3.org/ns/dcat#accessURL> ;
+    rdf:subject sub:materialization .
+
+  sub:st5e rdf:object sub:date ;
+    rdf:predicate dct:issued ;
+    rdf:subject sub:materialization .
+
+  # SPS v1.3 institutional-provenance (mandatory, instance-supplied)
+  sub:st_pp rdf:object sub:project ;
+    rdf:predicate dct:isPartOf ;
+    rdf:subject sub:fdo .
+
+  # Type 1 specific statements
+  sub:st_w rdf:object sub:who_name ;
+    rdf:predicate mac:hasWHOVariantName ;
+    rdf:subject sub:fdo .
+
+  sub:st_p rdf:object sub:pango ;
+    rdf:predicate mac:hasPangoLineage ;
+    rdf:subject sub:fdo .
+
+  sub:st_g rdf:object sub:gisaid_seq_id ;
+    rdf:predicate mac:hasGISAIDSeqId ;
+    rdf:subject sub:fdo .
+
+  sub:st_m rdf:object sub:mac_seq_id ;
+    rdf:predicate mac:hasMACSeqId ;
+    rdf:subject sub:fdo .
+
+  sub:st_u rdf:object <https://www.uniprot.org/uniprot/P0DTC2> ;
+    rdf:predicate mac:hasParentProtein ;
+    rdf:subject sub:fdo .
+
+  sub:st_s rdf:object sub:rbd_seq ;
+    rdf:predicate mac:hasRBDSequence ;
+    rdf:subject sub:fdo .
+
+  sub:st_a a nt:OptionalStatement ;
+    rdf:object sub:gisaid_acc ;
+    rdf:predicate mac:hasGISAIDAccession ;
+    rdf:subject sub:fdo .
+
+  # FAIR² mandatory cross-references (fixed objects per SPS v1.3 §"FAIR² citation policy")
+  sub:st_f2a rdf:object <https://doi.org/10.3389/fbinf.2025.1634111> ;
+    rdf:predicate dct:references ;
+    rdf:subject sub:fdo .
+
+  sub:st_f2p rdf:object <https://doi.org/10.71728/hw56-vj34> ;
+    rdf:predicate dct:source ;
+    rdf:subject sub:fdo .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-27T09:10:53Z"^^xsd:dateTime ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:label "Template: Declaring a Spike RBD Variant (MAC FDT Type 1)" ;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RA5reLVXOCPQFWr2UiCJb19ES7NwOpQRmudb17e2iB0c4> ;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU> ;
+    nt:wasCreatedFromPubinfoTemplate
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+      <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ> .
+}
