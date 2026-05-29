@@ -357,6 +357,132 @@ def generate_method_instance(config: dict, created: str) -> str:
 
 
 # ============================================================
+# Prediction-instance template (Types 3 / 4 / 5)
+# ============================================================
+
+# Like the method-instance template, `cito:` and `schema:` predicates
+# do not appear here (the user's spec for this batch says no
+# cito:citesAsAuthority, deferred to a later round). dct:source is
+# emitted as a Turtle comma-separated object list (mandatory +
+# repeatable; SPS v1.3 §"Source URLs" for Types 3-6).
+PREDICTION_ASSERTION = """\
+
+sub:assertion {{
+  sub:{instance_id} a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, {class_curie} ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "{instance_label}" ;
+    rdfs:comment "{instance_description}" ;
+    dct:creator orcid:{creator_orcid} ;
+    <https://www.w3.org/ns/dcat#contactPoint> "{contact_email}" ;
+    dct:publisher <{publisher_ror}> ;
+    dct:isPartOf <{project_fdo}> ;
+    mac:isObservationOf <{variant_fdo}> ;
+    mac:hasPredictionMethod <{method_fdo}> ;
+    {metric_predicate} {metric_value} ;
+    dct:source {sources} .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:{instance_id} ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <{trig_media_type}> ;
+    dct:license <{license}> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}}
+"""
+
+
+def validate_prediction_config(config: dict) -> list:
+    errors = []
+    required = [
+        "instance_id", "instance_label", "instance_description",
+        "class_curie", "template_uri",
+        "variant_fdo", "method_fdo",
+        "metric_predicate", "metric_value",
+        "sources",
+        "creator_orcid", "contact_email", "publisher_ror",
+    ]
+    for key in required:
+        if key not in config or config[key] in (None, "", []):
+            errors.append(f"missing required config key: {key}")
+    if "sources" in config and isinstance(config["sources"], list):
+        if len(config["sources"]) < 1:
+            errors.append("sources must contain at least one URI (mandatory + repeatable dct:source)")
+    if "class_curie" in config and not config["class_curie"].startswith("mac:"):
+        errors.append(f"class_curie should be a mac:* curie, got {config['class_curie']!r}")
+    if "metric_predicate" in config and not config["metric_predicate"].startswith("mac:"):
+        errors.append(f"metric_predicate should be a mac:* curie, got {config['metric_predicate']!r}")
+    return errors
+
+
+def check_mandatory_prediction_statements(trig_text: str, class_curie: str, metric_predicate: str) -> dict:
+    missing = []
+    required = {
+        "rdf:type fdof:FAIRDigitalObject": r"<https://w3id\.org/fdof/ontology#FAIRDigitalObject>",
+        f"rdf:type {class_curie}":          re.escape(class_curie),
+        "fdof:hasMetadata":                  r"<https://w3id\.org/fdof/ontology#hasMetadata>",
+        "rdfs:label":                        r"rdfs:label",
+        "dct:creator":                       r"dct:creator",
+        "dcat:contactPoint":                 r"<https://www\.w3\.org/ns/dcat#contactPoint>",
+        "dct:publisher":                     r"dct:publisher",
+        "dct:isPartOf":                      r"dct:isPartOf",
+        "mac:isObservationOf":               r"mac:isObservationOf",
+        "mac:hasPredictionMethod":           r"mac:hasPredictionMethod",
+        f"metric predicate {metric_predicate}": re.escape(metric_predicate),
+        "dct:source":                        r"dct:source",
+        "fdof:materializes":                 r"<https://w3id\.org/fdof/ontology#materializes>",
+        "fdof:hasEncodingFormat":            r"<https://w3id\.org/fdof/ontology#hasEncodingFormat>",
+        "dct:license":                       r"dct:license",
+        "dcat:accessURL":                    r"<https://www\.w3\.org/ns/dcat#accessURL>",
+    }
+    for name, pattern in required.items():
+        if not re.search(pattern, trig_text):
+            missing.append(name)
+    forbidden = {
+        "cito:citesAsAuthority":  r"citesAsAuthority",
+        "dct:references":          r"dct:references",
+    }
+    forbidden_present = [name for name, pattern in forbidden.items()
+                         if re.search(pattern, trig_text)]
+    return {"missing": missing, "forbidden_present": forbidden_present}
+
+
+def generate_prediction_instance(config: dict, created: str) -> str:
+    sources_turtle = ", ".join(f"<{s}>" for s in config["sources"])
+    return (
+        PREFIXES_AND_HEAD
+        + PREDICTION_ASSERTION.format(
+            instance_id=config["instance_id"],
+            class_curie=config["class_curie"],
+            instance_label=config["instance_label"],
+            instance_description=config["instance_description"],
+            creator_orcid=config["creator_orcid"],
+            contact_email=config["contact_email"],
+            publisher_ror=config["publisher_ror"],
+            project_fdo=STAYAHEAD_PROJECT_FDO,
+            variant_fdo=config["variant_fdo"],
+            method_fdo=config["method_fdo"],
+            metric_predicate=config["metric_predicate"],
+            metric_value=config["metric_value"],
+            sources=sources_turtle,
+            trig_media_type=TRIG_MEDIA_TYPE,
+            license=CC_BY_4,
+        )
+        + PROVENANCE.format(creator_orcid=config["creator_orcid"])
+        + PUBINFO.format(
+            created=created,
+            creator_orcid=config["creator_orcid"],
+            license=CC_BY_4,
+            instance_label=config["instance_label"],
+            instance_id=config["instance_id"],
+            template_uri=config["template_uri"],
+            provenance_template_uri=PROVENANCE_TEMPLATE_URI,
+            pubinfo_template_1=PUBINFO_TEMPLATES[0],
+            pubinfo_template_2=PUBINFO_TEMPLATES[1],
+            pubinfo_template_3=PUBINFO_TEMPLATES[2],
+            pubinfo_template_4=PUBINFO_TEMPLATES[3],
+        )
+    )
+
+
+# ============================================================
 # Generation (Type 1)
 # ============================================================
 
@@ -445,6 +571,30 @@ def main():
         ok_note = (f"OK: wrote {args.out} ({len(output)} bytes, method instance "
                    f"({config['class_curie']}), {len(config['authorities'])} authority/-ies, "
                    f"mandatory statements all present, forbidden statements absent)\n")
+    elif kind == "prediction":
+        errors = validate_prediction_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate_prediction_instance(config, created)
+        result = check_mandatory_prediction_statements(
+            output, config["class_curie"], config["metric_predicate"])
+        if result["missing"]:
+            sys.stderr.write("Mandatory prediction statements missing in generated TriG:\n")
+            for m in result["missing"]:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        if result["forbidden_present"]:
+            sys.stderr.write("Forbidden statements present (prediction instances must not carry these):\n")
+            for f in result["forbidden_present"]:
+                sys.stderr.write(f"  - {f}\n")
+            return 1
+        ok_note = (f"OK: wrote {args.out} ({len(output)} bytes, prediction instance "
+                   f"({config['class_curie']}, {config['metric_predicate']}={config['metric_value']}), "
+                   f"{len(config['sources'])} source(s), mandatory statements all present, "
+                   f"forbidden statements absent)\n")
     else:
         errors = validate_config(config)
         if errors:

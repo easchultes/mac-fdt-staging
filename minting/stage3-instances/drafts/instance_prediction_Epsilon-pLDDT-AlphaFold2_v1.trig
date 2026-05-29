@@ -1,0 +1,57 @@
+@prefix this: <http://purl.org/nanopub/temp/np001/> .
+@prefix sub: <http://purl.org/nanopub/temp/np001/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:Epsilon-pLDDT-AlphaFold2 a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:ComputationalPredictionPLDDT ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "Epsilon pLDDT = 94.19297808764844 — AlphaFold 2" ;
+    rdfs:comment "Computational prediction of pLDDT (94.19297808764844 unitless, 0-100) for SARS-CoV-2 Spike RBD variant Epsilon (L120R) using AlphaFold 2." ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" ;
+    dct:publisher <https://ror.org/027bh9e22> ;
+    dct:isPartOf <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project> ;
+    mac:isObservationOf <https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant> ;
+    mac:hasPredictionMethod <https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method> ;
+    mac:haspLDDT 94.19297808764844 ;
+    dct:source <https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s>, <https://doi.org/10.71728/hw56-vj34>, <https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1> .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:Epsilon-pLDDT-AlphaFold2 ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig> ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-28T08:02:29Z"^^xsd:dateTime ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:label "Epsilon pLDDT = 94.19297808764844 — AlphaFold 2" ;
+    npx:introduces sub:Epsilon-pLDDT-AlphaFold2 ;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAm5j8EmzrS_ZDXEEOkvG2icT27GlbaGoNAS0sCDS72wc> ;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU> ;
+    nt:wasCreatedFromPubinfoTemplate
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+      <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ> .
+}
