@@ -1,5 +1,13 @@
 # Stage 4 — Standing SPARQL views pinned to incubator/project4
 
+> **2026-05-29 follow-up fix.** Tobias flagged that two stray ViewDisplay
+> nanopubs (created via NanoDash UI on 2026-05-28 after the P135 pin-action
+> publish) incorrectly fed our grlc-queries into `gen:isDisplayOfView`,
+> which expects a `gen:View` wrapper (not a bare grlc-query). Two
+> invalidation nanopubs published on 2026-05-29 retire them; the P135
+> pin-actions below are the canonical view-pinning mechanism and remain
+> correct. See "Invalidations" section at the bottom.
+
 Four grlc-query nanopubs + four pin-query action nanopubs published to
 the live NSN on 2026-05-28. Each query is bounded (GROUP BY aggregates
 or one fixed-referent knowlet) and remains scale-correct at Tranche-2
@@ -149,3 +157,49 @@ Phase-1 dry-run: 10 rows (Alpha's complete observation set).
 - **Federated pin model** for project4: per-action nanopubs, no supersession of the space-definition (`RAuHVN25piF5…`). Erik's `gen:hasAdmin` on project4 is sufficient authorization.
 - **Endpoint choice** `…/nanopub-query-1.1/repo/full` (signature-validated). Each result is restricted to nanopubs with valid signatures and not invalidated by their own signer.
 - **Scale**: all four views remain bounded under Tranche-2 (~22 230+ prediction instances). View A's rows are capped by MAC type cardinality (11). View B by WHO class cardinality (3). View C by method cardinality (5). View D by Alpha's observation set (constant at 10 in the demonstration; would grow modestly if more observation types are added to Alpha, but not with Tranche 2 since Tranche 2 introduces NEW variants, not new Alpha observations).
+
+## Invalidations (2026-05-29 fix)
+
+After P135 we noticed two stray ViewDisplay nanopubs that Erik had
+created via NanoDash UI experimentally on 2026-05-28 — they fed our
+grlc-query nanopubs into `gen:isDisplayOfView`, but that predicate
+expects a `gen:View` wrapper (e.g. `gen:ResourceView` with
+`gen:hasViewQuery`), not a bare grlc-query. Tobias flagged the
+mismatch.
+
+Fix: two invalidation nanopubs, each asserting `this: npx:invalidates
+<broken-trusty>` plus an `rdfs:comment` explanatory note. Both signed
+by Erik and published 2026-05-29.
+
+| Broken ViewDisplay | Invalidation nanopub |
+|---|---|
+| `https://w3id.org/np/RAq9o-TF0vcyIvK7Rn79IBIj1ePoZI1mAcErhVQjUb4vA` (catalogue-summary VD, 2026-05-28 11:14Z) | `https://w3id.org/np/RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY` |
+| `https://w3id.org/np/RAD5G7Z3kY14tsHLtunCJ26xpimAJ2-q1Thpf-4B8be84` (alpha-knowlet VD, 2026-05-28 17:56Z; Tobias's flag) | `https://w3id.org/np/RA0aGsMc41L8xLWfJeXpTUMz-py1vMpBJSIy1P13xaxX8` |
+
+Publish window: 2026-05-29T07:30:24Z → 07:30:31Z (sequential, 7s).
+
+### Post-invalidation verification
+
+SPARQL on `…/repo/full`:
+```sparql
+SELECT ?n1 ?view WHERE {
+  GRAPH npa:graph {
+    ?n1 npa:hasValidSignatureForPublicKey ?pk .
+    FILTER NOT EXISTS { ?inv npx:invalidates ?n1 ; … }
+    ?n1 np:hasAssertion ?a .
+  }
+  GRAPH ?a {
+    ?display a gen:ViewDisplay .
+    ?display gen:appliesTo <project4-space> .
+    ?display gen:isDisplayOfView ?view .
+  }
+}
+```
+returns **5 rows** — the 5 pre-existing, correctly-formed ViewDisplays
+(simple-message-view, news-list-view, relevant-resource-view, and two
+pinned-templates-view entries). The 2 broken ViewDisplays no longer
+appear; direct invalidates-query confirms both are filtered.
+
+The 4 P135 pin-action nanopubs (`gen:hasPinnedQuery` on the bare
+queries) remain canonical for the "Queries" sidebar pinning on
+project4.
