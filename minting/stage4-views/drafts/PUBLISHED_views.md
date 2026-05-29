@@ -259,3 +259,68 @@ Cross-check on admin-graph `npx:invalidates` derivation:
 Both filter conventions (`npx:retracts` and `npx:invalidates`) now drop
 the targets. The `npx:invalidates` nanopubs from yesterday are themselves
 retracted; the retractions and pin-actions stand as the canonical state.
+
+## Embedded panels (2026-05-29, gen:View wrappers + ViewDisplays)
+
+The P135 pin-actions populate the **"Queries" sidebar** mechanism on
+the project4 page. To populate the **embedded panels** mechanism (the
+visible-without-clicking dashboard panels that render in-page), we
+also mint:
+
+- One `gen:View` wrapper per query — typed `gen:ResourceView,
+  gen:TabularView`, carrying `gen:hasViewQuery → <our grlc-query>`,
+  `dct:title`, `gen:appliesToInstancesOf gen:Space`, and
+  `gen:hasStructuralPosition`. The view itself sits at
+  `<wrapper-trusty>/<view-local-name>`; the wrapper also `dct:isVersionOf`
+  a freshly-introduced `viewKind` URI for stable supersession identity.
+  Created from template `RARLsTlqbTesu1b0WJZ-zL1z96xumOiqbK3l_vV6iZoww`
+  ("Declaring a resource view").
+
+- One typed `gen:ViewDisplay` per wrapper — `gen:isDisplayOfView` points
+  at the wrapper's view-referent URI (the canonical mechanism per Tobias).
+  Created from template `RAsc8FMsGih955oFSFG0YcB9sDKA62VLbp3VIw86IxMvk`
+  ("Displaying a view for a Space").
+
+### 4 view wrappers + 4 ViewDisplays
+
+| View | Query | gen:View wrapper | ViewDisplay |
+|---|---|---|---|
+| Catalogue summary by type | `RAGlsCUDZ…` | `https://w3id.org/np/RAUQDFIiL73MByusDvrnMLRJaDW32bImYrq4aQN5CJmLM` | `https://w3id.org/np/RAvARpXohLClZVC3qZdtn1JihyPU12NsmTQAHoziXXRq4` |
+| Variants by WHO classification | `RAlD3u-…` | `https://w3id.org/np/RA2orwJH_zUQQvUvKk0UHvCr5x8iAVhIopqLUFYyuy-Eg` | `https://w3id.org/np/RAywsGEhq4acHjLNY6rALv2vvhjGwqYsFeFayr3hwZ4iM` |
+| Observations per method | `RAIKnskD…` | `https://w3id.org/np/RAS-Wm3ewaQtz8rhzKY-EAyrJnYGZMq3MOz2AZ9fXQ5e8` | `https://w3id.org/np/RA-XrE3QY1r0Llm5TLurg0VcasOT_hfta-AM_4qp1srZo` |
+| Alpha digital-twin knowlet | `RAecvUbv…` | `https://w3id.org/np/RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | `https://w3id.org/np/RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` |
+
+Each wrapper carries (per Phase 1 / Phase 2 spec):
+- `rdf:type gen:ResourceView, gen:TabularView`
+- `gen:appliesToInstancesOf gen:Space` (only — panels appear on the project4 Space page, not on user/maintained-resource pages)
+- `gen:hasViewQueryTargetField "resource"` (default; our queries are parameterless aggregates so the field doesn't bind)
+- `gen:hasStructuralPosition` `5.1.fdt-catalogue-summary` / `5.2.fdt-variants-by-who` / `5.3.fdt-observations-per-method` / `5.4.fdt-alpha-knowlet` (section 5, ordered)
+- `dct:title` = the query's `rdfs:label`
+- `dct:isVersionOf <wrapper-trusty>/<key>-view-kind` — freshly-introduced viewKind URI for supersession identity
+
+Each ViewDisplay carries:
+- `rdf:type gen:ActivatedViewDisplay, gen:ViewDisplay`
+- `gen:appliesTo <project4-space>` + `gen:isDisplayFor <project4-space>`
+- `gen:isDisplayOfView <wrapper-trusty>/<view-local-name>` (referent URI, NOT bare wrapper Trusty — distinct from Erik's earlier broken-display nanopubs)
+
+Publish windows: wrappers 2026-05-29T08:52:03Z → 08:52:16Z; ViewDisplays 08:52:43Z → 08:52:56Z.
+
+### Verification
+
+`SELECT ?d ?v WHERE { ?d a gen:ViewDisplay ; gen:appliesTo <project4-space> ; gen:isDisplayOfView ?v . FILTER NOT EXISTS { ?r npx:retracts ?n1 } }`
+→ **9 rows** (5 pre-existing valid ViewDisplays + 4 new MAC FDT
+panels). All 8 new nanopubs resolve `HEAD 200`. Each new ViewDisplay's
+`gen:isDisplayOfView` correctly references a `<wrapper-trusty>/<view-local-name>` URI.
+
+### Distinct from P135 pin-actions
+
+This stratification is now in place on project4:
+
+| Layer | Mechanism | Nanopub type | Purpose |
+|---|---|---|---|
+| **Sidebar pinning** ("Queries" panel) | `<space> gen:hasPinnedQuery <query>` (P135 actions) | `gen:hasPinnedQuery` | Compact list of named queries, navigable from the space |
+| **Embedded panels** (in-page dashboard tables) | `<space> ← ViewDisplay → wrapper → grlc-query` | `gen:ViewDisplay` referencing a `gen:View` | Render the query result as a tabular panel on the Space page |
+
+The two layers complement each other. The same 4 underlying grlc-query
+nanopubs (`RAGlsCUDZ…`, `RAlD3u-…`, `RAIKnskD…`, `RAecvUbv…`) drive
+both layers.
