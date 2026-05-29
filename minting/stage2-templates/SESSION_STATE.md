@@ -274,7 +274,7 @@ instance catalogue, and discovery surface all in place.
 
 ## Pending tasks
 
-1. **Post-demonstration cleanup (deferred):** see [`Post_demonstration_cleanup.md`](Post_demonstration_cleanup.md). Coordinated MAC v2 + MAC FDT revision pass before paper submission — covers (a) promoting `StayAhead Project FDO` + the 2 `Dataset FDOs` (ESM + AlphaFold) from `npx:DraftNanopub` to non-draft (with `AphaFold2` → `AlphaFold2` typo fix); (b) per-observation `cito:citesAsAuthority` for Types 2-8 where canonical observation-specific publications exist; (c) SPS v1.3 + CSV patch for Epsilon GISAID seq_id (`L124R` → `L452R`, already correct in live nanopub). Stage 3 demonstration is already published against current drafts; cleanup is consolidated.
+1. **Post-demonstration cleanup (deferred):** see [`Post_demonstration_cleanup.md`](Post_demonstration_cleanup.md). Coordinated MAC v2 + MAC FDT revision pass before paper submission — covers (a) promoting `StayAhead Project FDO` + the 2 `Dataset FDOs` (ESM + AlphaFold) from `npx:DraftNanopub` to non-draft (with `AphaFold2` → `AlphaFold2` typo fix); (b) per-observation `cito:citesAsAuthority` for Types 2-8 where canonical observation-specific publications exist; (c) SPS v1.3 + CSV patch for Epsilon GISAID seq_id (`L124R` → `L452R`, already correct in live nanopub). Stage 3 demonstration is already published against current drafts; cleanup is consolidated. **Canonical procedural reference:** [`docs/implementation_guide.md`](../../docs/implementation_guide.md) (Implementation Guide v1.0, §§1–6) — the cleanup pass should follow that document's procedure.
 2. **FDT paper draft** — v0.5 → v0.6 (incorporates Stage 2 + Stage 3 + Stage 4 completion).
 3. **Tranche 2 scale-up** — 3705 1-step mutations × 2 methods × 3 metrics. Gated on the Tranche 2 CSV + Type 1 anchor minting for the new variants. Reuses `generate_predictions_from_csv.py` directly.
 4. **Optional: merge the 7 `stage2-templates-*` + 4 `stage3-instances-*` + 1 `stage4-views` branches into `main`** as one batched PR for repo audit consolidation. No functional dependency.
@@ -297,6 +297,7 @@ comment; no decisions gated on them.
 | SPS v1.4 (current) | `specs/MAC_FDT_SPS_v1_4.md` |
 | SPS v1.3 (previous) | `specs/MAC_FDT_SPS_v1_3.md` |
 | Vocabulary spec (current) | `specs/MAC_FDT_Vocabulary_v1_2.md` |
+| **Implementation Guide v1.0** (canonical procedure) | `docs/implementation_guide.md` |
 | Stage 1 generator | `minting/stage1-vocabulary-drafts/gen_vocab_trigs.py` |
 | Stage 1 manifest (live) | `minting/stage1-vocabulary-drafts/manifest_live_v2.csv` |
 | Stage 2 generator (on branches) | `minting/stage2-templates/generator/generate_template.py` |
