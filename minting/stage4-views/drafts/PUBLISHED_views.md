@@ -1,12 +1,18 @@
 # Stage 4 — Standing SPARQL views pinned to incubator/project4
 
-> **2026-05-29 follow-up fix.** Tobias flagged that two stray ViewDisplay
-> nanopubs (created via NanoDash UI on 2026-05-28 after the P135 pin-action
-> publish) incorrectly fed our grlc-queries into `gen:isDisplayOfView`,
-> which expects a `gen:View` wrapper (not a bare grlc-query). Two
-> invalidation nanopubs published on 2026-05-29 retire them; the P135
-> pin-actions below are the canonical view-pinning mechanism and remain
-> correct. See "Invalidations" section at the bottom.
+> **2026-05-29 follow-up fix (revised).** Tobias flagged that two stray
+> ViewDisplay nanopubs (created via NanoDash UI on 2026-05-28 after the
+> P135 pin-action publish) incorrectly fed our grlc-queries into
+> `gen:isDisplayOfView`, which expects a `gen:View` wrapper (not a bare
+> grlc-query). The initial fix attempt used `npx:invalidates` directly;
+> per Tobias's subsequent guidance, the **canonical publisher-facing
+> predicate is `npx:retracts`** (the admin layer materializes it into
+> `npx:invalidates` for general queries). The current state on the
+> registry: **4 retraction nanopubs published 2026-05-29** — 2 retracting
+> the broken ViewDisplays, and 2 retracting the prior `npx:invalidates`
+> attempts (for cleanliness). The P135 pin-actions remain canonical for
+> the project4 "Queries" sidebar pinning. See "Retractions" section at
+> the bottom.
 
 Four grlc-query nanopubs + four pin-query action nanopubs published to
 the live NSN on 2026-05-28. Each query is bounded (GROUP BY aggregates
@@ -203,3 +209,53 @@ appear; direct invalidates-query confirms both are filtered.
 The 4 P135 pin-action nanopubs (`gen:hasPinnedQuery` on the bare
 queries) remain canonical for the "Queries" sidebar pinning on
 project4.
+
+## Retractions v2 (2026-05-29, npx:retracts — superseding the npx:invalidates attempt above)
+
+Per Tobias: the canonical publisher-facing predicate is **`npx:retracts`**
+(NanoDash template `RAQP3NJvnLA2Z…` — "Retracting a nanopublication that
+I published"). The admin layer materializes retractions into the same
+`npx:invalidates` triples in `GRAPH npa:graph`, so both filter
+conventions in user-facing SPARQL drop the targets.
+
+Four retraction nanopubs published — 2 retiring the broken ViewDisplays
+and 2 retiring the prior `npx:invalidates` attempts (for cleanliness):
+
+| Target | Reason | Retraction nanopub |
+|---|---|---|
+| `https://w3id.org/np/RAq9o-TF0vcyIvK7Rn79IBIj1ePoZI1mAcErhVQjUb4vA` (broken ViewDisplay, catalogue-summary) | Conflated mechanism — ViewDisplay needs a `gen:View` wrapper | `https://w3id.org/np/RAcotTt-Cx0tSkMDxLQ0TuBGjwvBSVkeJBb8rQopUGz2M` |
+| `https://w3id.org/np/RAD5G7Z3kY14tsHLtunCJ26xpimAJ2-q1Thpf-4B8be84` (broken ViewDisplay, alpha-knowlet — Tobias's flag) | Conflated mechanism | `https://w3id.org/np/RAai9-l8-mflaHqJQQ2X-4xAG2TmecKy7nb4FnHObCYOY` |
+| `https://w3id.org/np/RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY` (prior `npx:invalidates` attempt, catalogue-summary) | Wrong mechanism — superseded by `npx:retracts` | `https://w3id.org/np/RAn9jiewuL24JBSwZxuEutlihEh10zGyE69mfnaCByIxA` |
+| `https://w3id.org/np/RA0aGsMc41L8xLWfJeXpTUMz-py1vMpBJSIy1P13xaxX8` (prior `npx:invalidates` attempt, alpha-knowlet) | Wrong mechanism | `https://w3id.org/np/RAq-qw1T5MqNeQ1ma9MO2YhjLiImRZzHGeBusqB7bhDSY` |
+
+Publish window: 2026-05-29T08:18:45Z → 08:18:59Z (sequential, ~14s).
+
+Each retraction follows the canonical template structure:
+```turtle
+sub:assertion {
+  orcid:0000-0001-8888-635X npx:retracts <target> .
+  sub:assertion rdfs:comment "<reason>" .
+}
+```
+…with pubinfo carrying `npx:hasNanopubType npx:retracts` and
+`nt:wasCreatedFromTemplate <RAQP3NJvnLA2Z…>`. Signed by Erik (required
+— each target was originally signed by him; `npx:retracts` only takes
+effect when the retractor matches the original publisher).
+
+### Post-retract verification
+
+`SELECT ?d WHERE { ?d a gen:ViewDisplay ; gen:appliesTo <project4-space> ;
+                       gen:isDisplayOfView ?view .
+                   FILTER NOT EXISTS { ?r npx:retracts ?n1 . ?n1 np:hasAssertion ?a . } }`
+→ **5 rows** (the 5 pre-existing pre-Stage-4 ViewDisplays). Both broken
+ones filtered out.
+
+Cross-check on admin-graph `npx:invalidates` derivation:
+- `RAq9o-TF0vcy…` invalidated by **both** `RAUVFxrhms_…` (yesterday's invalidation) **and** `RAcotTt-Cx0t…` (today's retraction)
+- `RAD5G7Z3kY14…` invalidated by **both** `RA0aGsMc41L8…` **and** `RAai9-l8-mfl…`
+- `RAUVFxrhms_…` invalidated by `RAn9jiewuL24…` (today's retraction of yesterday's invalidation)
+- `RA0aGsMc41L8…` invalidated by `RAq-qw1T5Mq…`
+
+Both filter conventions (`npx:retracts` and `npx:invalidates`) now drop
+the targets. The `npx:invalidates` nanopubs from yesterday are themselves
+retracted; the retractions and pin-actions stand as the canonical state.

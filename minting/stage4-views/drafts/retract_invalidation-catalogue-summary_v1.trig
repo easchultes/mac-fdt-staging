@@ -1,0 +1,39 @@
+@prefix this: <http://purl.org/nanopub/temp/np001/> .
+@prefix sub: <http://purl.org/nanopub/temp/np001/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  orcid:0000-0001-8888-635X npx:retracts <https://w3id.org/np/RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY> .
+  sub:assertion rdfs:comment "Wrong mechanism: used npx:invalidates rather than the publisher-facing npx:retracts. Superseded by an npx:retracts-based retraction in the same fix branch." .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-29T08:18:16Z"^^xsd:dateTime ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    npx:hasNanopubType npx:retracts ;
+    rdfs:label "Retraction of RAUVFxrhms_ (mistaken npx:invalidates nanopub, catalogue-summary)" ;
+    nt:wasCreatedFromTemplate <http://purl.org/np/RAQP3NJvnLA2Z-2DrYAN0nTC-RFp67td1t4-pQqQ_ZKmo> ;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU> ;
+    nt:wasCreatedFromPubinfoTemplate
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI> .
+}
