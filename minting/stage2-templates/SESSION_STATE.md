@@ -181,6 +181,57 @@ via SPARQL immediately (`SELECT … WHERE { <project4> gen:hasPinnedQuery
 | grlc-query template ("Defining a grlc query") | `https://w3id.org/np/RAEFAt-QcFK0ZhqfvlsmS10BnzGJA0xwOICZXkO-ai87k` |
 | Pin-query template ("Declare a pinned query for a Space") | `https://w3id.org/np/RAuLESdeRUlk1GcTwvzVXShiBMI0ntJs2DL2Bm5DzW_ZQ` |
 
+### Stage 4 fixes + extensions (2026-05-29)
+
+**Retraction fix.** Two stray ViewDisplay nanopubs were created via
+NanoDash UI on 2026-05-28 (after P135) that conflated mechanisms:
+`gen:isDisplayOfView` requires a `gen:View` wrapper, not a bare
+grlc-query. An initial fix used `npx:invalidates` directly; per Tobias's
+subsequent correction, the canonical publisher-facing predicate is
+`npx:retracts` (the admin layer materializes it into `npx:invalidates`
+for general queries). Result: **4 retraction nanopubs**, retracting the
+2 broken ViewDisplays AND the 2 mistaken `npx:invalidates` attempts.
+
+| Retraction target | Retraction Trusty URI |
+|---|---|
+| `RAq9o-TF0vcyIvK7Rn79IBIj1ePoZI1mAcErhVQjUb4vA` (broken ViewDisplay, catalogue-summary) | `https://w3id.org/np/RAcotTt-Cx0tSkMDxLQ0TuBGjwvBSVkeJBb8rQopUGz2M` |
+| `RAD5G7Z3kY14tsHLtunCJ26xpimAJ2-q1Thpf-4B8be84` (broken ViewDisplay, alpha-knowlet — Tobias's flag) | `https://w3id.org/np/RAai9-l8-mflaHqJQQ2X-4xAG2TmecKy7nb4FnHObCYOY` |
+| `RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY` (mistaken `npx:invalidates`, catalogue-summary) | `https://w3id.org/np/RAn9jiewuL24JBSwZxuEutlihEh10zGyE69mfnaCByIxA` |
+| `RA0aGsMc41L8xLWfJeXpTUMz-py1vMpBJSIy1P13xaxX8` (mistaken `npx:invalidates`, alpha-knowlet) | `https://w3id.org/np/RAq-qw1T5MqNeQ1ma9MO2YhjLiImRZzHGeBusqB7bhDSY` |
+
+Branch `stage4-views`, commit `dd9a75b`.
+
+**Embedded panels (Stage 4 second layer).** Project4 now has both
+discovery layers:
+
+- **Sidebar pinning** (P135) — `gen:hasPinnedQuery` action nanopubs put each query into the "Queries" panel as a navigable named query.
+- **Embedded panels** (this fix) — `gen:View` wrappers (typed `gen:ResourceView, gen:TabularView`) + correctly-typed ViewDisplays render each query result as an in-page dashboard table on the project4 Space page.
+
+Same 4 underlying grlc-queries drive both layers.
+
+| View | Wrapper Trusty URI | ViewDisplay Trusty URI |
+|---|---|---|
+| Catalogue summary by type      | `https://w3id.org/np/RAUQDFIiL73MByusDvrnMLRJaDW32bImYrq4aQN5CJmLM` | `https://w3id.org/np/RAvARpXohLClZVC3qZdtn1JihyPU12NsmTQAHoziXXRq4` |
+| Variants by WHO classification | `https://w3id.org/np/RA2orwJH_zUQQvUvKk0UHvCr5x8iAVhIopqLUFYyuy-Eg` | `https://w3id.org/np/RAywsGEhq4acHjLNY6rALv2vvhjGwqYsFeFayr3hwZ4iM` |
+| Observations per method        | `https://w3id.org/np/RAS-Wm3ewaQtz8rhzKY-EAyrJnYGZMq3MOz2AZ9fXQ5e8` | `https://w3id.org/np/RA-XrE3QY1r0Llm5TLurg0VcasOT_hfta-AM_4qp1srZo` |
+| Alpha digital-twin             | `https://w3id.org/np/RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | `https://w3id.org/np/RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` |
+
+Templates used: `gen:View` wrapper `RARLsTlqbTesu1b0WJZ-zL1z96xumOiqbK3l_vV6iZoww`; ViewDisplay `RAsc8FMsGih955oFSFG0YcB9sDKA62VLbp3VIw86IxMvk`.
+
+Branch `stage4-views`, commit `0d76d2b`.
+
+**Visual confirmation 2026-05-29:** all 4 panels render correctly on
+the project4 Space page after NanoDash indexing. Both discovery layers
+(sidebar pinning + embedded panels) operational.
+
+### Open candidate (not yet a task)
+
+Publish Epsilon and Eta knowlet queries as their own grlc-query nanopubs
+(and optionally their own wrappers + ViewDisplays) to mirror Alpha.
+Currently only Alpha is materialized as a published query nanopub;
+Epsilon and Eta have anchor FDOs and observations on the NSN but no
+dedicated knowlet view.
+
 ## Demonstration tally (all four stages)
 
 | Stage | Output | Live |
@@ -188,7 +239,7 @@ via SPARQL immediately (`SELECT … WHERE { <project4> gen:hasPinnedQuery
 | Stage 1 — vocabulary | 45 v2 vocab nanopubs (26 predicates + 19 classes) | ✓ |
 | Stage 2 — templates | 11 MAC FDT type templates (Types 1-11) | ✓ |
 | Stage 3 — instances | 38 instance FDOs (3 anchors + 5 methods + 18 predictions + 12 observations) | ✓ |
-| Stage 4 — views | 4 standing SPARQL views pinned to project4 | ✓ |
+| Stage 4 — views | 4 standing SPARQL views (sidebar pinning + embedded panels) on project4 | ✓ |
 
 **Full MAC FDT demonstration live on the NSN** — vocabulary, templates,
 instance catalogue, and discovery surface all in place.
@@ -215,7 +266,7 @@ instance catalogue, and discovery surface all in place.
 | Topic | Decision |
 |---|---|
 | **FDT validation space** | KP incubator project4 — `https://w3id.org/spaces/knowledgepixels/incubator/project4`. **11 templates pinned manually by Erik (admin) via NanoDash UI on 2026-05-27.** |
-| **Standing SPARQL views (pinned queries)** | 4 views pinned on 2026-05-28 via federated per-action nanopubs (no space-definition supersession). See "Stage 4 — standing SPARQL views" section above. |
+| **Standing SPARQL views (pinned queries)** | 4 views pinned on 2026-05-28 via federated per-action nanopubs (no space-definition supersession). Embedded panels added 2026-05-29 via 4 `gen:View` wrappers + 4 correctly-typed ViewDisplays (per Tobias's P141/P145 guidance). See "Stage 4 — standing SPARQL views" section above. |
 | **Permanent FDT space** | Deferred; likely MAC-namespace eventually. |
 | **`cito:` and `schema:` prefix handling** | Emitted as **full URIs** at predicate positions and as `external_resource_labels` entries — not in common scaffold @prefix header (would break Type 1 v4 round-trip). Documented in SPS v1.4 §"Implementation notes". |
 | **Mutation analytics** | External script over `mac:hasRBDSequence` (P60) — not in vocabulary. |
