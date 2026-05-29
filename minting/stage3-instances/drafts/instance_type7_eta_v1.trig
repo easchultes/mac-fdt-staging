@@ -1,0 +1,61 @@
+@prefix this: <http://purl.org/nanopub/temp/np001/> .
+@prefix sub: <http://purl.org/nanopub/temp/np001/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:Eta-DMS a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:ExperimentalDMSObservation ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "Eta DMS observation — Bloom Lab (bind=9.01256, expr=10.21898)" ;
+    rdfs:comment "Deep mutational scanning measurements (Bloom Lab) for SARS-CoV-2 Spike RBD variant Eta (E152K). Six values: bind=9.01256, delta_bind=0.24095, expr=10.21898, delta_expr=0.03311, confidence_bind=0.0722604927671021, confidence_expr=0.0697838486111459. All unitless." ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" ;
+    dct:publisher <https://ror.org/027bh9e22> ;
+    dct:isPartOf <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project> ;
+    mac:isObservationOf <https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant> ;
+    mac:hasExperimentalMethod <https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method> ;
+    mac:hasBind 9.01256 ;
+    mac:hasDeltaBind 0.24095 ;
+    mac:hasExpr 10.21898 ;
+    mac:hasDeltaExpr 0.03311 ;
+    mac:hasConfidenceBind 0.0722604927671021 ;
+    mac:hasConfidenceExpr 0.0697838486111459 .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:Eta-DMS ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig> ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-28T08:20:53Z"^^xsd:dateTime ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:label "Eta DMS observation — Bloom Lab (bind=9.01256, expr=10.21898)" ;
+    npx:introduces sub:Eta-DMS ;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAp-dZcpmyNxtFsh7G0G1CDzzP2vPqoXVZSnlYRVQ_5Yk> ;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU> ;
+    nt:wasCreatedFromPubinfoTemplate
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+      <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ> .
+}

@@ -483,6 +483,359 @@ def generate_prediction_instance(config: dict, created: str) -> str:
 
 
 # ============================================================
+# Occurrence instance template (Type 2 — Real-World Occurrence)
+# ============================================================
+
+OCCURRENCE_ASSERTION = """\
+
+sub:assertion {{
+  sub:{instance_id} a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:RealWorldOccurrence ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "{instance_label}" ;
+    rdfs:comment "{instance_description}" ;
+    dct:creator orcid:{creator_orcid} ;
+    <https://www.w3.org/ns/dcat#contactPoint> "{contact_email}" ;
+    dct:publisher <{publisher_ror}> ;
+    dct:isPartOf <{project_fdo}> ;
+    mac:isObservationOf <{variant_fdo}> ;
+    mac:hasSurveillanceMethod <{method_fdo}> ;
+    mac:hasOccurrenceDate "{occurrence_date}" ;
+    mac:hasCollectionLocation <{location_uri}> ;
+    mac:hasGISAIDAccession "{gisaid_accession}" .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:{instance_id} ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <{trig_media_type}> ;
+    dct:license <{license}> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}}
+"""
+
+
+def validate_occurrence_config(config: dict) -> list:
+    errors = []
+    required = [
+        "instance_id", "instance_label", "instance_description",
+        "template_uri", "variant_fdo", "method_fdo",
+        "occurrence_date", "location_uri", "gisaid_accession",
+        "creator_orcid", "contact_email", "publisher_ror",
+    ]
+    for key in required:
+        if key not in config or config[key] in (None, "", []):
+            errors.append(f"missing required config key: {key}")
+    if "gisaid_accession" in config and not GISAID_ACCESSION_REGEX.match(config["gisaid_accession"]):
+        errors.append(f"gisaid_accession {config['gisaid_accession']!r} does not match EPI_ISL_\\d+")
+    return errors
+
+
+def check_mandatory_occurrence_statements(trig_text: str) -> dict:
+    missing = []
+    required = {
+        "rdf:type fdof:FAIRDigitalObject":  r"<https://w3id\.org/fdof/ontology#FAIRDigitalObject>",
+        "rdf:type mac:RealWorldOccurrence": r"mac:RealWorldOccurrence",
+        "fdof:hasMetadata":                  r"<https://w3id\.org/fdof/ontology#hasMetadata>",
+        "rdfs:label":                        r"rdfs:label",
+        "dct:creator":                       r"dct:creator",
+        "dcat:contactPoint":                 r"<https://www\.w3\.org/ns/dcat#contactPoint>",
+        "dct:publisher":                     r"dct:publisher",
+        "dct:isPartOf":                      r"dct:isPartOf",
+        "mac:isObservationOf":               r"mac:isObservationOf",
+        "mac:hasSurveillanceMethod":         r"mac:hasSurveillanceMethod",
+        "mac:hasOccurrenceDate":             r"mac:hasOccurrenceDate",
+        "mac:hasCollectionLocation":         r"mac:hasCollectionLocation",
+        "mac:hasGISAIDAccession":            r"mac:hasGISAIDAccession",
+        "fdof:materializes":                 r"<https://w3id\.org/fdof/ontology#materializes>",
+        "fdof:hasEncodingFormat":            r"<https://w3id\.org/fdof/ontology#hasEncodingFormat>",
+        "dct:license":                       r"dct:license",
+        "dcat:accessURL":                    r"<https://www\.w3\.org/ns/dcat#accessURL>",
+    }
+    for name, pattern in required.items():
+        if not re.search(pattern, trig_text):
+            missing.append(name)
+    forbidden = {
+        "cito:citesAsAuthority": r"citesAsAuthority",
+        "dct:source":             r"dct:source",
+        "dct:references":         r"dct:references",
+    }
+    forbidden_present = [name for name, pattern in forbidden.items()
+                         if re.search(pattern, trig_text)]
+    return {"missing": missing, "forbidden_present": forbidden_present}
+
+
+def generate_occurrence_instance(config: dict, created: str) -> str:
+    return (
+        PREFIXES_AND_HEAD
+        + OCCURRENCE_ASSERTION.format(
+            instance_id=config["instance_id"],
+            instance_label=config["instance_label"],
+            instance_description=config["instance_description"],
+            creator_orcid=config["creator_orcid"],
+            contact_email=config["contact_email"],
+            publisher_ror=config["publisher_ror"],
+            project_fdo=STAYAHEAD_PROJECT_FDO,
+            variant_fdo=config["variant_fdo"],
+            method_fdo=config["method_fdo"],
+            occurrence_date=config["occurrence_date"],
+            location_uri=config["location_uri"],
+            gisaid_accession=config["gisaid_accession"],
+            trig_media_type=TRIG_MEDIA_TYPE,
+            license=CC_BY_4,
+        )
+        + PROVENANCE.format(creator_orcid=config["creator_orcid"])
+        + PUBINFO.format(
+            created=created,
+            creator_orcid=config["creator_orcid"],
+            license=CC_BY_4,
+            instance_label=config["instance_label"],
+            instance_id=config["instance_id"],
+            template_uri=config["template_uri"],
+            provenance_template_uri=PROVENANCE_TEMPLATE_URI,
+            pubinfo_template_1=PUBINFO_TEMPLATES[0],
+            pubinfo_template_2=PUBINFO_TEMPLATES[1],
+            pubinfo_template_3=PUBINFO_TEMPLATES[2],
+            pubinfo_template_4=PUBINFO_TEMPLATES[3],
+        )
+    )
+
+
+# ============================================================
+# DMS instance template (Type 7 — Experimental Measurement)
+# ============================================================
+
+DMS_ASSERTION = """\
+
+sub:assertion {{
+  sub:{instance_id} a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:ExperimentalDMSObservation ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "{instance_label}" ;
+    rdfs:comment "{instance_description}" ;
+    dct:creator orcid:{creator_orcid} ;
+    <https://www.w3.org/ns/dcat#contactPoint> "{contact_email}" ;
+    dct:publisher <{publisher_ror}> ;
+    dct:isPartOf <{project_fdo}> ;
+    mac:isObservationOf <{variant_fdo}> ;
+    mac:hasExperimentalMethod <{method_fdo}> ;
+    mac:hasBind {bind} ;
+    mac:hasDeltaBind {delta_bind} ;
+    mac:hasExpr {expr} ;
+    mac:hasDeltaExpr {delta_expr} ;
+    mac:hasConfidenceBind {confidence_bind} ;
+    mac:hasConfidenceExpr {confidence_expr} .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:{instance_id} ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <{trig_media_type}> ;
+    dct:license <{license}> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}}
+"""
+
+DECIMAL_RE_LOCAL = re.compile(r"^-?\d+\.\d+$")
+
+
+def validate_dms_config(config: dict) -> list:
+    errors = []
+    required = [
+        "instance_id", "instance_label", "instance_description",
+        "template_uri", "variant_fdo", "method_fdo",
+        "bind", "delta_bind", "expr", "delta_expr",
+        "confidence_bind", "confidence_expr",
+        "creator_orcid", "contact_email", "publisher_ror",
+    ]
+    for key in required:
+        if key not in config or config[key] in (None, "", []):
+            errors.append(f"missing required config key: {key}")
+    for k in ("bind", "delta_bind", "expr", "delta_expr",
+              "confidence_bind", "confidence_expr"):
+        if k in config and not DECIMAL_RE_LOCAL.match(str(config[k])):
+            errors.append(f"{k} value {config[k]!r} is not a decimal literal")
+    return errors
+
+
+def check_mandatory_dms_statements(trig_text: str) -> dict:
+    missing = []
+    required = {
+        "rdf:type fdof:FAIRDigitalObject":     r"<https://w3id\.org/fdof/ontology#FAIRDigitalObject>",
+        "rdf:type mac:ExperimentalDMSObservation": r"mac:ExperimentalDMSObservation",
+        "fdof:hasMetadata":                     r"<https://w3id\.org/fdof/ontology#hasMetadata>",
+        "rdfs:label":                           r"rdfs:label",
+        "dct:creator":                          r"dct:creator",
+        "dcat:contactPoint":                    r"<https://www\.w3\.org/ns/dcat#contactPoint>",
+        "dct:publisher":                        r"dct:publisher",
+        "dct:isPartOf":                         r"dct:isPartOf",
+        "mac:isObservationOf":                  r"mac:isObservationOf",
+        "mac:hasExperimentalMethod":            r"mac:hasExperimentalMethod",
+        "mac:hasBind":                          r"mac:hasBind ",
+        "mac:hasDeltaBind":                     r"mac:hasDeltaBind",
+        "mac:hasExpr":                          r"mac:hasExpr ",
+        "mac:hasDeltaExpr":                     r"mac:hasDeltaExpr",
+        "mac:hasConfidenceBind":                r"mac:hasConfidenceBind",
+        "mac:hasConfidenceExpr":                r"mac:hasConfidenceExpr",
+        "fdof:materializes":                    r"<https://w3id\.org/fdof/ontology#materializes>",
+        "fdof:hasEncodingFormat":               r"<https://w3id\.org/fdof/ontology#hasEncodingFormat>",
+        "dct:license":                          r"dct:license",
+        "dcat:accessURL":                       r"<https://www\.w3\.org/ns/dcat#accessURL>",
+    }
+    for name, pattern in required.items():
+        if not re.search(pattern, trig_text):
+            missing.append(name)
+    forbidden = {
+        "cito:citesAsAuthority": r"citesAsAuthority",
+        "dct:references":         r"dct:references",
+    }
+    forbidden_present = [name for name, pattern in forbidden.items()
+                         if re.search(pattern, trig_text)]
+    return {"missing": missing, "forbidden_present": forbidden_present}
+
+
+def generate_dms_instance(config: dict, created: str) -> str:
+    return (
+        PREFIXES_AND_HEAD
+        + DMS_ASSERTION.format(
+            instance_id=config["instance_id"],
+            instance_label=config["instance_label"],
+            instance_description=config["instance_description"],
+            creator_orcid=config["creator_orcid"],
+            contact_email=config["contact_email"],
+            publisher_ror=config["publisher_ror"],
+            project_fdo=STAYAHEAD_PROJECT_FDO,
+            variant_fdo=config["variant_fdo"],
+            method_fdo=config["method_fdo"],
+            bind=config["bind"],
+            delta_bind=config["delta_bind"],
+            expr=config["expr"],
+            delta_expr=config["delta_expr"],
+            confidence_bind=config["confidence_bind"],
+            confidence_expr=config["confidence_expr"],
+            trig_media_type=TRIG_MEDIA_TYPE,
+            license=CC_BY_4,
+        )
+        + PROVENANCE.format(creator_orcid=config["creator_orcid"])
+        + PUBINFO.format(
+            created=created,
+            creator_orcid=config["creator_orcid"],
+            license=CC_BY_4,
+            instance_label=config["instance_label"],
+            instance_id=config["instance_id"],
+            template_uri=config["template_uri"],
+            provenance_template_uri=PROVENANCE_TEMPLATE_URI,
+            pubinfo_template_1=PUBINFO_TEMPLATES[0],
+            pubinfo_template_2=PUBINFO_TEMPLATES[1],
+            pubinfo_template_3=PUBINFO_TEMPLATES[2],
+            pubinfo_template_4=PUBINFO_TEMPLATES[3],
+        )
+    )
+
+
+# ============================================================
+# WHO classification template (Type 8)
+# ============================================================
+
+WHO_ASSERTION = """\
+
+sub:assertion {{
+  sub:{instance_id} a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:WHOVariantClassification ;
+    <https://w3id.org/fdof/ontology#hasMetadata> this: ;
+    rdfs:label "{instance_label}" ;
+    rdfs:comment "{instance_description}" ;
+    dct:creator orcid:{creator_orcid} ;
+    <https://www.w3.org/ns/dcat#contactPoint> "{contact_email}" ;
+    dct:publisher <{publisher_ror}> ;
+    dct:isPartOf <{project_fdo}> ;
+    mac:isObservationOf <{variant_fdo}> ;
+    mac:hasWHOClassification {classification_curie} ;
+    mac:hasClassificationDate "{classification_date}" .
+
+  this: <https://w3id.org/fdof/ontology#materializes> sub:{instance_id} ;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <{trig_media_type}> ;
+    dct:license <{license}> ;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+}}
+"""
+
+
+def validate_who_config(config: dict) -> list:
+    errors = []
+    required = [
+        "instance_id", "instance_label", "instance_description",
+        "template_uri", "variant_fdo",
+        "classification_curie", "classification_date",
+        "creator_orcid", "contact_email", "publisher_ror",
+    ]
+    for key in required:
+        if key not in config or config[key] in (None, "", []):
+            errors.append(f"missing required config key: {key}")
+    if "classification_curie" in config:
+        if config["classification_curie"] not in ("mac:VOC", "mac:VOI", "mac:VUM"):
+            errors.append(f"classification_curie must be mac:VOC, mac:VOI, or mac:VUM; got {config['classification_curie']!r}")
+    return errors
+
+
+def check_mandatory_who_statements(trig_text: str) -> dict:
+    missing = []
+    required = {
+        "rdf:type fdof:FAIRDigitalObject":      r"<https://w3id\.org/fdof/ontology#FAIRDigitalObject>",
+        "rdf:type mac:WHOVariantClassification": r"mac:WHOVariantClassification",
+        "fdof:hasMetadata":                     r"<https://w3id\.org/fdof/ontology#hasMetadata>",
+        "rdfs:label":                           r"rdfs:label",
+        "dct:creator":                          r"dct:creator",
+        "dcat:contactPoint":                    r"<https://www\.w3\.org/ns/dcat#contactPoint>",
+        "dct:publisher":                        r"dct:publisher",
+        "dct:isPartOf":                         r"dct:isPartOf",
+        "mac:isObservationOf":                  r"mac:isObservationOf",
+        "mac:hasWHOClassification":             r"mac:hasWHOClassification",
+        "mac:hasClassificationDate":            r"mac:hasClassificationDate",
+        "fdof:materializes":                    r"<https://w3id\.org/fdof/ontology#materializes>",
+        "fdof:hasEncodingFormat":               r"<https://w3id\.org/fdof/ontology#hasEncodingFormat>",
+        "dct:license":                          r"dct:license",
+        "dcat:accessURL":                       r"<https://www\.w3\.org/ns/dcat#accessURL>",
+    }
+    for name, pattern in required.items():
+        if not re.search(pattern, trig_text):
+            missing.append(name)
+    forbidden = {
+        "cito:citesAsAuthority": r"citesAsAuthority",
+        "dct:source":             r"dct:source",
+        "dct:references":         r"dct:references",
+    }
+    forbidden_present = [name for name, pattern in forbidden.items()
+                         if re.search(pattern, trig_text)]
+    return {"missing": missing, "forbidden_present": forbidden_present}
+
+
+def generate_who_instance(config: dict, created: str) -> str:
+    return (
+        PREFIXES_AND_HEAD
+        + WHO_ASSERTION.format(
+            instance_id=config["instance_id"],
+            instance_label=config["instance_label"],
+            instance_description=config["instance_description"],
+            creator_orcid=config["creator_orcid"],
+            contact_email=config["contact_email"],
+            publisher_ror=config["publisher_ror"],
+            project_fdo=STAYAHEAD_PROJECT_FDO,
+            variant_fdo=config["variant_fdo"],
+            classification_curie=config["classification_curie"],
+            classification_date=config["classification_date"],
+            trig_media_type=TRIG_MEDIA_TYPE,
+            license=CC_BY_4,
+        )
+        + PROVENANCE.format(creator_orcid=config["creator_orcid"])
+        + PUBINFO.format(
+            created=created,
+            creator_orcid=config["creator_orcid"],
+            license=CC_BY_4,
+            instance_label=config["instance_label"],
+            instance_id=config["instance_id"],
+            template_uri=config["template_uri"],
+            provenance_template_uri=PROVENANCE_TEMPLATE_URI,
+            pubinfo_template_1=PUBINFO_TEMPLATES[0],
+            pubinfo_template_2=PUBINFO_TEMPLATES[1],
+            pubinfo_template_3=PUBINFO_TEMPLATES[2],
+            pubinfo_template_4=PUBINFO_TEMPLATES[3],
+        )
+    )
+
+
+# ============================================================
 # Generation (Type 1)
 # ============================================================
 
@@ -571,6 +924,66 @@ def main():
         ok_note = (f"OK: wrote {args.out} ({len(output)} bytes, method instance "
                    f"({config['class_curie']}), {len(config['authorities'])} authority/-ies, "
                    f"mandatory statements all present, forbidden statements absent)\n")
+    elif kind == "occurrence":
+        errors = validate_occurrence_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate_occurrence_instance(config, created)
+        result = check_mandatory_occurrence_statements(output)
+        if result["missing"]:
+            sys.stderr.write("Mandatory occurrence statements missing:\n")
+            for m in result["missing"]:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        if result["forbidden_present"]:
+            sys.stderr.write("Forbidden statements present (occurrence instances must not carry these):\n")
+            for f in result["forbidden_present"]:
+                sys.stderr.write(f"  - {f}\n")
+            return 1
+        ok_note = f"OK: wrote {args.out} ({len(output)} bytes, occurrence instance — {config['instance_id']})\n"
+    elif kind == "dms":
+        errors = validate_dms_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate_dms_instance(config, created)
+        result = check_mandatory_dms_statements(output)
+        if result["missing"]:
+            sys.stderr.write("Mandatory DMS statements missing:\n")
+            for m in result["missing"]:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        if result["forbidden_present"]:
+            sys.stderr.write("Forbidden statements present (DMS instances must not carry these):\n")
+            for f in result["forbidden_present"]:
+                sys.stderr.write(f"  - {f}\n")
+            return 1
+        ok_note = f"OK: wrote {args.out} ({len(output)} bytes, DMS instance — {config['instance_id']})\n"
+    elif kind == "who":
+        errors = validate_who_config(config)
+        if errors:
+            sys.stderr.write("Config validation errors:\n")
+            for e in errors:
+                sys.stderr.write(f"  - {e}\n")
+            return 1
+        output = generate_who_instance(config, created)
+        result = check_mandatory_who_statements(output)
+        if result["missing"]:
+            sys.stderr.write("Mandatory WHO statements missing:\n")
+            for m in result["missing"]:
+                sys.stderr.write(f"  - {m}\n")
+            return 1
+        if result["forbidden_present"]:
+            sys.stderr.write("Forbidden statements present (WHO instances must not carry these):\n")
+            for f in result["forbidden_present"]:
+                sys.stderr.write(f"  - {f}\n")
+            return 1
+        ok_note = f"OK: wrote {args.out} ({len(output)} bytes, WHO instance — {config['classification_curie']})\n"
     elif kind == "prediction":
         errors = validate_prediction_config(config)
         if errors:

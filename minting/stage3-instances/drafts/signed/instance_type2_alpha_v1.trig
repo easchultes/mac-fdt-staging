@@ -1,0 +1,62 @@
+@prefix this: <https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0> .
+@prefix sub: <https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  this: dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig>;
+    <https://w3id.org/fdof/ontology#materializes> sub:Alpha-Occurrence;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+  
+  sub:Alpha-Occurrence a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:RealWorldOccurrence;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:isPartOf <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    rdfs:comment "Real-world detection of SARS-CoV-2 Spike variant Alpha (B.1.1.7) in England during late 2020-2021, as reported in GISAID (accession EPI_ISL_601443).";
+    rdfs:label "Alpha real-world occurrence — England (late 2020-2021)";
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    mac:hasCollectionLocation <https://sws.geonames.org/6269131/>;
+    mac:hasGISAIDAccession "EPI_ISL_601443";
+    mac:hasOccurrenceDate "late 2020-2021";
+    mac:hasSurveillanceMethod <https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method>;
+    mac:isObservationOf <https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant>;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-05-28T08:20:53Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:Alpha-Occurrence;
+    rdfs:label "Alpha real-world occurrence — England (late 2020-2021)";
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>, <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RA_-AALlM1rIYcJRsFUrIfSb5KYSvjiHUZbQbN-cpeV6w> .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "1qxARCoTId1LrI8/Dp/jYMqycjjr3NClZActeGiqXy2xpV2sjMMv/RqOAuUTC7QxrPcCwhfob9kGZ4DTuFraFoeNnc2DM6YAnJJ8REGmI1c+mfNAsRajj+eniBTqpY8yeY+J6g6YsBjqSi7AkFBYK0VddDcPZtdmNk2swQ55+xA=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}
