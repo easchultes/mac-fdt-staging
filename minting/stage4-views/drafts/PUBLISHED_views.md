@@ -1,0 +1,326 @@
+# Stage 4 — Standing SPARQL views pinned to incubator/project4
+
+> **2026-05-29 follow-up fix (revised).** Tobias flagged that two stray
+> ViewDisplay nanopubs (created via NanoDash UI on 2026-05-28 after the
+> P135 pin-action publish) incorrectly fed our grlc-queries into
+> `gen:isDisplayOfView`, which expects a `gen:View` wrapper (not a bare
+> grlc-query). The initial fix attempt used `npx:invalidates` directly;
+> per Tobias's subsequent guidance, the **canonical publisher-facing
+> predicate is `npx:retracts`** (the admin layer materializes it into
+> `npx:invalidates` for general queries). The current state on the
+> registry: **4 retraction nanopubs published 2026-05-29** — 2 retracting
+> the broken ViewDisplays, and 2 retracting the prior `npx:invalidates`
+> attempts (for cleanliness). The P135 pin-actions remain canonical for
+> the project4 "Queries" sidebar pinning. See "Retractions" section at
+> the bottom.
+
+Four grlc-query nanopubs + four pin-query action nanopubs published to
+the live NSN on 2026-05-28. Each query is bounded (GROUP BY aggregates
+or one fixed-referent knowlet) and remains scale-correct at Tranche-2
+volume.
+
+## Query nanopubs (4)
+
+| Key | Trusty URI | Label |
+|---|---|---|
+| catalogue-summary       | `https://w3id.org/np/RAGlsCUDZrgFmlRQ8RNIpaWHaKAnRX7SGjEqOCGoWsM8A` | MAC FDT — catalogue summary by type |
+| variants-by-who         | `https://w3id.org/np/RAlD3u-iOS5P95TlvydUePQCOqKyVsPLebBNTnu4lw7po` | MAC FDT — variants by WHO classification |
+| observations-per-method | `https://w3id.org/np/RAIKnskDgF8ZX-hOIC1UKLSxDapH1K1FjkNKi5Or-A3ws` | MAC FDT — observations per method |
+| alpha-knowlet           | `https://w3id.org/np/RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` | MAC FDT — Alpha variant digital twin (knowlet) |
+
+Publish window: 2026-05-28T10:52:37Z → 10:52:51Z (sequential).
+
+Each query carries: `rdfs:label`, `dct:description`, `dct:license <Apache-2.0>`,
+`<grlc/endpoint> <…/nanopub-query-1.1/repo/full>`, `<grlc/sparql>` (verbatim
+SPARQL text). Created from template `RAEFAt-QcFK0Zhqfvls…` ("Defining a grlc
+query"). Signed by `orcid:0000-0001-8888-635X` (Erik).
+
+## Pin-query action nanopubs (4)
+
+| Key | Pin action Trusty URI | Group tag |
+|---|---|---|
+| catalogue-summary       | `https://w3id.org/np/RAr2do6-Zm_F5tv9NP4iziOpRCX-mJUZzCqUfY-brnNRY` | Catalogue overview |
+| variants-by-who         | `https://w3id.org/np/RAkwEb52MHk6Xe4uzOruIAkmGZAq4URDyg5bPqx4SXY1Y` | Situational dashboards |
+| observations-per-method | `https://w3id.org/np/RAZge9g-AM2aYodnkKrlt6ag1s1QPYjTYBCJZaPezTZ6M` | Situational dashboards |
+| alpha-knowlet           | `https://w3id.org/np/RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE` | Digital twin (worked example) |
+
+Publish window: 2026-05-28T10:53:25Z → 10:53:38Z (sequential).
+
+Each pin action asserts:
+```
+<https://w3id.org/spaces/knowledgepixels/incubator/project4>
+    gen:hasPinnedQuery <query-Trusty-URI> .
+<query-Trusty-URI> gen:hasPinGroupTag "<group-tag>" .
+```
+…and carries `npx:hasNanopubType <gen:hasPinnedQuery>`. Created from template
+`RAuLESdeRUlk1Gc…` ("Declare a pinned query for a Space"). Signed by Erik
+(admin of project4 via `gen:hasAdmin`).
+
+Bare Trusty URI form used for `gen:hasPinnedQuery` value (matching
+project4's existing pin-template convention) — not the MAC-FDO
+NanoDash-UI-URL form.
+
+## Verification
+
+- All 8 nanopubs (4 queries + 4 pins): registry HEAD `307 → 200`, signature roundtrip **MATCH** — **8/8 OK**.
+- SPARQL query on `…/repo/full`:
+  ```
+  SELECT ?query ?tag WHERE { …
+    GRAPH ?pinA {
+      <project4-space> gen:hasPinnedQuery ?query .
+      ?query gen:hasPinGroupTag ?tag .
+    }
+  }
+  ```
+  returns **4 rows**, each with the correct query Trusty URI and group tag.
+- Labels resolve via the query nanopubs' assertion graphs: all 4 query `rdfs:label`s match the published values.
+
+## NanoDash space-view render
+
+URL: `https://nanodash.knowledgepixels.com/space?id=https://w3id.org/spaces/knowledgepixels/incubator/project4`
+
+The space view is a Wicket SPA — the curl-fetched HTML body (44,850 bytes) does not yet show the new pinned-query items (they render via JS after page load). The underlying NSN data is correct (verified via SPARQL above); the views will appear in a browser session. Manual browser inspection recommended for final visual confirmation.
+
+## SPARQL queries — verbatim
+
+All four queries share these prefixes:
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX np:   <http://www.nanopub.org/nschema#>
+PREFIX npa:  <http://purl.org/nanopub/admin/>
+PREFIX npx:  <http://purl.org/nanopub/x/>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX fdof: <https://w3id.org/fdof/ontology#>
+PREFIX mac:  <https://w3id.org/spaces/mac/r/ontology/>
+```
+…and the signature-validation block:
+```sparql
+GRAPH npa:graph {
+  ?n1 npa:hasValidSignatureForPublicKey ?pubkey .
+  filter not exists {
+    ?np2 npx:invalidates ?n1 ;
+         npa:hasValidSignatureForPublicKey ?pubkey .
+  }
+  ?n1 np:hasAssertion ?a .
+}
+```
+
+### View A — catalogue summary by type
+```sparql
+SELECT ?type (COUNT(?thing) AS ?count) WHERE {
+  <sig block>
+  graph ?a {
+    ?thing a fdof:FAIRDigitalObject .
+    ?thing a ?type .
+    FILTER(?type != fdof:FAIRDigitalObject)
+    FILTER(STRSTARTS(STR(?type), "https://w3id.org/spaces/mac/r/ontology/"))
+  }
+} GROUP BY ?type ORDER BY DESC(?count)
+```
+Phase-1 dry-run: 11 rows, sums to 38.
+
+### View B — variants by WHO classification
+```sparql
+SELECT ?whoClass (COUNT(?variant) AS ?count) WHERE {
+  <sig block>
+  graph ?a {
+    ?obs a mac:WHOVariantClassification .
+    ?obs mac:hasWHOClassification ?whoClass .
+    ?obs mac:isObservationOf ?variant .
+  }
+} GROUP BY ?whoClass ORDER BY DESC(?count)
+```
+Phase-1 dry-run: VOI=2, VOC=1.
+
+### View C — observations per method
+```sparql
+SELECT ?method (COUNT(?obs) AS ?count) WHERE {
+  <sig block>
+  graph ?a {
+    ?obs ?methodPred ?method .
+    VALUES ?methodPred { mac:hasPredictionMethod mac:hasExperimentalMethod mac:hasSurveillanceMethod }
+  }
+} GROUP BY ?method ORDER BY DESC(?count)
+```
+Phase-1 dry-run: ESM2=9, AlphaFold2=9, Bloom=3, AgMata=3, GISAID=3.
+
+### View D — Alpha knowlet
+```sparql
+SELECT ?obs ?type ?label WHERE {
+  <sig block>
+  graph ?a {
+    ?obs mac:isObservationOf <https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant> .
+    ?obs a ?type .
+    FILTER(?type != fdof:FAIRDigitalObject)
+    OPTIONAL { ?obs rdfs:label ?label . }
+  }
+} ORDER BY ?type
+```
+Phase-1 dry-run: 10 rows (Alpha's complete observation set).
+
+## Architecture notes
+
+- **Federated pin model** for project4: per-action nanopubs, no supersession of the space-definition (`RAuHVN25piF5…`). Erik's `gen:hasAdmin` on project4 is sufficient authorization.
+- **Endpoint choice** `…/nanopub-query-1.1/repo/full` (signature-validated). Each result is restricted to nanopubs with valid signatures and not invalidated by their own signer.
+- **Scale**: all four views remain bounded under Tranche-2 (~22 230+ prediction instances). View A's rows are capped by MAC type cardinality (11). View B by WHO class cardinality (3). View C by method cardinality (5). View D by Alpha's observation set (constant at 10 in the demonstration; would grow modestly if more observation types are added to Alpha, but not with Tranche 2 since Tranche 2 introduces NEW variants, not new Alpha observations).
+
+## Invalidations (2026-05-29 fix)
+
+After P135 we noticed two stray ViewDisplay nanopubs that Erik had
+created via NanoDash UI experimentally on 2026-05-28 — they fed our
+grlc-query nanopubs into `gen:isDisplayOfView`, but that predicate
+expects a `gen:View` wrapper (e.g. `gen:ResourceView` with
+`gen:hasViewQuery`), not a bare grlc-query. Tobias flagged the
+mismatch.
+
+Fix: two invalidation nanopubs, each asserting `this: npx:invalidates
+<broken-trusty>` plus an `rdfs:comment` explanatory note. Both signed
+by Erik and published 2026-05-29.
+
+| Broken ViewDisplay | Invalidation nanopub |
+|---|---|
+| `https://w3id.org/np/RAq9o-TF0vcyIvK7Rn79IBIj1ePoZI1mAcErhVQjUb4vA` (catalogue-summary VD, 2026-05-28 11:14Z) | `https://w3id.org/np/RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY` |
+| `https://w3id.org/np/RAD5G7Z3kY14tsHLtunCJ26xpimAJ2-q1Thpf-4B8be84` (alpha-knowlet VD, 2026-05-28 17:56Z; Tobias's flag) | `https://w3id.org/np/RA0aGsMc41L8xLWfJeXpTUMz-py1vMpBJSIy1P13xaxX8` |
+
+Publish window: 2026-05-29T07:30:24Z → 07:30:31Z (sequential, 7s).
+
+### Post-invalidation verification
+
+SPARQL on `…/repo/full`:
+```sparql
+SELECT ?n1 ?view WHERE {
+  GRAPH npa:graph {
+    ?n1 npa:hasValidSignatureForPublicKey ?pk .
+    FILTER NOT EXISTS { ?inv npx:invalidates ?n1 ; … }
+    ?n1 np:hasAssertion ?a .
+  }
+  GRAPH ?a {
+    ?display a gen:ViewDisplay .
+    ?display gen:appliesTo <project4-space> .
+    ?display gen:isDisplayOfView ?view .
+  }
+}
+```
+returns **5 rows** — the 5 pre-existing, correctly-formed ViewDisplays
+(simple-message-view, news-list-view, relevant-resource-view, and two
+pinned-templates-view entries). The 2 broken ViewDisplays no longer
+appear; direct invalidates-query confirms both are filtered.
+
+The 4 P135 pin-action nanopubs (`gen:hasPinnedQuery` on the bare
+queries) remain canonical for the "Queries" sidebar pinning on
+project4.
+
+## Retractions v2 (2026-05-29, npx:retracts — superseding the npx:invalidates attempt above)
+
+Per Tobias: the canonical publisher-facing predicate is **`npx:retracts`**
+(NanoDash template `RAQP3NJvnLA2Z…` — "Retracting a nanopublication that
+I published"). The admin layer materializes retractions into the same
+`npx:invalidates` triples in `GRAPH npa:graph`, so both filter
+conventions in user-facing SPARQL drop the targets.
+
+Four retraction nanopubs published — 2 retiring the broken ViewDisplays
+and 2 retiring the prior `npx:invalidates` attempts (for cleanliness):
+
+| Target | Reason | Retraction nanopub |
+|---|---|---|
+| `https://w3id.org/np/RAq9o-TF0vcyIvK7Rn79IBIj1ePoZI1mAcErhVQjUb4vA` (broken ViewDisplay, catalogue-summary) | Conflated mechanism — ViewDisplay needs a `gen:View` wrapper | `https://w3id.org/np/RAcotTt-Cx0tSkMDxLQ0TuBGjwvBSVkeJBb8rQopUGz2M` |
+| `https://w3id.org/np/RAD5G7Z3kY14tsHLtunCJ26xpimAJ2-q1Thpf-4B8be84` (broken ViewDisplay, alpha-knowlet — Tobias's flag) | Conflated mechanism | `https://w3id.org/np/RAai9-l8-mflaHqJQQ2X-4xAG2TmecKy7nb4FnHObCYOY` |
+| `https://w3id.org/np/RAUVFxrhms_YLANEQdoQjn8nNgDRW18ZcRx3m-mndVXRY` (prior `npx:invalidates` attempt, catalogue-summary) | Wrong mechanism — superseded by `npx:retracts` | `https://w3id.org/np/RAn9jiewuL24JBSwZxuEutlihEh10zGyE69mfnaCByIxA` |
+| `https://w3id.org/np/RA0aGsMc41L8xLWfJeXpTUMz-py1vMpBJSIy1P13xaxX8` (prior `npx:invalidates` attempt, alpha-knowlet) | Wrong mechanism | `https://w3id.org/np/RAq-qw1T5MqNeQ1ma9MO2YhjLiImRZzHGeBusqB7bhDSY` |
+
+Publish window: 2026-05-29T08:18:45Z → 08:18:59Z (sequential, ~14s).
+
+Each retraction follows the canonical template structure:
+```turtle
+sub:assertion {
+  orcid:0000-0001-8888-635X npx:retracts <target> .
+  sub:assertion rdfs:comment "<reason>" .
+}
+```
+…with pubinfo carrying `npx:hasNanopubType npx:retracts` and
+`nt:wasCreatedFromTemplate <RAQP3NJvnLA2Z…>`. Signed by Erik (required
+— each target was originally signed by him; `npx:retracts` only takes
+effect when the retractor matches the original publisher).
+
+### Post-retract verification
+
+`SELECT ?d WHERE { ?d a gen:ViewDisplay ; gen:appliesTo <project4-space> ;
+                       gen:isDisplayOfView ?view .
+                   FILTER NOT EXISTS { ?r npx:retracts ?n1 . ?n1 np:hasAssertion ?a . } }`
+→ **5 rows** (the 5 pre-existing pre-Stage-4 ViewDisplays). Both broken
+ones filtered out.
+
+Cross-check on admin-graph `npx:invalidates` derivation:
+- `RAq9o-TF0vcy…` invalidated by **both** `RAUVFxrhms_…` (yesterday's invalidation) **and** `RAcotTt-Cx0t…` (today's retraction)
+- `RAD5G7Z3kY14…` invalidated by **both** `RA0aGsMc41L8…` **and** `RAai9-l8-mfl…`
+- `RAUVFxrhms_…` invalidated by `RAn9jiewuL24…` (today's retraction of yesterday's invalidation)
+- `RA0aGsMc41L8…` invalidated by `RAq-qw1T5Mq…`
+
+Both filter conventions (`npx:retracts` and `npx:invalidates`) now drop
+the targets. The `npx:invalidates` nanopubs from yesterday are themselves
+retracted; the retractions and pin-actions stand as the canonical state.
+
+## Embedded panels (2026-05-29, gen:View wrappers + ViewDisplays)
+
+The P135 pin-actions populate the **"Queries" sidebar** mechanism on
+the project4 page. To populate the **embedded panels** mechanism (the
+visible-without-clicking dashboard panels that render in-page), we
+also mint:
+
+- One `gen:View` wrapper per query — typed `gen:ResourceView,
+  gen:TabularView`, carrying `gen:hasViewQuery → <our grlc-query>`,
+  `dct:title`, `gen:appliesToInstancesOf gen:Space`, and
+  `gen:hasStructuralPosition`. The view itself sits at
+  `<wrapper-trusty>/<view-local-name>`; the wrapper also `dct:isVersionOf`
+  a freshly-introduced `viewKind` URI for stable supersession identity.
+  Created from template `RARLsTlqbTesu1b0WJZ-zL1z96xumOiqbK3l_vV6iZoww`
+  ("Declaring a resource view").
+
+- One typed `gen:ViewDisplay` per wrapper — `gen:isDisplayOfView` points
+  at the wrapper's view-referent URI (the canonical mechanism per Tobias).
+  Created from template `RAsc8FMsGih955oFSFG0YcB9sDKA62VLbp3VIw86IxMvk`
+  ("Displaying a view for a Space").
+
+### 4 view wrappers + 4 ViewDisplays
+
+| View | Query | gen:View wrapper | ViewDisplay |
+|---|---|---|---|
+| Catalogue summary by type | `RAGlsCUDZ…` | `https://w3id.org/np/RAUQDFIiL73MByusDvrnMLRJaDW32bImYrq4aQN5CJmLM` | `https://w3id.org/np/RAvARpXohLClZVC3qZdtn1JihyPU12NsmTQAHoziXXRq4` |
+| Variants by WHO classification | `RAlD3u-…` | `https://w3id.org/np/RA2orwJH_zUQQvUvKk0UHvCr5x8iAVhIopqLUFYyuy-Eg` | `https://w3id.org/np/RAywsGEhq4acHjLNY6rALv2vvhjGwqYsFeFayr3hwZ4iM` |
+| Observations per method | `RAIKnskD…` | `https://w3id.org/np/RAS-Wm3ewaQtz8rhzKY-EAyrJnYGZMq3MOz2AZ9fXQ5e8` | `https://w3id.org/np/RA-XrE3QY1r0Llm5TLurg0VcasOT_hfta-AM_4qp1srZo` |
+| Alpha digital-twin knowlet | `RAecvUbv…` | `https://w3id.org/np/RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | `https://w3id.org/np/RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` |
+
+Each wrapper carries (per Phase 1 / Phase 2 spec):
+- `rdf:type gen:ResourceView, gen:TabularView`
+- `gen:appliesToInstancesOf gen:Space` (only — panels appear on the project4 Space page, not on user/maintained-resource pages)
+- `gen:hasViewQueryTargetField "resource"` (default; our queries are parameterless aggregates so the field doesn't bind)
+- `gen:hasStructuralPosition` `5.1.fdt-catalogue-summary` / `5.2.fdt-variants-by-who` / `5.3.fdt-observations-per-method` / `5.4.fdt-alpha-knowlet` (section 5, ordered)
+- `dct:title` = the query's `rdfs:label`
+- `dct:isVersionOf <wrapper-trusty>/<key>-view-kind` — freshly-introduced viewKind URI for supersession identity
+
+Each ViewDisplay carries:
+- `rdf:type gen:ActivatedViewDisplay, gen:ViewDisplay`
+- `gen:appliesTo <project4-space>` + `gen:isDisplayFor <project4-space>`
+- `gen:isDisplayOfView <wrapper-trusty>/<view-local-name>` (referent URI, NOT bare wrapper Trusty — distinct from Erik's earlier broken-display nanopubs)
+
+Publish windows: wrappers 2026-05-29T08:52:03Z → 08:52:16Z; ViewDisplays 08:52:43Z → 08:52:56Z.
+
+### Verification
+
+`SELECT ?d ?v WHERE { ?d a gen:ViewDisplay ; gen:appliesTo <project4-space> ; gen:isDisplayOfView ?v . FILTER NOT EXISTS { ?r npx:retracts ?n1 } }`
+→ **9 rows** (5 pre-existing valid ViewDisplays + 4 new MAC FDT
+panels). All 8 new nanopubs resolve `HEAD 200`. Each new ViewDisplay's
+`gen:isDisplayOfView` correctly references a `<wrapper-trusty>/<view-local-name>` URI.
+
+### Distinct from P135 pin-actions
+
+This stratification is now in place on project4:
+
+| Layer | Mechanism | Nanopub type | Purpose |
+|---|---|---|---|
+| **Sidebar pinning** ("Queries" panel) | `<space> gen:hasPinnedQuery <query>` (P135 actions) | `gen:hasPinnedQuery` | Compact list of named queries, navigable from the space |
+| **Embedded panels** (in-page dashboard tables) | `<space> ← ViewDisplay → wrapper → grlc-query` | `gen:ViewDisplay` referencing a `gen:View` | Render the query result as a tabular panel on the Space page |
+
+The two layers complement each other. The same 4 underlying grlc-query
+nanopubs (`RAGlsCUDZ…`, `RAlD3u-…`, `RAIKnskD…`, `RAecvUbv…`) drive
+both layers.
