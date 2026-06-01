@@ -2166,63 +2166,67 @@ Eleven pin-action nanopubs (one per template) attach each template to the Space 
 
 #### A.3 Stage 3 — Instances (38)
 
+> **As of 2026-06-01, all 38 Stage 3 v1 instances have been superseded by v2 mints with `/`-form addressing convention.** v1 Trusty URIs remain resolvable on the NSN but are flagged as superseded via `npx:supersedes` triples on the v2 nanopubs. See `docs/v2-cleanup/supersession_registry.md` for the authoritative v1→v2 mapping table with mint timestamps and full v2 Referent URIs. The tables in this section retain v1 Trusty URIs for historical context, with v2 Trusty URIs added as a new column. Downstream artifacts SHOULD reference v2 referent URIs.
+
 **Variant anchors (Type 1, 3 instances).**
 
-| instance_id | Trusty URI | Referent URI |
-|---|---|---|
-| `Alpha-RBD-Variant` | `RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M` | `<Trusty>/Alpha-RBD-Variant` |
-| `Epsilon-RBD-Variant` | `RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s` | `<Trusty>/Epsilon-RBD-Variant` |
-| `Eta-RBD-Variant` | `RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s` | `<Trusty>/Eta-RBD-Variant` |
+| instance_id | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|
+| `Alpha-RBD-Variant` | `RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M` | `RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE` | superseded |
+| `Epsilon-RBD-Variant` | `RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s` | `RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30` | superseded |
+| `Eta-RBD-Variant` | `RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s` | `RA8yS9sU1tq87fXelVb4Q7uwjpoDXOsoelXM5--tfu6IQ` | superseded |
 
 **Method instances (Types 9–11, 5 instances, shared across all three twins).**
 
-| instance_id | Type | Trusty URI | Referent URI |
-|---|---|---|---|
-| `ESM2-Method` | 9 | `RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM` | `<Trusty>/ESM2-Method` |
-| `AlphaFold2-Method` | 9 | `RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI` | `<Trusty>/AlphaFold2-Method` |
-| `AgMata-Method` | 9 | `RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U` | `<Trusty>/AgMata-Method` |
-| `BloomLab-DMS-Method` | 10 | `RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0` | `<Trusty>/BloomLab-DMS-Method` |
-| `GISAID-Method` | 11 | `RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4` | `<Trusty>/GISAID-Method` |
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `ESM2-Method` | 9 | `RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM` | `RAV_9iAUAyUyNLhVQxpTaE54ko_liTnBpIarZBnkBcbgw` | superseded |
+| `AlphaFold2-Method` | 9 | `RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI` | `RAPz4KzBYjUUaURNGn4pR7PpJ5VAvv43v5dYK7gyG1DXk` | superseded |
+| `AgMata-Method` | 9 | `RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U` | `RAfY9JAThg7kIl7-63YT2KdVN7y8INAyqpnow339n3tpU` | superseded |
+| `BloomLab-DMS-Method` | 10 | `RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0` | `RAWQDkXVW2tB6LEgirShh03PKJOznYQFVLx8-YXhWfnew` | superseded |
+| `GISAID-Method` | 11 | `RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4` | `RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0` | superseded |
 
 **Computational predictions (Types 3–5, 18 instances).**
 
-| instance_id | Type | Trusty URI |
-|---|---|---|
-| `Alpha-RMSD-AlphaFold2` | 3 | `RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE` |
-| `Alpha-RMSD-ESM2` | 3 | `RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac` |
-| `Alpha-SASA-AlphaFold2` | 4 | `RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM` |
-| `Alpha-SASA-ESM2` | 4 | `RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc` |
-| `Alpha-pLDDT-AlphaFold2` | 5 | `RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA` |
-| `Alpha-pLDDT-ESM2` | 5 | `RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0` |
-| `Epsilon-RMSD-AlphaFold2` | 3 | `RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k` |
-| `Epsilon-RMSD-ESM2` | 3 | `RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28` |
-| `Epsilon-SASA-AlphaFold2` | 4 | `RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY` |
-| `Epsilon-SASA-ESM2` | 4 | `RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ` |
-| `Epsilon-pLDDT-AlphaFold2` | 5 | `RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E` |
-| `Epsilon-pLDDT-ESM2` | 5 | `RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk` |
-| `Eta-RMSD-AlphaFold2` | 3 | `RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE` |
-| `Eta-RMSD-ESM2` | 3 | `RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg` |
-| `Eta-SASA-AlphaFold2` | 4 | `RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik` |
-| `Eta-SASA-ESM2` | 4 | `RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8` |
-| `Eta-pLDDT-AlphaFold2` | 5 | `RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA` |
-| `Eta-pLDDT-ESM2` | 5 | `RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA` |
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `Alpha-RMSD-AlphaFold2` | 3 | `RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE` | `RAaZJ0IuCVz8QaGyDWn10j8TBlpIifMDxqi7HzglNuz80` | superseded |
+| `Alpha-RMSD-ESM2` | 3 | `RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac` | `RAf8cMF_qJFg1LAVkriSe7X1yoIz4Kg6GVaO0qrMYoaLg` | superseded |
+| `Alpha-SASA-AlphaFold2` | 4 | `RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM` | `RA2aycCXga1Q6CU9uN28ZLQqAVDXUuIgPsP8QW07LD5ws` | superseded |
+| `Alpha-SASA-ESM2` | 4 | `RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc` | `RATDFrbGzT9BSFCTLpQDf4HZWNpd4ReXlzvuJJ5oaTKrQ` | superseded |
+| `Alpha-pLDDT-AlphaFold2` | 5 | `RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA` | `RArrrQfjNxWFA6C4F3-QB5qJEsQOkTeivRX7_PmWWO_hQ` | superseded |
+| `Alpha-pLDDT-ESM2` | 5 | `RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0` | `RAZc567NsX-8k7XJrKAnoBcwFI92miXJcdWrcD6U7rPPE` | superseded |
+| `Epsilon-RMSD-AlphaFold2` | 3 | `RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k` | `RAN_Wf7LjMSofwyG0x4uhLNln8kgPnbKzl7ZHjXGKLOc4` | superseded |
+| `Epsilon-RMSD-ESM2` | 3 | `RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28` | `RA7EJKrmgtLHuKzT8FBNPLo-8HMgCLzBvR2Mfxpl5iJrI` | superseded |
+| `Epsilon-SASA-AlphaFold2` | 4 | `RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY` | `RAE9pIZSm1uZcf3AzCBLnhC6jzl5q53sHdd6xt-z4Qglk` | superseded |
+| `Epsilon-SASA-ESM2` | 4 | `RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ` | `RASLEpL6BamsPTgEH1FDfQ9whKu_V3-B7hHe3mVJOsuIQ` | superseded |
+| `Epsilon-pLDDT-AlphaFold2` | 5 | `RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E` | `RAwjLl2XsUTPoaFrv45EmHr7K-HNlN--f3-pUTxmgDNnA` | superseded |
+| `Epsilon-pLDDT-ESM2` | 5 | `RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk` | `RA7QLv-gPyZjD6BWOBekq7ZWKu4hVFMraGwwJOhArOeJU` | superseded |
+| `Eta-RMSD-AlphaFold2` | 3 | `RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE` | `RAVHbFaBJ4Ezq3LpEvHlQR2y6FbyOeA6Ltk3wk-hZZTyE` | superseded |
+| `Eta-RMSD-ESM2` | 3 | `RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg` | `RAPh6zDXbnsMP304CGWT3OcY8ielo_GVifxC7oDsVB8HM` | superseded |
+| `Eta-SASA-AlphaFold2` | 4 | `RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik` | `RAjsJgM13kFOaExAskq-K-7KcEf1anAAbrBz_TROBWtP0` | superseded |
+| `Eta-SASA-ESM2` | 4 | `RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8` | `RAeGQbuaKdL82xN1MBbkzLemD7twqcJYfxZdGVUWTX8G0` | superseded |
+| `Eta-pLDDT-AlphaFold2` | 5 | `RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA` | `RAyaXL_U120427BOikVY6A_eSSxWTtInmUqUHdB4W7EYk` | superseded |
+| `Eta-pLDDT-ESM2` | 5 | `RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA` | `RAOevfPSd_NZh3bek1YA8M9ZWFwGFP_pTJZ4Txjw0UWz4` | superseded |
 
 **Final observations (Types 2, 6, 7, 8 — 12 instances).**
 
-| instance_id | Type | Trusty URI |
-|---|---|---|
-| `type2_alpha` (Alpha occurrence) | 2 | `RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0` |
-| `type2_epsilon` | 2 | `RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA` |
-| `type2_eta` | 2 | `RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0` |
-| `type6_alpha` (Alpha AgMata) | 6 | `RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ` |
-| `type6_epsilon` | 6 | `RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY` |
-| `type6_eta` | 6 | `RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g` |
-| `type7_alpha` (Alpha DMS) | 7 | `RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs` |
-| `type7_epsilon` | 7 | `RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE` |
-| `type7_eta` | 7 | `RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0` |
-| `type8_alpha` (Alpha WHO) | 8 | `RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk` |
-| `type8_epsilon` | 8 | `RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg` |
-| `type8_eta` | 8 | `RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4` |
+> Footnote — file-name vs referent-local-name asymmetry: the 12 observation instances have file names (`type{2,6,7,8}_<variant>`) that differ from their FDO referent local names baked into the published nanopub (`<Variant>-{Occurrence,AgMata,DMS,WHO}`). The v2 Referent URI column in `docs/v2-cleanup/supersession_registry.md` uses the referent local name. For v3 mints or fresh catalogues, consider harmonizing file names to match referent local names.
+
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `type2_alpha` (referent: `Alpha-Occurrence`) | 2 | `RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0` | `RAHiypVLAG5QdV2Dl09EAuvXJAsaTiOIS9JwNEGSFVPSg` | superseded |
+| `type2_epsilon` (referent: `Epsilon-Occurrence`) | 2 | `RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA` | `RAScF7yrx-LR-kvrvuW58TVoc-TEjqBIwG-CV9IlvmFUk` | superseded |
+| `type2_eta` (referent: `Eta-Occurrence`) | 2 | `RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0` | `RAhhXSQQgmCfZau05NMwwYGae21iwK_qjgOs7GzDyHn9w` | superseded |
+| `type6_alpha` (referent: `Alpha-AgMata`) | 6 | `RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ` | `RAZtTGo_ObQHC1hN7XIdW1JYbbRCuZqUofeUM-jsWJjds` | superseded |
+| `type6_epsilon` (referent: `Epsilon-AgMata`) | 6 | `RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY` | `RAMKsiqGr-f_FCX0lIrqfyilnwgS0GGpoUS7-3kQvZFJA` | superseded |
+| `type6_eta` (referent: `Eta-AgMata`) | 6 | `RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g` | `RARHGQesSG3Bq1t5nkw_NwPxJj8pDTSQKwABa45dQ6Cw8` | superseded |
+| `type7_alpha` (referent: `Alpha-DMS`) | 7 | `RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs` | `RAgsEHPr-WCHfLH2RNMFCVw4BHgqP3GvnGPfV5SqEkPRY` | superseded |
+| `type7_epsilon` (referent: `Epsilon-DMS`) | 7 | `RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE` | `RAs9zpNLdQ2G1UQqQPktjJho7GLdsrHWAVORbxPyC_BRA` | superseded |
+| `type7_eta` (referent: `Eta-DMS`) | 7 | `RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0` | `RAymn8p9SjkROiji7aVPDRVdD3A33Ad5uuoYPTEkaMkrA` | superseded |
+| `type8_alpha` (referent: `Alpha-WHO`) | 8 | `RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk` | `RAnX2nF3Xep8CEn5GGZbRrjPQHVORHx_0tHM4cagWFVJ8` | superseded |
+| `type8_epsilon` (referent: `Epsilon-WHO`) | 8 | `RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg` | `RA-uT1JVPfe5gGFAo32mUvfynHAYLlBpqgt8rUy_qhrP4` | superseded |
+| `type8_eta` (referent: `Eta-WHO`) | 8 | `RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4` | `RAQmYYtUl5ZE31-1yFhP9rda1KSq_TDQipwlfCZPouAHc` | superseded |
 
 #### A.4 Stage 4 — Standing views (16 nanopubs)
 

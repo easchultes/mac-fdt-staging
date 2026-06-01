@@ -346,3 +346,35 @@ See "Trusty URI roster" table above — all 11 listed there.
 | `stage2-templates-type7` | `215a979` | ✅ |
 | `stage2-templates-type8` | `b27a87f` | ✅ |
 | `stage2-templates-types-9-10-11` | `33a8ef7` | ✅ |
+
+## v2 Cleanup Pass — Complete (2026-06-01)
+
+Branch: `cleanup-upstream-v2`
+Commit: filled by PHASE 7 commit (see git log)
+
+### Completed
+
+- 3 `/`-form upstream v2 re-mints (Project, ESM Dataset, AF Dataset) published; 3 `#`-form defectives retracted (PROMPT 1.5 / PROMPT 2.0 cleanup pass).
+- 38 Stage 3 v2 instances dry-run signed and verified (PROMPT 2A Pass 1, PROMPT 2B Pass 2).
+- 38 Stage 3 v2 instances published to live NSN (PROMPT 3 PHASE 2/3 this session). 38/38 HTTP GET-verified via `Accept: application/trig`.
+- SPARQL `repo/full` indexing confirmed (PROMPT 3 PHASE 4):
+  - 38 distinct `npx:supersedes` pairs (v2 → v1).
+  - 38 distinct `dct:isPartOf` to Project v2 referent.
+  - 21 distinct `dct:source` to Dataset v2 referents (12 ESM + 9 AF).
+  - 57 distinct intra-Stage-3 cross-refs to Pass-1 v2 referents (30 `mac:isObservationOf` + 21 `mac:hasPredictionMethod` + 3 `mac:hasSurveillanceMethod` + 3 `mac:hasExperimentalMethod`).
+
+### Deferred
+
+- Stage 4 cascade re-mint — register at `docs/v2-cleanup/stage4_cascade.md`.
+  - Known: Alpha knowlet SPARQL query nanopub `RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` hardcodes Alpha-RBD-Variant v1 referent. Needs re-mint targeting `https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE/Alpha-RBD-Variant`. Pin-action, view wrapper, and view-display nanopubs cascade off this re-mint.
+  - Repo-wide scan confirmed only the Alpha knowlet view set among the 16 Stage 4 nanopubs hardcodes a Stage 3 v1 Trusty.
+
+### Anomalies surfaced (queued for PROMPT 4 documentation batch)
+
+- **Epsilon mutation typo `L124R` → `L452R`** in `MAC_FDT_SPS_v1_4.md` + `FDT4Claude_small_v1_2.csv` (instances themselves already carry correct values).
+- **Spec audit text:** Type 1 anchors carry `dct:source` (FAIR² Package DOI) — §6 Appendix C narrative correction needed in implementation guide. Live audit data confirms 24 instances with `dct:source` (not 21), including 3 Type 1 anchors.
+- **Both `this:` and `sub:` prefixes must end with `/`** for nanopub-java signing — should be noted in Implementation Guide §3.2 or §6 Appendix B as a generator/sign-pipeline convention.
+- **`npx:retracts` subject convention:** the nanopub-java auto-retract uses `<ORCID> npx:retracts <target>`, not `this: npx:retracts <target>`. Manual retractions with the `this:`-as-subject pattern are rejected by registries (`Nanopublication not supported`). Post-cleanup note for Tobias.
+- **File-name vs referent-local-name asymmetry** on observation instances (`type{2,6,7,8}_<variant>` file ↔ `<Variant>-{Occurrence,AgMata,DMS,WHO}` referent). Documented in Implementation Guide §6 Appendix A and `supersession_registry.md`.
+- **nanopub-py 2.0.1 `#` separator defect:** locked in for any future use of that library; nanopub-java 1.88.0 is the current authoritative signer for MAC catalogue work. See `build/upstream-remint/prompt_2_0_report.md` for the full investigation.
+

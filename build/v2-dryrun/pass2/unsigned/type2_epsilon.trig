@@ -1,0 +1,58 @@
+@prefix this: <http://purl.org/nanopub/temp/v2_pass2_type2_epsilon/> .
+@prefix sub: <http://purl.org/nanopub/temp/v2_pass2_type2_epsilon/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix mac: <https://w3id.org/spaces/mac/r/ontology/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  this: dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/trig>;
+    <https://w3id.org/fdof/ontology#materializes> sub:Epsilon-Occurrence;
+    <https://www.w3.org/ns/dcat#accessURL> this: .
+  
+  sub:Epsilon-Occurrence a <https://w3id.org/fdof/ontology#FAIRDigitalObject>, mac:RealWorldOccurrence;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:isPartOf <https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    rdfs:comment "Real-world detection of SARS-CoV-2 Spike variant Epsilon (B.1.427 + B.1.429) in the United States on 2021-01-13, as reported in GISAID (accession EPI_ISL_2295356).";
+    rdfs:label "Epsilon real-world occurrence — United States (2021-01-13)";
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    mac:hasCollectionLocation <https://sws.geonames.org/6252001/>;
+    mac:hasGISAIDAccession "EPI_ISL_2295356";
+    mac:hasOccurrenceDate "2021-01-13";
+    mac:hasSurveillanceMethod <https://w3id.org/np/RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0/GISAID-Method>;
+    mac:isObservationOf <https://w3id.org/np/RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30/Epsilon-RBD-Variant>;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-06-01T10:30:42Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:Epsilon-Occurrence;
+    rdfs:label "Epsilon real-world occurrence — United States (2021-01-13)";
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>, <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RA_-AALlM1rIYcJRsFUrIfSb5KYSvjiHUZbQbN-cpeV6w> ;
+    npx:supersedes <https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA> .
+}
+
