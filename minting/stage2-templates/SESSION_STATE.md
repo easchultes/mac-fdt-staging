@@ -378,3 +378,5 @@ Commit: filled by PHASE 7 commit (see git log)
 - **File-name vs referent-local-name asymmetry** on observation instances (`type{2,6,7,8}_<variant>` file ↔ `<Variant>-{Occurrence,AgMata,DMS,WHO}` referent). Documented in Implementation Guide §6 Appendix A and `supersession_registry.md`.
 - **nanopub-py 2.0.1 `#` separator defect:** locked in for any future use of that library; nanopub-java 1.88.0 is the current authoritative signer for MAC catalogue work. See `build/upstream-remint/prompt_2_0_report.md` for the full investigation.
 
+
+PROMPT 3.5 (2026-06-01T14:44:39Z): Downstream-doc register created at `docs/v2-cleanup/downstream_doc_register.md`. 8 touchpoints registered, 3 in-repo with verified counts (Implementation Guide narrative: 45 v1 refs; SPS v1.4: 2 refs; FDT paper: 0 refs), 5 external/manual pending (2 NanoDash Spaces, StayAhead report, MAC_FAIR_v2 manuscript, slides/posters). Companion to `stage4_cascade.md`.
