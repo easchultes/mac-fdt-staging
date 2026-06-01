@@ -229,7 +229,7 @@ Wild-type is accessible via `https://www.uniprot.org/uniprot/P0DTC2` and referen
 | Variant | WHO name | Pango | GISAID seq_id | MAC seq_id | RBD sequence |
 |---|---|---|---|---|---|
 | Alpha | Alpha | B.1.1.7 | N501Y | N169Y | *see appendix* |
-| Epsilon | Epsilon | B.1.427 + B.1.429 | L124R | L120R | *see appendix* |
+| Epsilon | Epsilon | B.1.427 + B.1.429 | L452R | L120R | *see appendix* |
 | Eta | Eta | B.1.525 | E484K | E152K | *see appendix* |
 
 ---

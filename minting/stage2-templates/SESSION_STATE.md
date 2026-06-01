@@ -372,7 +372,7 @@ Commit: filled by PHASE 7 commit (see git log)
 ### Anomalies surfaced (queued for PROMPT 4 documentation batch)
 
 - **Epsilon mutation typo `L124R` → `L452R`** in `MAC_FDT_SPS_v1_4.md` + `FDT4Claude_small_v1_2.csv` (instances themselves already carry correct values).
-- **Spec audit text:** Type 1 anchors carry `dct:source` (FAIR² Package DOI) — §6 Appendix C narrative correction needed in implementation guide. Live audit data confirms 24 instances with `dct:source` (not 21), including 3 Type 1 anchors.
+- **`dct:source` count discrepancy:** PROMPT 1 audit sanity-check #7 expected `dct:source` absent on 17 instances; ground truth was 14 (Type 1 anchors carry `dct:source` → FAIR² Package DOI, a permanent identifier unchanged v1→v2). Implementation Guide narrative was already correct on this point; the discrepancy was confined to the audit spec text, not the guide itself. PROMPT 4 PHASE 3 verified no edit needed.
 - **Both `this:` and `sub:` prefixes must end with `/`** for nanopub-java signing — should be noted in Implementation Guide §3.2 or §6 Appendix B as a generator/sign-pipeline convention.
 - **`npx:retracts` subject convention:** the nanopub-java auto-retract uses `<ORCID> npx:retracts <target>`, not `this: npx:retracts <target>`. Manual retractions with the `this:`-as-subject pattern are rejected by registries (`Nanopublication not supported`). Post-cleanup note for Tobias.
 - **File-name vs referent-local-name asymmetry** on observation instances (`type{2,6,7,8}_<variant>` file ↔ `<Variant>-{Occurrence,AgMata,DMS,WHO}` referent). Documented in Implementation Guide §6 Appendix A and `supersession_registry.md`.

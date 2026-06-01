@@ -1233,7 +1233,7 @@ Three instances: Alpha, Epsilon, Eta. Configs in `instance_configs/type1_{alpha,
 | mac_seq_id | "N169Y" | "L120R" | "E152K" |
 | gisaid_accession | "EPI_ISL_601443" | "EPI_ISL_2295356" | "EPI_ISL_941290" |
 
-**Note on the Epsilon gisaid_seq_id correction.** The Stage 1 SPS v1.3 and the demonstration CSV (`FDT4Claude_small_v1_2.csv`) carry `L124R` for Epsilon's full-Spike notation. This is an upstream data-entry error: Epsilon's canonical defining Spike substitution is `L452R` (lineages B.1.427/B.1.429), and the position math is consistent with the other two variants (MAC RBD position + 332 = full-Spike position: Alpha N169 + 332 = N501 ✓, Eta E152 + 332 = E484 ✓, Epsilon L120 + 332 = **L452** — not L124). The instance config carries the correct value `L452R`; the SPS and CSV are flagged for correction in the coordinated cleanup pass (`Post_demonstration_cleanup.md`). Demo data is right at publication; documentation catches up later.
+**Note on the Epsilon gisaid_seq_id correction.** Earlier Stage 1 documents (`MAC_FDT_SPS_v1_2.md`, `MAC_FDT_SPS_v1_3.md`) and the demonstration CSV (`FDT4Claude_small_v1_2.csv`) historically carried `L124R` for Epsilon's full-Spike notation. This was an upstream data-entry error: Epsilon's canonical defining Spike substitution is `L452R` (lineages B.1.427/B.1.429), and the position math is consistent with the other two variants (MAC RBD position + 332 = full-Spike position: Alpha N169 + 332 = N501 ✓, Eta E152 + 332 = E484 ✓, Epsilon L120 + 332 = **L452** — not L124). The instance config always carried the correct value `L452R`; SPS v1.4 and the live CSV were corrected during the v2 cleanup pass (PROMPT 4 doc batch). Historical SPS revisions retain the typo as audit trail. Demo nanopubs published the correct value from the start.
 
 **Worked Alpha example — assembled assertion graph after generation:**
 
@@ -2211,7 +2211,7 @@ Eleven pin-action nanopubs (one per template) attach each template to the Space 
 
 **Final observations (Types 2, 6, 7, 8 — 12 instances).**
 
-> Footnote — file-name vs referent-local-name asymmetry: the 12 observation instances have file names (`type{2,6,7,8}_<variant>`) that differ from their FDO referent local names baked into the published nanopub (`<Variant>-{Occurrence,AgMata,DMS,WHO}`). The v2 Referent URI column in `docs/v2-cleanup/supersession_registry.md` uses the referent local name. For v3 mints or fresh catalogues, consider harmonizing file names to match referent local names.
+> **Footnote — file-name vs referent-local-name asymmetry.** Observation instances (Types 2, 6, 7, 8 × 3 variants = 12 instances) use file-name patterns of the form `type{2,6,7,8}_<variant>` (e.g., `type2_alpha`) in the v1 generator outputs and cache, while their FDO referent local names follow `<Variant>-{Occurrence,AgMata,DMS,WHO}` (e.g., `Alpha-Occurrence`). This v1 catalogue-level asymmetry is preserved in v2 (byte-identity of assertion-graph local names). Both fields are needed for cross-referencing: file-name when locating cached or generator-source artifacts; referent local name when constructing or resolving FDO referent URIs of the form `<Trusty>/<referent-local-name>`. The full mapping is in `docs/v2-cleanup/supersession_registry.md`. For v3 mints or fresh catalogues, consider harmonizing file names to match referent local names.
 
 | instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
 |---|---|---|---|---|
@@ -2383,9 +2383,9 @@ This section catalogues the error modes the demonstration build encountered or i
 
 **Resolution:** for new builds, promote upstream FDOs to non-draft before Stage 3 instance minting begins. For the demonstration catalogue, the cleanup is deferred to a coordinated revision pass (see `minting/stage2-templates/Post_demonstration_cleanup.md` on `main`). The pass will mint v2 of each draft FDO with `npx:supersedes` linking to the v1 draft, then re-mint affected instances pointing at the v2 referents.
 
-The same cleanup pass corrects:
-- The Epsilon `gisaid_seq_id` value in `MAC_FDT_SPS_v1_3.md` and `FDT4Claude_small_v1_2.csv` (`L124R` → `L452R`; the demonstration instances already carry the correct value).
-- The "AphaFold2" → "AlphaFold2" typo in the AlphaFold Dataset FDO label.
+The cleanup pass also resolved the following catalogue-level data inconsistencies:
+- Epsilon `gisaid_seq_id`: `L124R` → `L452R` in `MAC_FDT_SPS_v1_4.md` and `FDT4Claude_small_v1_2.csv` (corrected during the PROMPT 4 doc batch; the demonstration instances always carried the correct value, so no nanopub re-mint was required). Historical SPS revisions (v1.2, v1.3) retain the typo as audit trail.
+- "AphaFold2" → "AlphaFold2" typo in the AlphaFold Dataset FDO `rdfs:label`: fixed during the v2 upstream re-mint (PROMPT 2.0); the v2 Dataset FDO carries the corrected label.
 
 #### C.2 Bare Trusty URI vs referent URI
 
@@ -2450,6 +2450,40 @@ The same cleanup pass corrects:
 **Cause:** Type 2's `mac:hasSurveillanceMethod` is *optional* per SPS v1.4 (an occurrence might be authored without surveillance-source attribution if data provenance is uncertain). Optional fields are not enforced at signing time.
 
 **Resolution:** for catalogues where the method link is universally available, the generator can promote the field to mandatory in the per-type config (`"flags": ["mandatory"]`). The demonstration catalogue declares the field on every Type 2 instance even though the template makes it optional. New catalogues should make the same project-level decision.
+
+#### C.10 Prefix separator on unsigned TriG (`#` vs `/`)
+
+**Symptom:** the signer produces a nanopub whose FDO referent URIs use `#` as the separator (`<Trusty>#<local-name>`), breaking catalogue convention. Downstream artifacts that reference `<Trusty>/<local-name>` (the `/`-form) resolve to a URI carrying only cached label triples, not the FDO assertion graph. SPARQL queries that join via `dct:isPartOf` to the FDO's referent return zero rows for the relevant entries.
+
+**Cause:** `nanopub-py 2.0.1` hard-codes `#` as the separator between the Trusty URI hash and the local-name suffix during canonicalization (`sign_utils.py:85`, `trustyuri/rdf/RdfUtils.py:30`). There is no configuration option or constructor parameter to override this. Whatever separator the input file uses, the signed output is forcibly `#`.
+
+**Resolution.** Two-part:
+
+1. **Source-file convention:** in the unsigned TriG, bind both `this:` and `sub:` prefixes with URIs ending in `/`, not `#` and not bare:
+
+   ```turtle
+   @prefix this: <http://purl.org/nanopub/temp/np-instance/> .
+   @prefix sub:  <http://purl.org/nanopub/temp/np-instance/> .
+   ```
+
+   Mixed-form prefixes (one with `/`, one without) produce `//` (double-slash) artifacts in the signed output under `nanopub-java`, while `nanopub-py 2.0.1` forces `#` regardless.
+
+2. **Signer choice:** sign with `nanopub-java 1.88.0` (or later), which preserves the `/`-form FDO referent convention. Empirically validated during the v2 cleanup pass: nanopub-java's signing pipeline preserves the input prefix form on `/`-terminated URIs across 3 upstream re-mints and 38 Stage 3 mints (P12–P25).
+
+   The intermediate `#`-form upstream v2 mints produced by `nanopub-py 2.0.1` (Project v2, ESM Dataset v2, AF Dataset v2 — see commit log around PROMPT 2.0) were retracted and re-minted with `nanopub-java` after this defect was discovered.
+
+   The three published retraction nanopubs are on-network for verification:
+   - Project `#`-form retraction: `https://w3id.org/np/RAkTZbU-GalW2x1Z6z6phvslQ0asgZNl2HrVAt2L8C6tU`
+   - ESM Dataset `#`-form retraction: `https://w3id.org/np/RAdaYZwuFkfAO919GrSbaTuQdrSXEvbyR7xMg8Z8DBAeI`
+   - AF Dataset `#`-form retraction: `https://w3id.org/np/RAdl00pIEMmQpRqxoteu1nuLWBJa9Q4WE02R01rQ86a1c`
+
+   For future minting work in this repo, use:
+
+   ```bash
+   java -jar nanopub-1.88.0-jar-with-dependencies.jar sign <unsigned.trig>
+   ```
+
+   JDK 21 or later required (the jar is compiled with class file version 65). The v2 cleanup pass empirically validated under JDK 21 — system JDK 14 failed to load the jar with `UnsupportedClassVersionError`. The jar is downloadable from https://github.com/Nanopublication/nanopub-java/releases.
 
 ---
 
