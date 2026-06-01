@@ -1,0 +1,8 @@
+Alpha-RBD-Variant
+Epsilon-RBD-Variant
+Eta-RBD-Variant
+ESM2-Method
+AlphaFold2-Method
+AgMata-Method
+BloomLab-DMS-Method
+GISAID-Method

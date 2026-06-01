@@ -1,0 +1,3 @@
+RETRACTION_PROJECT_TRUSTY=https://w3id.org/np/RAkTZbU-GalW2x1Z6z6phvslQ0asgZNl2HrVAt2L8C6tU
+RETRACTION_PROJECT_TRUSTY_ALT=https://w3id.org/np/RAEPJtAm0TEc8aMso9eQu_rMA6WsuJUntAESLZzy73DFw
+(Two retractions published due to repeated -p calls during structure investigation. Both are valid; either resolves to the same retraction semantics. Recording RAkTZbU... as canonical.)

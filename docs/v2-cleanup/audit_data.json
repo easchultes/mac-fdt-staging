@@ -1,0 +1,1112 @@
+{
+  "instances": [
+    {
+      "local_name": "Alpha-RBD-Variant",
+      "class": "Type1",
+      "v1_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 23,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-RBD-Variant",
+      "class": "Type1",
+      "v1_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 23,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-RBD-Variant",
+      "class": "Type1",
+      "v1_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 23,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "ESM2-Method",
+      "class": "Method-Type9",
+      "v1_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 16,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "AlphaFold2-Method",
+      "class": "Method-Type9",
+      "v1_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 16,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "AgMata-Method",
+      "class": "Method-Type9",
+      "v1_uri": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U/AgMata-Method",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 16,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "BloomLab-DMS-Method",
+      "class": "Method-Type10",
+      "v1_uri": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 16,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "GISAID-Method",
+      "class": "Method-Type11",
+      "v1_uri": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4",
+      "pass": 1,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 17,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-RMSD-AlphaFold2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE/Alpha-RMSD-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE/Alpha-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE/Alpha-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-RMSD-ESM2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac/Alpha-RMSD-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac/Alpha-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac/Alpha-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-SASA-AlphaFold2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM/Alpha-SASA-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM/Alpha-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM/Alpha-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-SASA-ESM2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc/Alpha-SASA-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc/Alpha-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc/Alpha-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-pLDDT-AlphaFold2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA/Alpha-pLDDT-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA/Alpha-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA/Alpha-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Alpha-pLDDT-ESM2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0/Alpha-pLDDT-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0/Alpha-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0/Alpha-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-RMSD-AlphaFold2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k/Epsilon-RMSD-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k/Epsilon-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k/Epsilon-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-RMSD-ESM2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28/Epsilon-RMSD-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28/Epsilon-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28/Epsilon-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-SASA-AlphaFold2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY/Epsilon-SASA-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY/Epsilon-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY/Epsilon-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-SASA-ESM2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ/Epsilon-SASA-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ/Epsilon-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ/Epsilon-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-pLDDT-AlphaFold2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E/Epsilon-pLDDT-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E/Epsilon-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E/Epsilon-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Epsilon-pLDDT-ESM2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk/Epsilon-pLDDT-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk/Epsilon-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk/Epsilon-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-RMSD-AlphaFold2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE/Eta-RMSD-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE/Eta-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE/Eta-RMSD-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-RMSD-ESM2",
+      "class": "Prediction-Type3",
+      "v1_uri": "https://w3id.org/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg/Eta-RMSD-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg/Eta-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg/Eta-RMSD-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-SASA-AlphaFold2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik/Eta-SASA-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik/Eta-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik/Eta-SASA-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-SASA-ESM2",
+      "class": "Prediction-Type4",
+      "v1_uri": "https://w3id.org/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8/Eta-SASA-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8/Eta-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8/Eta-SASA-ESM2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-pLDDT-AlphaFold2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA/Eta-pLDDT-AlphaFold2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1",
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA/Eta-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+          "target_local": "AlphaFold2-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA/Eta-pLDDT-AlphaFold2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "Eta-pLDDT-ESM2",
+      "class": "Prediction-Type5",
+      "v1_uri": "https://w3id.org/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA/Eta-pLDDT-ESM2",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA/Eta-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA/Eta-pLDDT-ESM2",
+          "target_uri": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+          "target_local": "ESM2-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type2_alpha",
+      "class": "Observation-Type2",
+      "v1_uri": "https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0/Alpha-Occurrence",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0/Alpha-Occurrence",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasSurveillanceMethod",
+          "subject": "https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0/Alpha-Occurrence",
+          "target_uri": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method",
+          "target_local": "GISAID-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 19,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type2_epsilon",
+      "class": "Observation-Type2",
+      "v1_uri": "https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA/Epsilon-Occurrence",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA/Epsilon-Occurrence",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasSurveillanceMethod",
+          "subject": "https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA/Epsilon-Occurrence",
+          "target_uri": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method",
+          "target_local": "GISAID-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 19,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type2_eta",
+      "class": "Observation-Type2",
+      "v1_uri": "https://w3id.org/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0/Eta-Occurrence",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0/Eta-Occurrence",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasSurveillanceMethod",
+          "subject": "https://w3id.org/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0/Eta-Occurrence",
+          "target_uri": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method",
+          "target_local": "GISAID-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 19,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type6_alpha",
+      "class": "Observation-Type6",
+      "v1_uri": "https://w3id.org/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ/Alpha-AgMata",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ/Alpha-AgMata",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ/Alpha-AgMata",
+          "target_uri": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U/AgMata-Method",
+          "target_local": "AgMata-Method"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type6_epsilon",
+      "class": "Observation-Type6",
+      "v1_uri": "https://w3id.org/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY/Epsilon-AgMata",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY/Epsilon-AgMata",
+          "target_uri": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U/AgMata-Method",
+          "target_local": "AgMata-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY/Epsilon-AgMata",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type6_eta",
+      "class": "Observation-Type6",
+      "v1_uri": "https://w3id.org/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g/Eta-AgMata",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [
+        "https://doi.org/10.71728/hw56-vj34",
+        "https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1",
+        "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs"
+      ],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasPredictionMethod",
+          "subject": "https://w3id.org/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g/Eta-AgMata",
+          "target_uri": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U/AgMata-Method",
+          "target_local": "AgMata-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g/Eta-AgMata",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 20,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type7_alpha",
+      "class": "Observation-Type7",
+      "v1_uri": "https://w3id.org/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs/Alpha-DMS",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasExperimentalMethod",
+          "subject": "https://w3id.org/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs/Alpha-DMS",
+          "target_uri": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method",
+          "target_local": "BloomLab-DMS-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs/Alpha-DMS",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 22,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type7_epsilon",
+      "class": "Observation-Type7",
+      "v1_uri": "https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE/Epsilon-DMS",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasExperimentalMethod",
+          "subject": "https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE/Epsilon-DMS",
+          "target_uri": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method",
+          "target_local": "BloomLab-DMS-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE/Epsilon-DMS",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 22,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type7_eta",
+      "class": "Observation-Type7",
+      "v1_uri": "https://w3id.org/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0/Eta-DMS",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/hasExperimentalMethod",
+          "subject": "https://w3id.org/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0/Eta-DMS",
+          "target_uri": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method",
+          "target_local": "BloomLab-DMS-Method"
+        },
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0/Eta-DMS",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 22,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type8_alpha",
+      "class": "Observation-Type8",
+      "v1_uri": "https://w3id.org/np/RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk/Alpha-WHO",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk/Alpha-WHO",
+          "target_uri": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+          "target_local": "Alpha-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 17,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type8_epsilon",
+      "class": "Observation-Type8",
+      "v1_uri": "https://w3id.org/np/RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg/Epsilon-WHO",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg/Epsilon-WHO",
+          "target_uri": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+          "target_local": "Epsilon-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 17,
+      "n_triples_pubinfo": 17
+    },
+    {
+      "local_name": "type8_eta",
+      "class": "Observation-Type8",
+      "v1_uri": "https://w3id.org/np/RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4",
+      "pass": 2,
+      "fetch_url": "https://registry.knowledgepixels.com/np/RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4.trig",
+      "fetch_status": 200,
+      "fetch_ok": true,
+      "fdo_subject": "https://w3id.org/np/RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4/Eta-WHO",
+      "isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+      "sources": [],
+      "intra_crossrefs": [
+        {
+          "predicate": "https://w3id.org/spaces/mac/r/ontology/isObservationOf",
+          "subject": "https://w3id.org/np/RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4/Eta-WHO",
+          "target_uri": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+          "target_local": "Eta-RBD-Variant"
+        }
+      ],
+      "label_cache": [],
+      "wasDerivedFrom": [],
+      "n_triples_assertion": 17,
+      "n_triples_pubinfo": 17
+    }
+  ]
+}

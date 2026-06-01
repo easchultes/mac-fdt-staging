@@ -1,0 +1,42 @@
+{
+  "Alpha-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M",
+    "v2_trusty": "http://purl.org/np/RAFpkPZCjxIMNMSdxMmUhQ6dW6jZFPAlEBlmPCAiqZArs",
+    "v2_referent": "http://purl.org/np/RAFpkPZCjxIMNMSdxMmUhQ6dW6jZFPAlEBlmPCAiqZArs/Alpha-RBD-Variant"
+  },
+  "Epsilon-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s",
+    "v2_trusty": "http://purl.org/np/RAuCIY3qVRAhI5nI6eQXCzv03TiwJiEz7clPgNctiSwLY",
+    "v2_referent": "http://purl.org/np/RAuCIY3qVRAhI5nI6eQXCzv03TiwJiEz7clPgNctiSwLY/Epsilon-RBD-Variant"
+  },
+  "Eta-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s",
+    "v2_trusty": "http://purl.org/np/RAzuWe-q_1k_r9USqV4bMZdOQ5k77mm5oVwtk8SrLARF0",
+    "v2_referent": "http://purl.org/np/RAzuWe-q_1k_r9USqV4bMZdOQ5k77mm5oVwtk8SrLARF0/Eta-RBD-Variant"
+  },
+  "ESM2-Method": {
+    "v1_trusty": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM",
+    "v2_trusty": "http://purl.org/np/RA7xGGipZrWqD5dujylsAsUrcv5w-SpeiucTU0HdAAx0M",
+    "v2_referent": "http://purl.org/np/RA7xGGipZrWqD5dujylsAsUrcv5w-SpeiucTU0HdAAx0M/ESM2-Method"
+  },
+  "AlphaFold2-Method": {
+    "v1_trusty": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI",
+    "v2_trusty": "http://purl.org/np/RAFPXNk9ab6vvAVWMcqDrFu6rt6pSTclDNDsQxa_RiuEE",
+    "v2_referent": "http://purl.org/np/RAFPXNk9ab6vvAVWMcqDrFu6rt6pSTclDNDsQxa_RiuEE/AlphaFold2-Method"
+  },
+  "AgMata-Method": {
+    "v1_trusty": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U",
+    "v2_trusty": "http://purl.org/np/RAhfUy1DGjD66iG9akom9L1zS7NWCSSCfTr7p7zWNEEyM",
+    "v2_referent": "http://purl.org/np/RAhfUy1DGjD66iG9akom9L1zS7NWCSSCfTr7p7zWNEEyM/AgMata-Method"
+  },
+  "BloomLab-DMS-Method": {
+    "v1_trusty": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0",
+    "v2_trusty": "http://purl.org/np/RAPp5oPYjN2rKKqWa90hCd57OmHdGUV6GLtbdAthVSEf4",
+    "v2_referent": "http://purl.org/np/RAPp5oPYjN2rKKqWa90hCd57OmHdGUV6GLtbdAthVSEf4/BloomLab-DMS-Method"
+  },
+  "GISAID-Method": {
+    "v1_trusty": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4",
+    "v2_trusty": "http://purl.org/np/RA64dSZUEBnToqa0UH2d6I7nL9r8U-n4eM3FKuB6BWPlM",
+    "v2_referent": "http://purl.org/np/RA64dSZUEBnToqa0UH2d6I7nL9r8U-n4eM3FKuB6BWPlM/GISAID-Method"
+  }
+}

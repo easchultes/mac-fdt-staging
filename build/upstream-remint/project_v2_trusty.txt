@@ -1,0 +1,2 @@
+PROJECT_V2_SLASH_TRUSTY=https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk
+PROJECT_V2_SLASH_REFERENT=https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project

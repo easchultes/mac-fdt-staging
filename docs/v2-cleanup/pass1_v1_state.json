@@ -1,0 +1,64 @@
+{
+  "Alpha-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [
+      "https://doi.org/10.71728/hw56-vj34"
+    ],
+    "v1_fdo_subject": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant",
+    "class": "Type1"
+  },
+  "Epsilon-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [
+      "https://doi.org/10.71728/hw56-vj34"
+    ],
+    "v1_fdo_subject": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s/Epsilon-RBD-Variant",
+    "class": "Type1"
+  },
+  "Eta-RBD-Variant": {
+    "v1_trusty": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [
+      "https://doi.org/10.71728/hw56-vj34"
+    ],
+    "v1_fdo_subject": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s/Eta-RBD-Variant",
+    "class": "Type1"
+  },
+  "ESM2-Method": {
+    "v1_trusty": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [],
+    "v1_fdo_subject": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM/ESM2-Method",
+    "class": "Method-Type9"
+  },
+  "AlphaFold2-Method": {
+    "v1_trusty": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [],
+    "v1_fdo_subject": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI/AlphaFold2-Method",
+    "class": "Method-Type9"
+  },
+  "AgMata-Method": {
+    "v1_trusty": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [],
+    "v1_fdo_subject": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U/AgMata-Method",
+    "class": "Method-Type9"
+  },
+  "BloomLab-DMS-Method": {
+    "v1_trusty": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [],
+    "v1_fdo_subject": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0/BloomLab-DMS-Method",
+    "class": "Method-Type10"
+  },
+  "GISAID-Method": {
+    "v1_trusty": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4",
+    "v1_isPartOf": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto/StayAhead-Project",
+    "v1_sources": [],
+    "v1_fdo_subject": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4/GISAID-Method",
+    "class": "Method-Type11"
+  }
+}
