@@ -2266,6 +2266,19 @@ Eleven pin-action nanopubs (one per template) attach each template to the Space 
 | Obs per method | `RA-XrE3QY1r0Llm5TLurg0VcasOT_hfta-AM_4qp1srZo` |
 | Alpha knowlet | `RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` |
 
+##### Stage 4 v2 — Alpha knowlet view set (from PROMPT 5)
+
+The Alpha knowlet view set was re-minted in PROMPT 5 to point at the v2 Alpha-RBD-Variant referent (after the Stage 3 v2 cleanup in PROMPT 3 superseded the v1 Stage 3 catalogue). The other 12 Stage 4 nanopubs (catalogue summary, variants by WHO, observations per method × 4 each) are generic and require no re-mint; their v1 URIs in the tables above remain authoritative.
+
+| Role | v2 Trusty URI |
+|---|---|
+| (1) SPARQL query | `RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM` |
+| (2) Pin-action | `RAEUR-AJ6AbnFBylxYVZ2y4eyY3UIRn5gBTCSugIDF04w` |
+| (3) `gen:View` wrapper | `RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs` (referent: `<Trusty>/fdt-alpha-knowlet-view`) |
+| (4) `gen:ViewDisplay` | `RAM9wl0_gIlu3Txr3st7Um1lNsMFLwOKcbaBMRdWNmwrY` |
+
+Each v2 nanopub carries `npx:supersedes <v1-Trusty>` for the v1 Alpha-knowlet entry in the tables above. Cross-reference URI form is asymmetric: `gen:hasViewQuery` targets the bare query Trusty URI (artifact addressing); `gen:isDisplayOfView` targets the wrapper's `gen:View` referent URI (FDO addressing). See `docs/v2-cleanup/stage4_mutation_map.md` for the full ground-truth analysis and `docs/v2-cleanup/supersession_registry.md` for the authoritative mapping.
+
 #### A.5 External templates and resources
 
 NanoDash templates the build consumes (not authored by the catalogue):

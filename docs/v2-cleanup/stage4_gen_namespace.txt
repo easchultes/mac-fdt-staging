@@ -1,0 +1,9 @@
+https://w3id.org/kpxl/gen/terms/
+
+# Source: ground-truth extraction from v1 Stage 4 view-set TriGs
+# (2-pin uses gen:hasPinGroupTag, gen:hasPinnedQuery;
+#  3-wrapper uses gen:ResourceView, gen:TabularView, gen:hasViewQuery, etc.;
+#  4-viewdisplay uses gen:ActivatedViewDisplay, gen:ViewDisplay, gen:isDisplayOfView, etc.)
+# All four expand to the same root namespace. No @prefix gen: declaration
+# in v1 TriGs — terms are emitted as full URIs.
+# Confirmed across all 4 v1 nanopubs (consistent).

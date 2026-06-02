@@ -57,3 +57,21 @@ Authoritative mapping of v1 → v2 Trusty URIs for the 38 Stage 3 instances publ
 - All 38 v2 instances published with `npx:supersedes <v1-trusty>` triples; SPARQL `repo/full` indexed and verified (`build/v2-publish/sparql_verify_results.md`).
 - 12 observation instances (file local names `type{2,6,7,8}_<variant>`) have distinct referent local names (`<Variant>-{Occurrence,AgMata,DMS,WHO}`). The `v2 Referent URI` column uses the referent local name, NOT the file local name.
 - v2 mints were signed with nanopub-java 1.88.0 (via bundled JDK 21) to preserve the `/`-separator FDO referent convention. The earlier `#`-separator attempt with nanopub-py 2.0.1 was retracted (see PROMPT 1.5 / PROMPT 2.0 history).
+
+## Stage 4 — Alpha knowlet view set (PROMPT 5)
+
+The Alpha digital-twin knowlet view set (4 nanopubs) re-minted against Alpha-RBD-Variant v2 referent and chained referents. Other 12 Stage 4 nanopubs (catalogue summary, variants by WHO, observations per method × 4 each) are generic and confirmed to require no cleanup-pass re-mint.
+
+Cross-ref form per asymmetry locked at PROMPT 5 P38/R38:
+- `gen:hasViewQuery` targets the bare query nanopub Trusty URI (query accessed as artifact).
+- `gen:isDisplayOfView` targets the wrapper's `gen:View` referent URI.
+- See also: `docs/v2-cleanup/stage4_gen_namespace.txt` and `docs/v2-cleanup/stage4_mutation_map.md`.
+
+| Role | Local Name | v1 Trusty URI | v2 Trusty URI | v2 Referent URI | Mint UTC | NSN GET ✓ |
+|---|---|---|---|---|---|---|
+| (1) SPARQL query | `alpha-knowlet` | `https://w3id.org/np/RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` | `https://w3id.org/np/RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM` | `https://w3id.org/np/RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM/alpha-knowlet` | 2026-06-01T18:30:13Z | ✓ |
+| (2) Pin-action | — (no introduced referent) | `https://w3id.org/np/RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE` | `https://w3id.org/np/RAEUR-AJ6AbnFBylxYVZ2y4eyY3UIRn5gBTCSugIDF04w` | n/a (pin-actions target a Space, accessed by Trusty URI directly) | 2026-06-02T08:45:12Z | ✓ |
+| (3) Wrapper (gen:View) | `fdt-alpha-knowlet-view` | `https://w3id.org/np/RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | `https://w3id.org/np/RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs` | `https://w3id.org/np/RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs/fdt-alpha-knowlet-view` | 2026-06-02T08:45:12Z | ✓ |
+| (4) View-display | `display` | `https://w3id.org/np/RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` | `https://w3id.org/np/RAM9wl0_gIlu3Txr3st7Um1lNsMFLwOKcbaBMRdWNmwrY` | `https://w3id.org/np/RAM9wl0_gIlu3Txr3st7Um1lNsMFLwOKcbaBMRdWNmwrY/display` | 2026-06-02T08:46:00Z | ✓ |
+
+SPARQL verification (`build/v2-stage4/sparql_verify_results.md`): 4/4 `npx:supersedes` indexed; 2/2 cross-references resolve (wrapper → query bare-Trusty, view-display → wrapper referent).

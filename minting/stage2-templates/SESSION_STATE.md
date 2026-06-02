@@ -380,3 +380,7 @@ Commit: filled by PHASE 7 commit (see git log)
 
 
 PROMPT 3.5 (2026-06-01T14:44:39Z): Downstream-doc register created at `docs/v2-cleanup/downstream_doc_register.md`. 8 touchpoints registered, 3 in-repo with verified counts (Implementation Guide narrative: 45 v1 refs; SPS v1.4: 2 refs; FDT paper: 0 refs), 5 external/manual pending (2 NanoDash Spaces, StayAhead report, MAC_FAIR_v2 manuscript, slides/posters). Companion to `stage4_cascade.md`.
+
+PROMPT 5 (2026-06-02T09:00:10Z): Stage 4 Alpha knowlet view set re-minted against v2 referents. 4 nanopubs published with proper /-form prefixes via nanopub-java; `stage4_cascade.md` marked complete; `supersession_registry.md` extended with Stage 4 section. SPARQL /repo/full confirms 4/4 supersessions + 2/2 cross-references. The other 12 Stage 4 nanopubs (catalogue, variants-by-WHO, observations-per-method) are generic and require no re-mint — confirmed by repo-wide v1-Trusty grep. v2 catalogue cleanup pass closes.
+
+PROMPT 5 P38/R38 cross-ref-form lock: `gen:hasViewQuery` uses bare-Trusty URI (query as artifact); `gen:isDisplayOfView` uses referent URI (View FDO). Pin-action nanopubs have no introduced referent (target Space directly). Useful material for Tobias second-PR addendum.

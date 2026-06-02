@@ -33,7 +33,7 @@ The Alpha knowlet SPARQL view in Stage 4 hardcodes the Alpha-RBD-Variant v1 Trus
 - Query: replace `<https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M/Alpha-RBD-Variant>` with `<https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE/Alpha-RBD-Variant>` (Alpha-RBD-Variant v2 referent from `pass1_referent_map.json`).
 - Pin-action / wrapper / view-display: re-mint to point at the new query Trusty. Wrapper local name (`fdt-alpha-knowlet-view`) and pin-action structure preserved.
 
-**Status:** pending (deferred from this session).
+**Status:** **COMPLETE** — re-minted in PROMPT 5 (commit fills at PHASE 8). 4/4 published, GET-verified, SPARQL-indexed. See `docs/v2-cleanup/supersession_registry.md` Stage 4 section for full v1 → v2 mapping with mint timestamps.
 
 **Repo-wide v1 reference confirmation:**
 The repo-wide search confirmed only `query_alpha-knowlet_v1.trig` (and its signed counterpart) hardcodes a Stage 3 v1 Trusty among the 16 Stage 4 nanopubs. The other 12 (catalogue, variants-by-WHO, observations-per-method × 4 each) reference templates and ontology terms but not specific Stage 3 instances.
@@ -76,7 +76,7 @@ Every v1 Trusty appears in its corresponding Stage 3 v1 source TriG under `minti
 
 | Item | File / Trusty | v1 reference | Required v2 reference | Status |
 |---|---|---|---|---|
-| Alpha knowlet query | `RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` | `…/RA4BHII2…/Alpha-RBD-Variant` | `…/RAngbyT2iZe…/Alpha-RBD-Variant` | pending |
-| Alpha knowlet pin-action | `RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE` | (references query above) | new query Trusty | pending (cascade) |
-| Alpha knowlet wrapper | `RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | (references query above) | new query Trusty | pending (cascade) |
-| Alpha knowlet view-display | `RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` | (references query above) | new query Trusty | pending (cascade) |
+| Alpha knowlet query | `RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA` | `…/RA4BHII2…/Alpha-RBD-Variant` | `…/RAngbyT2iZe…/Alpha-RBD-Variant` | **complete** (v2 `RAPZD8J9…`, PROMPT 5) |
+| Alpha knowlet pin-action | `RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE` | (query v1 Trusty, bare form) | (query v2 Trusty, bare form: `RAPZD8J9…`) | **complete** (v2 `RAEUR-AJ6…`, PROMPT 5) |
+| Alpha knowlet wrapper | `RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0` | (query v1 Trusty, bare form via `gen:hasViewQuery`) | (query v2 Trusty, bare form: `RAPZD8J9…`) | **complete** (v2 `RArre4b4…`, PROMPT 5) |
+| Alpha knowlet view-display | `RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` | (wrapper v1 referent URI via `gen:isDisplayOfView`) | (wrapper v2 referent: `RArre4b4…/fdt-alpha-knowlet-view`) | **complete** (v2 `RAM9wl0_…`, PROMPT 5) |
