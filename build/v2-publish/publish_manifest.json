@@ -1,0 +1,332 @@
+{
+  "pass1": [
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/Alpha-RBD-Variant.trig",
+      "trusty": "https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE",
+      "local_name": "Alpha-RBD-Variant",
+      "v2_referent": "https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE/Alpha-RBD-Variant",
+      "v1_trusty": "https://w3id.org/np/RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/Epsilon-RBD-Variant.trig",
+      "trusty": "https://w3id.org/np/RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30",
+      "local_name": "Epsilon-RBD-Variant",
+      "v2_referent": "https://w3id.org/np/RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30/Epsilon-RBD-Variant",
+      "v1_trusty": "https://w3id.org/np/RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/Eta-RBD-Variant.trig",
+      "trusty": "https://w3id.org/np/RA8yS9sU1tq87fXelVb4Q7uwjpoDXOsoelXM5--tfu6IQ",
+      "local_name": "Eta-RBD-Variant",
+      "v2_referent": "https://w3id.org/np/RA8yS9sU1tq87fXelVb4Q7uwjpoDXOsoelXM5--tfu6IQ/Eta-RBD-Variant",
+      "v1_trusty": "https://w3id.org/np/RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/ESM2-Method.trig",
+      "trusty": "https://w3id.org/np/RAV_9iAUAyUyNLhVQxpTaE54ko_liTnBpIarZBnkBcbgw",
+      "local_name": "ESM2-Method",
+      "v2_referent": "https://w3id.org/np/RAV_9iAUAyUyNLhVQxpTaE54ko_liTnBpIarZBnkBcbgw/ESM2-Method",
+      "v1_trusty": "https://w3id.org/np/RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/AlphaFold2-Method.trig",
+      "trusty": "https://w3id.org/np/RAPz4KzBYjUUaURNGn4pR7PpJ5VAvv43v5dYK7gyG1DXk",
+      "local_name": "AlphaFold2-Method",
+      "v2_referent": "https://w3id.org/np/RAPz4KzBYjUUaURNGn4pR7PpJ5VAvv43v5dYK7gyG1DXk/AlphaFold2-Method",
+      "v1_trusty": "https://w3id.org/np/RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/AgMata-Method.trig",
+      "trusty": "https://w3id.org/np/RAfY9JAThg7kIl7-63YT2KdVN7y8INAyqpnow339n3tpU",
+      "local_name": "AgMata-Method",
+      "v2_referent": "https://w3id.org/np/RAfY9JAThg7kIl7-63YT2KdVN7y8INAyqpnow339n3tpU/AgMata-Method",
+      "v1_trusty": "https://w3id.org/np/RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/BloomLab-DMS-Method.trig",
+      "trusty": "https://w3id.org/np/RAWQDkXVW2tB6LEgirShh03PKJOznYQFVLx8-YXhWfnew",
+      "local_name": "BloomLab-DMS-Method",
+      "v2_referent": "https://w3id.org/np/RAWQDkXVW2tB6LEgirShh03PKJOznYQFVLx8-YXhWfnew/BloomLab-DMS-Method",
+      "v1_trusty": "https://w3id.org/np/RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass1/signed/GISAID-Method.trig",
+      "trusty": "https://w3id.org/np/RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0",
+      "local_name": "GISAID-Method",
+      "v2_referent": "https://w3id.org/np/RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0/GISAID-Method",
+      "v1_trusty": "https://w3id.org/np/RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4"
+    }
+  ],
+  "pass2": [
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-RMSD-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAaZJ0IuCVz8QaGyDWn10j8TBlpIifMDxqi7HzglNuz80",
+      "local_name": "Alpha-RMSD-AlphaFold2",
+      "file_local_name": "Alpha-RMSD-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAaZJ0IuCVz8QaGyDWn10j8TBlpIifMDxqi7HzglNuz80/Alpha-RMSD-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-RMSD-ESM2.trig",
+      "trusty": "https://w3id.org/np/RAf8cMF_qJFg1LAVkriSe7X1yoIz4Kg6GVaO0qrMYoaLg",
+      "local_name": "Alpha-RMSD-ESM2",
+      "file_local_name": "Alpha-RMSD-ESM2",
+      "v2_referent": "https://w3id.org/np/RAf8cMF_qJFg1LAVkriSe7X1yoIz4Kg6GVaO0qrMYoaLg/Alpha-RMSD-ESM2",
+      "v1_trusty": "https://w3id.org/np/RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-SASA-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RA2aycCXga1Q6CU9uN28ZLQqAVDXUuIgPsP8QW07LD5ws",
+      "local_name": "Alpha-SASA-AlphaFold2",
+      "file_local_name": "Alpha-SASA-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RA2aycCXga1Q6CU9uN28ZLQqAVDXUuIgPsP8QW07LD5ws/Alpha-SASA-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-SASA-ESM2.trig",
+      "trusty": "https://w3id.org/np/RATDFrbGzT9BSFCTLpQDf4HZWNpd4ReXlzvuJJ5oaTKrQ",
+      "local_name": "Alpha-SASA-ESM2",
+      "file_local_name": "Alpha-SASA-ESM2",
+      "v2_referent": "https://w3id.org/np/RATDFrbGzT9BSFCTLpQDf4HZWNpd4ReXlzvuJJ5oaTKrQ/Alpha-SASA-ESM2",
+      "v1_trusty": "https://w3id.org/np/RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-pLDDT-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RArrrQfjNxWFA6C4F3-QB5qJEsQOkTeivRX7_PmWWO_hQ",
+      "local_name": "Alpha-pLDDT-AlphaFold2",
+      "file_local_name": "Alpha-pLDDT-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RArrrQfjNxWFA6C4F3-QB5qJEsQOkTeivRX7_PmWWO_hQ/Alpha-pLDDT-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Alpha-pLDDT-ESM2.trig",
+      "trusty": "https://w3id.org/np/RAZc567NsX-8k7XJrKAnoBcwFI92miXJcdWrcD6U7rPPE",
+      "local_name": "Alpha-pLDDT-ESM2",
+      "file_local_name": "Alpha-pLDDT-ESM2",
+      "v2_referent": "https://w3id.org/np/RAZc567NsX-8k7XJrKAnoBcwFI92miXJcdWrcD6U7rPPE/Alpha-pLDDT-ESM2",
+      "v1_trusty": "https://w3id.org/np/RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-RMSD-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAN_Wf7LjMSofwyG0x4uhLNln8kgPnbKzl7ZHjXGKLOc4",
+      "local_name": "Epsilon-RMSD-AlphaFold2",
+      "file_local_name": "Epsilon-RMSD-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAN_Wf7LjMSofwyG0x4uhLNln8kgPnbKzl7ZHjXGKLOc4/Epsilon-RMSD-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-RMSD-ESM2.trig",
+      "trusty": "https://w3id.org/np/RA7EJKrmgtLHuKzT8FBNPLo-8HMgCLzBvR2Mfxpl5iJrI",
+      "local_name": "Epsilon-RMSD-ESM2",
+      "file_local_name": "Epsilon-RMSD-ESM2",
+      "v2_referent": "https://w3id.org/np/RA7EJKrmgtLHuKzT8FBNPLo-8HMgCLzBvR2Mfxpl5iJrI/Epsilon-RMSD-ESM2",
+      "v1_trusty": "https://w3id.org/np/RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-SASA-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAE9pIZSm1uZcf3AzCBLnhC6jzl5q53sHdd6xt-z4Qglk",
+      "local_name": "Epsilon-SASA-AlphaFold2",
+      "file_local_name": "Epsilon-SASA-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAE9pIZSm1uZcf3AzCBLnhC6jzl5q53sHdd6xt-z4Qglk/Epsilon-SASA-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-SASA-ESM2.trig",
+      "trusty": "https://w3id.org/np/RASLEpL6BamsPTgEH1FDfQ9whKu_V3-B7hHe3mVJOsuIQ",
+      "local_name": "Epsilon-SASA-ESM2",
+      "file_local_name": "Epsilon-SASA-ESM2",
+      "v2_referent": "https://w3id.org/np/RASLEpL6BamsPTgEH1FDfQ9whKu_V3-B7hHe3mVJOsuIQ/Epsilon-SASA-ESM2",
+      "v1_trusty": "https://w3id.org/np/RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-pLDDT-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAwjLl2XsUTPoaFrv45EmHr7K-HNlN--f3-pUTxmgDNnA",
+      "local_name": "Epsilon-pLDDT-AlphaFold2",
+      "file_local_name": "Epsilon-pLDDT-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAwjLl2XsUTPoaFrv45EmHr7K-HNlN--f3-pUTxmgDNnA/Epsilon-pLDDT-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Epsilon-pLDDT-ESM2.trig",
+      "trusty": "https://w3id.org/np/RA7QLv-gPyZjD6BWOBekq7ZWKu4hVFMraGwwJOhArOeJU",
+      "local_name": "Epsilon-pLDDT-ESM2",
+      "file_local_name": "Epsilon-pLDDT-ESM2",
+      "v2_referent": "https://w3id.org/np/RA7QLv-gPyZjD6BWOBekq7ZWKu4hVFMraGwwJOhArOeJU/Epsilon-pLDDT-ESM2",
+      "v1_trusty": "https://w3id.org/np/RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-RMSD-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAVHbFaBJ4Ezq3LpEvHlQR2y6FbyOeA6Ltk3wk-hZZTyE",
+      "local_name": "Eta-RMSD-AlphaFold2",
+      "file_local_name": "Eta-RMSD-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAVHbFaBJ4Ezq3LpEvHlQR2y6FbyOeA6Ltk3wk-hZZTyE/Eta-RMSD-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-RMSD-ESM2.trig",
+      "trusty": "https://w3id.org/np/RAPh6zDXbnsMP304CGWT3OcY8ielo_GVifxC7oDsVB8HM",
+      "local_name": "Eta-RMSD-ESM2",
+      "file_local_name": "Eta-RMSD-ESM2",
+      "v2_referent": "https://w3id.org/np/RAPh6zDXbnsMP304CGWT3OcY8ielo_GVifxC7oDsVB8HM/Eta-RMSD-ESM2",
+      "v1_trusty": "https://w3id.org/np/RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg",
+      "class": "Prediction-Type3"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-SASA-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAjsJgM13kFOaExAskq-K-7KcEf1anAAbrBz_TROBWtP0",
+      "local_name": "Eta-SASA-AlphaFold2",
+      "file_local_name": "Eta-SASA-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAjsJgM13kFOaExAskq-K-7KcEf1anAAbrBz_TROBWtP0/Eta-SASA-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-SASA-ESM2.trig",
+      "trusty": "https://w3id.org/np/RAeGQbuaKdL82xN1MBbkzLemD7twqcJYfxZdGVUWTX8G0",
+      "local_name": "Eta-SASA-ESM2",
+      "file_local_name": "Eta-SASA-ESM2",
+      "v2_referent": "https://w3id.org/np/RAeGQbuaKdL82xN1MBbkzLemD7twqcJYfxZdGVUWTX8G0/Eta-SASA-ESM2",
+      "v1_trusty": "https://w3id.org/np/RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8",
+      "class": "Prediction-Type4"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-pLDDT-AlphaFold2.trig",
+      "trusty": "https://w3id.org/np/RAyaXL_U120427BOikVY6A_eSSxWTtInmUqUHdB4W7EYk",
+      "local_name": "Eta-pLDDT-AlphaFold2",
+      "file_local_name": "Eta-pLDDT-AlphaFold2",
+      "v2_referent": "https://w3id.org/np/RAyaXL_U120427BOikVY6A_eSSxWTtInmUqUHdB4W7EYk/Eta-pLDDT-AlphaFold2",
+      "v1_trusty": "https://w3id.org/np/RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/Eta-pLDDT-ESM2.trig",
+      "trusty": "https://w3id.org/np/RAOevfPSd_NZh3bek1YA8M9ZWFwGFP_pTJZ4Txjw0UWz4",
+      "local_name": "Eta-pLDDT-ESM2",
+      "file_local_name": "Eta-pLDDT-ESM2",
+      "v2_referent": "https://w3id.org/np/RAOevfPSd_NZh3bek1YA8M9ZWFwGFP_pTJZ4Txjw0UWz4/Eta-pLDDT-ESM2",
+      "v1_trusty": "https://w3id.org/np/RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA",
+      "class": "Prediction-Type5"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type2_alpha.trig",
+      "trusty": "https://w3id.org/np/RAHiypVLAG5QdV2Dl09EAuvXJAsaTiOIS9JwNEGSFVPSg",
+      "local_name": "Alpha-Occurrence",
+      "file_local_name": "type2_alpha",
+      "v2_referent": "https://w3id.org/np/RAHiypVLAG5QdV2Dl09EAuvXJAsaTiOIS9JwNEGSFVPSg/Alpha-Occurrence",
+      "v1_trusty": "https://w3id.org/np/RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0",
+      "class": "Observation-Type2"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type2_epsilon.trig",
+      "trusty": "https://w3id.org/np/RAScF7yrx-LR-kvrvuW58TVoc-TEjqBIwG-CV9IlvmFUk",
+      "local_name": "Epsilon-Occurrence",
+      "file_local_name": "type2_epsilon",
+      "v2_referent": "https://w3id.org/np/RAScF7yrx-LR-kvrvuW58TVoc-TEjqBIwG-CV9IlvmFUk/Epsilon-Occurrence",
+      "v1_trusty": "https://w3id.org/np/RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA",
+      "class": "Observation-Type2"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type2_eta.trig",
+      "trusty": "https://w3id.org/np/RAhhXSQQgmCfZau05NMwwYGae21iwK_qjgOs7GzDyHn9w",
+      "local_name": "Eta-Occurrence",
+      "file_local_name": "type2_eta",
+      "v2_referent": "https://w3id.org/np/RAhhXSQQgmCfZau05NMwwYGae21iwK_qjgOs7GzDyHn9w/Eta-Occurrence",
+      "v1_trusty": "https://w3id.org/np/RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0",
+      "class": "Observation-Type2"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type6_alpha.trig",
+      "trusty": "https://w3id.org/np/RAZtTGo_ObQHC1hN7XIdW1JYbbRCuZqUofeUM-jsWJjds",
+      "local_name": "Alpha-AgMata",
+      "file_local_name": "type6_alpha",
+      "v2_referent": "https://w3id.org/np/RAZtTGo_ObQHC1hN7XIdW1JYbbRCuZqUofeUM-jsWJjds/Alpha-AgMata",
+      "v1_trusty": "https://w3id.org/np/RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ",
+      "class": "Observation-Type6"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type6_epsilon.trig",
+      "trusty": "https://w3id.org/np/RAMKsiqGr-f_FCX0lIrqfyilnwgS0GGpoUS7-3kQvZFJA",
+      "local_name": "Epsilon-AgMata",
+      "file_local_name": "type6_epsilon",
+      "v2_referent": "https://w3id.org/np/RAMKsiqGr-f_FCX0lIrqfyilnwgS0GGpoUS7-3kQvZFJA/Epsilon-AgMata",
+      "v1_trusty": "https://w3id.org/np/RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY",
+      "class": "Observation-Type6"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type6_eta.trig",
+      "trusty": "https://w3id.org/np/RARHGQesSG3Bq1t5nkw_NwPxJj8pDTSQKwABa45dQ6Cw8",
+      "local_name": "Eta-AgMata",
+      "file_local_name": "type6_eta",
+      "v2_referent": "https://w3id.org/np/RARHGQesSG3Bq1t5nkw_NwPxJj8pDTSQKwABa45dQ6Cw8/Eta-AgMata",
+      "v1_trusty": "https://w3id.org/np/RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g",
+      "class": "Observation-Type6"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type7_alpha.trig",
+      "trusty": "https://w3id.org/np/RAgsEHPr-WCHfLH2RNMFCVw4BHgqP3GvnGPfV5SqEkPRY",
+      "local_name": "Alpha-DMS",
+      "file_local_name": "type7_alpha",
+      "v2_referent": "https://w3id.org/np/RAgsEHPr-WCHfLH2RNMFCVw4BHgqP3GvnGPfV5SqEkPRY/Alpha-DMS",
+      "v1_trusty": "https://w3id.org/np/RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs",
+      "class": "Observation-Type7"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type7_epsilon.trig",
+      "trusty": "https://w3id.org/np/RAs9zpNLdQ2G1UQqQPktjJho7GLdsrHWAVORbxPyC_BRA",
+      "local_name": "Epsilon-DMS",
+      "file_local_name": "type7_epsilon",
+      "v2_referent": "https://w3id.org/np/RAs9zpNLdQ2G1UQqQPktjJho7GLdsrHWAVORbxPyC_BRA/Epsilon-DMS",
+      "v1_trusty": "https://w3id.org/np/RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE",
+      "class": "Observation-Type7"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type7_eta.trig",
+      "trusty": "https://w3id.org/np/RAymn8p9SjkROiji7aVPDRVdD3A33Ad5uuoYPTEkaMkrA",
+      "local_name": "Eta-DMS",
+      "file_local_name": "type7_eta",
+      "v2_referent": "https://w3id.org/np/RAymn8p9SjkROiji7aVPDRVdD3A33Ad5uuoYPTEkaMkrA/Eta-DMS",
+      "v1_trusty": "https://w3id.org/np/RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0",
+      "class": "Observation-Type7"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type8_alpha.trig",
+      "trusty": "https://w3id.org/np/RAnX2nF3Xep8CEn5GGZbRrjPQHVORHx_0tHM4cagWFVJ8",
+      "local_name": "Alpha-WHO",
+      "file_local_name": "type8_alpha",
+      "v2_referent": "https://w3id.org/np/RAnX2nF3Xep8CEn5GGZbRrjPQHVORHx_0tHM4cagWFVJ8/Alpha-WHO",
+      "v1_trusty": "https://w3id.org/np/RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk",
+      "class": "Observation-Type8"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type8_epsilon.trig",
+      "trusty": "https://w3id.org/np/RA-uT1JVPfe5gGFAo32mUvfynHAYLlBpqgt8rUy_qhrP4",
+      "local_name": "Epsilon-WHO",
+      "file_local_name": "type8_epsilon",
+      "v2_referent": "https://w3id.org/np/RA-uT1JVPfe5gGFAo32mUvfynHAYLlBpqgt8rUy_qhrP4/Epsilon-WHO",
+      "v1_trusty": "https://w3id.org/np/RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg",
+      "class": "Observation-Type8"
+    },
+    {
+      "file": "/Users/erikschultes/Desktop/mac-fdt-staging/build/v2-dryrun/pass2/signed/type8_eta.trig",
+      "trusty": "https://w3id.org/np/RAQmYYtUl5ZE31-1yFhP9rda1KSq_TDQipwlfCZPouAHc",
+      "local_name": "Eta-WHO",
+      "file_local_name": "type8_eta",
+      "v2_referent": "https://w3id.org/np/RAQmYYtUl5ZE31-1yFhP9rda1KSq_TDQipwlfCZPouAHc/Eta-WHO",
+      "v1_trusty": "https://w3id.org/np/RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4",
+      "class": "Observation-Type8"
+    }
+  ]
+}

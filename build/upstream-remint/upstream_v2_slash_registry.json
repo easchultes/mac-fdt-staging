@@ -1,0 +1,23 @@
+{
+  "project_v2": {
+    "trusty": "https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk",
+    "referent": "https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project",
+    "supersedes_v1": "https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto",
+    "replaces_defective_hash_v2": "https://w3id.org/np/RAtVDD78c1d8ANCXc6B0Gz7EjRweOPfR1dTsMONS4MZrE",
+    "retraction_nanopub": "https://w3id.org/np/RAkTZbU-GalW2x1Z6z6phvslQ0asgZNl2HrVAt2L8C6tU"
+  },
+  "esm_dataset_v2": {
+    "trusty": "https://w3id.org/np/RAbvDm28nNtScXcTXEKHbyYdx1yDXQ5zOViy_Dn7LOkkk",
+    "referent": "https://w3id.org/np/RAbvDm28nNtScXcTXEKHbyYdx1yDXQ5zOViy_Dn7LOkkk/STAYAHEAD-Dataset2",
+    "supersedes_v1": "https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs",
+    "replaces_defective_hash_v2": "https://w3id.org/np/RAy-pG5fwX53YEX_Wfmw-xUmpI9RsPTaw8l8Fn_j_CJIw",
+    "retraction_nanopub": "https://w3id.org/np/RAdaYZwuFkfAO919GrSbaTuQdrSXEvbyR7xMg8Z8DBAeI"
+  },
+  "af_dataset_v2": {
+    "trusty": "https://w3id.org/np/RAuqwhkDJgVHU8_Fk2gsMw483Iml75Kc09XKR6h0ybO3Q",
+    "referent": "https://w3id.org/np/RAuqwhkDJgVHU8_Fk2gsMw483Iml75Kc09XKR6h0ybO3Q/STAYAHEAD-Dataset1",
+    "supersedes_v1": "https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s",
+    "replaces_defective_hash_v2": "https://w3id.org/np/RAMOJpRJcZVEFqxJfdvLIF5Qjfi1db9FeROfosXL7XE58",
+    "retraction_nanopub": "https://w3id.org/np/RAdl00pIEMmQpRqxoteu1nuLWBJa9Q4WE02R01rQ86a1c"
+  }
+}

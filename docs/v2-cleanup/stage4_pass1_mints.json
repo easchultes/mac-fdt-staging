@@ -1,0 +1,9 @@
+{
+  "1-query": {
+    "v1_trusty": "https://w3id.org/np/RAecvUbvUWiIOKP7ZEQk7hnUsb8lWWUr1lRbVN2PsSUSA",
+    "v2_trusty": "https://w3id.org/np/RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM",
+    "v2_referent": "https://w3id.org/np/RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM/alpha-knowlet",
+    "publish_time_utc": "2026-06-01T18:30:13Z",
+    "get_verified": true
+  }
+}

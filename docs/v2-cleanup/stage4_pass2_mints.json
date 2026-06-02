@@ -1,0 +1,17 @@
+{
+  "2-pin": {
+    "v1_trusty": "https://w3id.org/np/RAzEolNOqr8I1aiZpafpUxJfqBOQRdTapceYWjXCoEYAE",
+    "v2_trusty": "https://w3id.org/np/RAEUR-AJ6AbnFBylxYVZ2y4eyY3UIRn5gBTCSugIDF04w",
+    "v2_referent": null,
+    "publish_time_utc": "2026-06-02T08:45:12Z",
+    "get_verified": true,
+    "note": "Pin-action has no introduced/embedded referent; targets the project4 Space directly via gen:hasPinnedQuery. No v2_referent applicable."
+  },
+  "3-wrapper": {
+    "v1_trusty": "https://w3id.org/np/RA_zvbVo3VX6Cy3lYOI6LNHJICb1copbCmJHayjpzCeJ0",
+    "v2_trusty": "https://w3id.org/np/RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs",
+    "v2_referent": "https://w3id.org/np/RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs/fdt-alpha-knowlet-view",
+    "publish_time_utc": "2026-06-02T08:45:12Z",
+    "get_verified": true
+  }
+}

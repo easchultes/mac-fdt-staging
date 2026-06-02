@@ -1,0 +1,2 @@
+ESM_V2_SLASH_TRUSTY=https://w3id.org/np/RAbvDm28nNtScXcTXEKHbyYdx1yDXQ5zOViy_Dn7LOkkk
+ESM_V2_SLASH_REFERENT=https://w3id.org/np/RAbvDm28nNtScXcTXEKHbyYdx1yDXQ5zOViy_Dn7LOkkk/STAYAHEAD-Dataset2

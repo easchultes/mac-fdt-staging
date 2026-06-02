@@ -1,0 +1,83 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix ns1: <http://purl.org/np/> .
+@prefix ns2: <https://w3id.org/fdof/ontology#> .
+@prefix ns3: <https://www.w3.org/ns/dcat#> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sub1: <http://purl.org/np/RAy-pG5fwX53YEX_Wfmw-xUmpI9RsPTaw8l8Fn_j_CJIw#> .
+@prefix this1: <http://purl.org/np/RAy-pG5fwX53YEX_Wfmw-xUmpI9RsPTaw8l8Fn_j_CJIw> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sub1:assertion {
+    <https://osf.io/emk49> dcterms:issued "2025-07-01" ;
+        dcterms:license <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0> ;
+        ns2:hasEncodingFormat <https://www.iana.org/assignments/media-types/text/csv> ;
+        ns2:materializes sub1:STAYAHEAD-Dataset2 ;
+        ns3:accessURL <https://osf.io/download/emk49/> .
+
+    sub1:STAYAHEAD-Dataset2 a <https://w3id.org/fair/ff/terms/Dataset>,
+            ns2:FAIRDigitalObject ;
+        rdfs:label "ESM Dataset STAYAHEAD" ;
+        dcterms:contributor orcid:0000-0001-8888-635X ;
+        dcterms:creator orcid:0009-0004-2188-0817 ;
+        dcterms:hasVersion "v1.0.0" ;
+        dcterms:isPartOf <http://purl.org/np/RAtVDD78c1d8ANCXc6B0Gz7EjRweOPfR1dTsMONS4MZrE/StayAhead-Project> ;
+        dcterms:language <https://www.omg.org/spec/LCC/Languages/LaISO639-1-LanguageCodes/en> ;
+        dcterms:publisher <https://ror.org/027bh9e22> ;
+        dcterms:references <https://doi.org/10.3389/fbinf.2025.1634111> ;
+        dcterms:source <https://doi.org/10.71728/hw56-vj34>,
+            <https://sen.science/doi/10.71728/hw56-vj34/resources/esm_wuhan_1step_v1> ;
+        dcterms:subject <http://aims.fao.org/aos/agrovoc/c_4318> ;
+        rdfs:comment "SARS-COV-2 Spike protein RBD variant structural features calculated with ESM" ;
+        schema:funder <https://ror.org/056cwr036> ;
+        ns2:hasMetadata this1: ;
+        ns3:contactPoint "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub1:Head {
+    this1: a np:Nanopublication ;
+        np:hasAssertion sub1:assertion ;
+        np:hasProvenance sub1:provenance ;
+        np:hasPublicationInfo sub1:pubinfo .
+}
+
+sub1:provenance {
+    sub1:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub1:pubinfo {
+    sub1:sig npx:hasAlgorithm "RSA" ;
+        npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB" ;
+        npx:hasSignature "wXJK3eEuAmuOhKyCiCfRo1yivATKl2orZXOsSAapR7d3Bb/4YwW3G4FpJbwB+pJu3Je+0JIHynTOPg/EyQGdHdeSko5qDpg/PStzG0lWha3WMaKZv5idbPmFHc8DVW5Whciwm9B7OfJTqeY9BKHiBhVEv+U27jqRj8f0SiSyluA=" ;
+        npx:hasSignatureTarget this1: .
+
+    <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0> nt:hasLabelFromApi "CC BY 4.0 | Attribution 4.0 International - Using this licence you are free to share and adapt the resource but you must ..." .
+
+    <http://purl.org/np/RAtVDD78c1d8ANCXc6B0Gz7EjRweOPfR1dTsMONS4MZrE/StayAhead-Project> nt:hasLabelFromApi "STAYAHEAD" .
+
+    this1: dcterms:created "2026-05-31T22:40:03Z"^^xsd:dateTime ;
+        dcterms:creator orcid:0000-0001-8888-635X ;
+        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+        npx:introduces sub1:STAYAHEAD-Dataset2 ;
+        npx:supersedes <https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs> ;
+        npx:wasCreatedAt <https://nanodash.knowledgepixels.com/> ;
+        prov:wasDerivedFrom <https://w3id.org/np/RAJbgfCRw3f4rFX3LTCsD0wR7SMhk3lyBD-CS2qsblWBA>,
+            <https://w3id.org/np/RALvmyEh3dQAA8hubJ8jStRplDZKbXgFc2I2DexaaCZtw>,
+            <https://w3id.org/np/RAUvjpFmgf_sMfKRDeSKrCq-CPJE2ZQu0tLIQolSnEvUk> ;
+        nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU> ;
+        nt:wasCreatedFromPubinfoTemplate ns1:RAxuGRKID6yNg63V5Mf0ot2NjncOnodh-mkN3qT_1txGI,
+            <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+            <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+            <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+            <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI> ;
+        nt:wasCreatedFromTemplate <https://w3id.org/np/RAnSHAFu_HMWIfNsjXAvL8441RQJCbg7Gu0nMTJUM-0sA> .
+
+    orcid:0000-0001-8888-635X foaf:name "Erik Schultes" .
+}
+

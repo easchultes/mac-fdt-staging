@@ -1,0 +1,73 @@
+@prefix this: <http://purl.org/nanopub/temp/dataset_alphafold_v2_slash/> .
+@prefix sub: <http://purl.org/nanopub/temp/dataset_alphafold_v2_slash/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix ns1: <http://purl.org/np/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  <https://osf.io/9tj6b> dct:issued "2025-07-01";
+    dct:license <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/text/csv>;
+    <https://w3id.org/fdof/ontology#materializes> sub:STAYAHEAD-Dataset1;
+    <https://www.w3.org/ns/dcat#accessURL> <https://osf.io/download/9tj6b/> .
+
+  sub:STAYAHEAD-Dataset1 a <https://w3id.org/fair/ff/terms/Dataset>, <https://w3id.org/fdof/ontology#FAIRDigitalObject>;
+    dct:contributor orcid:0000-0001-8888-635X;
+    dct:creator orcid:0009-0004-2188-0817;
+    dct:hasVersion "v1.0.0";
+    dct:isPartOf <https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project>;
+    dct:language <https://www.omg.org/spec/LCC/Languages/LaISO639-1-LanguageCodes/en>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    dct:references <https://doi.org/10.3389/fbinf.2025.1634111>;
+    dct:source <https://doi.org/10.71728/hw56-vj34>,
+      <https://sen.science/doi/10.71728/hw56-vj34/resources/af_wuhan_1step_v1>;
+    dct:subject <http://aims.fao.org/aos/agrovoc/c_4318>;
+    rdfs:comment "SARS-COV-2 Spike protein RBD variant structural features calculated with AlphaFold2";
+    rdfs:label "AlphaFold2 Dataset STAYAHEAD";
+    <https://schema.org/funder> <https://ror.org/056cwr036>;
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0> nt:hasLabelFromApi
+      "CC BY 4.0 | Attribution 4.0 International - Using this licence you are free to share and adapt the resource but you must ..." .
+
+  orcid:0000-0001-8888-635X foaf:name "Erik Schultes" .
+
+  <https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project>
+    nt:hasLabelFromApi "STAYAHEAD" .
+
+  this: dct:created "2026-05-31T22:40:03Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:STAYAHEAD-Dataset1;
+    npx:supersedes <https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s>;
+    npx:wasCreatedAt <https://nanodash.knowledgepixels.com/>;
+    prov:wasDerivedFrom <https://w3id.org/np/RA0rpWDMRR5OBDA0Kt1P8k_BB2Y67ZF1iX-Rufs5LZdEs>,
+      <https://w3id.org/np/RALvmyEh3dQAA8hubJ8jStRplDZKbXgFc2I2DexaaCZtw>;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate ns1:RAxuGRKID6yNg63V5Mf0ot2NjncOnodh-mkN3qT_1txGI,
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>, <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+      <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>, <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAnSHAFu_HMWIfNsjXAvL8441RQJCbg7Gu0nMTJUM-0sA> ;
+    rdfs:comment "Re-mint of AlphaFold Dataset v2 in /-form convention. Supersedes v1 directly. The intermediate #-form version (http://purl.org/np/RAMOJpRJcZVEFqxJfdvLIF5Qjfi1db9FeROfosXL7XE58) was retracted due to a nanopub-py 2.0.1 signer separator defect (sub: prefix canonicalized with # instead of /, breaking referent resolution against the MAC catalogue / convention)." .
+}

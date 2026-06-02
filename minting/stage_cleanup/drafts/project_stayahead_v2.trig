@@ -1,0 +1,74 @@
+@prefix this: <http://purl.org/nanopub/temp/project_stayahead_v2> .
+@prefix sub: <http://purl.org/nanopub/temp/project_stayahead_v2/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix ns1: <http://purl.org/np/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  <https://osf.io/js8gc> dct:issued "2023-03-01";
+    dct:license <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0>;
+    <https://w3id.org/fdof/ontology#hasEncodingFormat> <https://www.iana.org/assignments/media-types/application/pdf>;
+    <https://w3id.org/fdof/ontology#materializes> sub:StayAhead-Project;
+    <https://www.w3.org/ns/dcat#accessURL> <https://osf.io/download/js8gc/> .
+
+  sub:StayAhead-Project a <https://w3id.org/fair/ff/terms/Project>, <https://w3id.org/fdof/ontology#FAIRDigitalObject>;
+    dct:contributor orcid:0000-0001-7871-2073, orcid:0009-0004-2188-0817;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:isPartOf <https://w3id.org/np/RAof6kN_keiB675cM6GwHmqqlX47ekF-yZ5jKowZsvzSE>;
+    dct:language <https://www.omg.org/spec/LCC/Languages/LaISO639-1-LanguageCodes/en>;
+    dct:publisher <https://ror.org/027bh9e22>;
+    dct:subject <http://aims.fao.org/aos/agrovoc/c_4318>;
+    rdfs:comment "This project will develop rapid SARS-CoV-2 detection and variant characterization using mass spectrometry, FAIR Digital Twins of variants, and coupled to AI predictions of variants of high risk.";
+    rdfs:label "STAYAHEAD";
+    <https://schema.org/funder> <https://ror.org/056cwr036>;
+    <https://w3id.org/fair/ff/has-article> <https://w3id.org/np/RAnQSVXSxfY3fIdW4f25K_j4imftJ_ijyigLIvS907R8c>;
+    <https://w3id.org/fair/ff/has-dataset> <https://w3id.org/np/RA9YxiABPRNy3rrJm20p1oanJchBcI22IPpSu36zj2MLs>,
+      <https://w3id.org/np/RAv6JJe-lvoadhNwml8pzSLs5aOtbU1xbHT5qgFtgwQ-s>;
+    <https://w3id.org/fair/ff/has-dmp> <https://w3id.org/np/RAU1Mo98h2lw3zWADMKx8V7Q03uQNyu2mkTJkRjRQQUOE>;
+    <https://w3id.org/fair/ff/has-grant-id> "LSHM22038-H026";
+    <https://w3id.org/fair/ff/has-method> <https://w3id.org/np/RAjVt8HI8gn9WJwSVIeRRfyVLixF0yKx258RRDM1S2sKI>;
+    <https://w3id.org/fair/ff/terms/is-in-response-to> <https://w3id.org/np/RArJ3YwHg1LtlbDkHmz3I1BTrJeSuohfsJy4pfmCFnN7w>;
+    <https://w3id.org/fdof/ontology#hasMetadata> this:;
+    <https://www.w3.org/ns/dcat#contactPoint> "e.a.schultes@lacdr.leidenuniv.nl";
+    <https://www.w3.org/ns/dcat#endDate> "2026-03-31";
+    <https://www.w3.org/ns/dcat#startDate> "2023-03-01" .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  <http://purl.org/np/RAQ__sGdY_Qc7l1O_zmn4nr-pMBOxKU04Ur9s998rS6Fc#CC-BY-4.0> nt:hasLabelFromApi
+      "CC BY 4.0 | Attribution 4.0 International - Using this licence you are free to share and adapt the resource but you must ..." .
+
+  orcid:0000-0001-8888-635X foaf:name "Erik Schultes" .
+
+  this: dct:created "2026-05-31T22:06:24Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:StayAhead-Project;
+    npx:supersedes <https://w3id.org/np/RAFPOe4OIl_urs-U_7-FostjzcUo8ra6LasfSvGplOvto>;
+    npx:wasCreatedAt <https://nanodash.knowledgepixels.com/>;
+    prov:wasDerivedFrom <https://w3id.org/np/RA3FYgn9oE_tQ9BX0kJT3Udov_v6gltY3BQqal6_6Gdh0>,
+      <https://w3id.org/np/RAqpkNMBQyEWP_jhK1R8IBobPzCrWVL6NEID8gmxDeYOs>;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate ns1:RAxuGRKID6yNg63V5Mf0ot2NjncOnodh-mkN3qT_1txGI,
+      <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>, <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>,
+      <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>, <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAD1ncuyMZ55LXSbgzqrVSs4RVjb9VjmNmrsN1TAvmokc> .
+}

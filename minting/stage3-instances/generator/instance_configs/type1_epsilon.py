@@ -5,10 +5,11 @@ FDT4Claude_small_v1_2.csv (GISAID accession).
 
 GISAID seq_id CORRECTION (2026-05-28):
 L452R is Epsilon's canonical defining Spike mutation (lineages
-B.1.427 / B.1.429). SPS v1.3 and FDT4Claude_small_v1_2.csv carry
-L124R, an upstream data-entry error to be corrected in the
-coordinated revision pass (see Post_demonstration_cleanup.md). Demo
-nanopub publishes the correct value.
+B.1.427 / B.1.429). SPS v1.3 and FDT4Claude_small_v1_2.csv historically
+carried L124R, an upstream data-entry error corrected during the v2
+cleanup pass (PROMPT 4 doc batch). SPS v1.4 and the live CSV now
+carry L452R. SPS v1.3 retains the typo as a historical record. The
+demo nanopub always published the correct value (config line below).
 
 Pango lineage carries the composite designation B.1.427 + B.1.429
 exactly as in SPS v1.3.

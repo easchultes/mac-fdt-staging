@@ -1233,7 +1233,7 @@ Three instances: Alpha, Epsilon, Eta. Configs in `instance_configs/type1_{alpha,
 | mac_seq_id | "N169Y" | "L120R" | "E152K" |
 | gisaid_accession | "EPI_ISL_601443" | "EPI_ISL_2295356" | "EPI_ISL_941290" |
 
-**Note on the Epsilon gisaid_seq_id correction.** The Stage 1 SPS v1.3 and the demonstration CSV (`FDT4Claude_small_v1_2.csv`) carry `L124R` for Epsilon's full-Spike notation. This is an upstream data-entry error: Epsilon's canonical defining Spike substitution is `L452R` (lineages B.1.427/B.1.429), and the position math is consistent with the other two variants (MAC RBD position + 332 = full-Spike position: Alpha N169 + 332 = N501 ✓, Eta E152 + 332 = E484 ✓, Epsilon L120 + 332 = **L452** — not L124). The instance config carries the correct value `L452R`; the SPS and CSV are flagged for correction in the coordinated cleanup pass (`Post_demonstration_cleanup.md`). Demo data is right at publication; documentation catches up later.
+**Note on the Epsilon gisaid_seq_id correction.** Earlier Stage 1 documents (`MAC_FDT_SPS_v1_2.md`, `MAC_FDT_SPS_v1_3.md`) and the demonstration CSV (`FDT4Claude_small_v1_2.csv`) historically carried `L124R` for Epsilon's full-Spike notation. This was an upstream data-entry error: Epsilon's canonical defining Spike substitution is `L452R` (lineages B.1.427/B.1.429), and the position math is consistent with the other two variants (MAC RBD position + 332 = full-Spike position: Alpha N169 + 332 = N501 ✓, Eta E152 + 332 = E484 ✓, Epsilon L120 + 332 = **L452** — not L124). The instance config always carried the correct value `L452R`; SPS v1.4 and the live CSV were corrected during the v2 cleanup pass (PROMPT 4 doc batch). Historical SPS revisions retain the typo as audit trail. Demo nanopubs published the correct value from the start.
 
 **Worked Alpha example — assembled assertion graph after generation:**
 
@@ -2166,63 +2166,67 @@ Eleven pin-action nanopubs (one per template) attach each template to the Space 
 
 #### A.3 Stage 3 — Instances (38)
 
+> **As of 2026-06-01, all 38 Stage 3 v1 instances have been superseded by v2 mints with `/`-form addressing convention.** v1 Trusty URIs remain resolvable on the NSN but are flagged as superseded via `npx:supersedes` triples on the v2 nanopubs. See `docs/v2-cleanup/supersession_registry.md` for the authoritative v1→v2 mapping table with mint timestamps and full v2 Referent URIs. The tables in this section retain v1 Trusty URIs for historical context, with v2 Trusty URIs added as a new column. Downstream artifacts SHOULD reference v2 referent URIs.
+
 **Variant anchors (Type 1, 3 instances).**
 
-| instance_id | Trusty URI | Referent URI |
-|---|---|---|
-| `Alpha-RBD-Variant` | `RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M` | `<Trusty>/Alpha-RBD-Variant` |
-| `Epsilon-RBD-Variant` | `RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s` | `<Trusty>/Epsilon-RBD-Variant` |
-| `Eta-RBD-Variant` | `RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s` | `<Trusty>/Eta-RBD-Variant` |
+| instance_id | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|
+| `Alpha-RBD-Variant` | `RA4BHII2Bz7HfpUkaSJqNmhjF8F7hyWpCJnvXYkA4EP_M` | `RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE` | superseded |
+| `Epsilon-RBD-Variant` | `RAbyuWWdW-j1rYt7Eqnva6aBvMyTkM9_Ka2FbA9dJHR7s` | `RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30` | superseded |
+| `Eta-RBD-Variant` | `RAikllrKWQoo81RYYvGJjWfzE0QiGrLquMMIwDD6xem2s` | `RA8yS9sU1tq87fXelVb4Q7uwjpoDXOsoelXM5--tfu6IQ` | superseded |
 
 **Method instances (Types 9–11, 5 instances, shared across all three twins).**
 
-| instance_id | Type | Trusty URI | Referent URI |
-|---|---|---|---|
-| `ESM2-Method` | 9 | `RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM` | `<Trusty>/ESM2-Method` |
-| `AlphaFold2-Method` | 9 | `RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI` | `<Trusty>/AlphaFold2-Method` |
-| `AgMata-Method` | 9 | `RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U` | `<Trusty>/AgMata-Method` |
-| `BloomLab-DMS-Method` | 10 | `RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0` | `<Trusty>/BloomLab-DMS-Method` |
-| `GISAID-Method` | 11 | `RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4` | `<Trusty>/GISAID-Method` |
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `ESM2-Method` | 9 | `RADJxd-U-p7VpA01uXlsp3nkUo3oXFMSOam04-fcF0ZyM` | `RAV_9iAUAyUyNLhVQxpTaE54ko_liTnBpIarZBnkBcbgw` | superseded |
+| `AlphaFold2-Method` | 9 | `RA3zXmeaYZxYSPXzH7CK8-m5T31NWr9nvUCeyKz2mbvNI` | `RAPz4KzBYjUUaURNGn4pR7PpJ5VAvv43v5dYK7gyG1DXk` | superseded |
+| `AgMata-Method` | 9 | `RA3JGJN1R1uTyj1puobq1cEwHT52LNmM_67dzb0oRAz2U` | `RAfY9JAThg7kIl7-63YT2KdVN7y8INAyqpnow339n3tpU` | superseded |
+| `BloomLab-DMS-Method` | 10 | `RA0Bz7doV8fCSO9lEmpbtNTOnMu5lB3jVudjo-tD0T_Q0` | `RAWQDkXVW2tB6LEgirShh03PKJOznYQFVLx8-YXhWfnew` | superseded |
+| `GISAID-Method` | 11 | `RA7XLn4SiwTU4L_5YFYW8KBefgKeYXRu5DSFvYtlZE-o4` | `RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0` | superseded |
 
 **Computational predictions (Types 3–5, 18 instances).**
 
-| instance_id | Type | Trusty URI |
-|---|---|---|
-| `Alpha-RMSD-AlphaFold2` | 3 | `RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE` |
-| `Alpha-RMSD-ESM2` | 3 | `RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac` |
-| `Alpha-SASA-AlphaFold2` | 4 | `RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM` |
-| `Alpha-SASA-ESM2` | 4 | `RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc` |
-| `Alpha-pLDDT-AlphaFold2` | 5 | `RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA` |
-| `Alpha-pLDDT-ESM2` | 5 | `RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0` |
-| `Epsilon-RMSD-AlphaFold2` | 3 | `RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k` |
-| `Epsilon-RMSD-ESM2` | 3 | `RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28` |
-| `Epsilon-SASA-AlphaFold2` | 4 | `RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY` |
-| `Epsilon-SASA-ESM2` | 4 | `RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ` |
-| `Epsilon-pLDDT-AlphaFold2` | 5 | `RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E` |
-| `Epsilon-pLDDT-ESM2` | 5 | `RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk` |
-| `Eta-RMSD-AlphaFold2` | 3 | `RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE` |
-| `Eta-RMSD-ESM2` | 3 | `RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg` |
-| `Eta-SASA-AlphaFold2` | 4 | `RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik` |
-| `Eta-SASA-ESM2` | 4 | `RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8` |
-| `Eta-pLDDT-AlphaFold2` | 5 | `RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA` |
-| `Eta-pLDDT-ESM2` | 5 | `RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA` |
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `Alpha-RMSD-AlphaFold2` | 3 | `RAjn5zJQoLUFSMpDLEEG6Pc_oONJNDlMnPi4grKHOsxOE` | `RAaZJ0IuCVz8QaGyDWn10j8TBlpIifMDxqi7HzglNuz80` | superseded |
+| `Alpha-RMSD-ESM2` | 3 | `RASyg7i8HV4TxiN_-b2KKY6lAuFUkU4_T9pBrtAPA0Uac` | `RAf8cMF_qJFg1LAVkriSe7X1yoIz4Kg6GVaO0qrMYoaLg` | superseded |
+| `Alpha-SASA-AlphaFold2` | 4 | `RAXXa3_lWNc_NYn9Hd8uaA_bHZVeUhiRJDf8Ugkfu6vLM` | `RA2aycCXga1Q6CU9uN28ZLQqAVDXUuIgPsP8QW07LD5ws` | superseded |
+| `Alpha-SASA-ESM2` | 4 | `RAxIOCQ4MnuGhYt3jLW9QMoWLdRtYThQVVo2kGPL7Rluc` | `RATDFrbGzT9BSFCTLpQDf4HZWNpd4ReXlzvuJJ5oaTKrQ` | superseded |
+| `Alpha-pLDDT-AlphaFold2` | 5 | `RAd9HOScIMpFwHd5U14cg8ez6mSKV2w7y9ow433mL9quA` | `RArrrQfjNxWFA6C4F3-QB5qJEsQOkTeivRX7_PmWWO_hQ` | superseded |
+| `Alpha-pLDDT-ESM2` | 5 | `RA3i18Z4N8YQgl-BfudZ42DI7Bbg53MotI6RaNs9fqUz0` | `RAZc567NsX-8k7XJrKAnoBcwFI92miXJcdWrcD6U7rPPE` | superseded |
+| `Epsilon-RMSD-AlphaFold2` | 3 | `RA6R7bzGLG0TQDCfFITDN9plVjA6uUF7raZLktK8zMi7k` | `RAN_Wf7LjMSofwyG0x4uhLNln8kgPnbKzl7ZHjXGKLOc4` | superseded |
+| `Epsilon-RMSD-ESM2` | 3 | `RASwHwTv2vBeWJKtUuRz0SoiQz8MW-c2Q2--9-P9aet28` | `RA7EJKrmgtLHuKzT8FBNPLo-8HMgCLzBvR2Mfxpl5iJrI` | superseded |
+| `Epsilon-SASA-AlphaFold2` | 4 | `RA_1MdrIk8wbsgaTZE0jObzWwmxbofD3bcXdRsy6imKDY` | `RAE9pIZSm1uZcf3AzCBLnhC6jzl5q53sHdd6xt-z4Qglk` | superseded |
+| `Epsilon-SASA-ESM2` | 4 | `RAfu8HN7te8b0fLOzPqM4FW9RkBJwTgz6tSXajoeErxRQ` | `RASLEpL6BamsPTgEH1FDfQ9whKu_V3-B7hHe3mVJOsuIQ` | superseded |
+| `Epsilon-pLDDT-AlphaFold2` | 5 | `RAdQ0Y6Qi1jiguOYaE6KA3UBCHCe5w6WaNCEIXznwhw2E` | `RAwjLl2XsUTPoaFrv45EmHr7K-HNlN--f3-pUTxmgDNnA` | superseded |
+| `Epsilon-pLDDT-ESM2` | 5 | `RAdRQFoeuo9TZOIa0Val0SvFBKk9WNao-hUpgCgAE07vk` | `RA7QLv-gPyZjD6BWOBekq7ZWKu4hVFMraGwwJOhArOeJU` | superseded |
+| `Eta-RMSD-AlphaFold2` | 3 | `RAjl9Ui02eVoJoNbx_EEntYV5a4flxCBWtX3Kd2tQ8SFE` | `RAVHbFaBJ4Ezq3LpEvHlQR2y6FbyOeA6Ltk3wk-hZZTyE` | superseded |
+| `Eta-RMSD-ESM2` | 3 | `RA4W0pxcS_W5DN19grmRbHbaajsyxyuKcQw7Zpg_W6ycg` | `RAPh6zDXbnsMP304CGWT3OcY8ielo_GVifxC7oDsVB8HM` | superseded |
+| `Eta-SASA-AlphaFold2` | 4 | `RAdHQntpPxeWMz2i7U2DbtqwsKHMq1ChPGsSFCldceCik` | `RAjsJgM13kFOaExAskq-K-7KcEf1anAAbrBz_TROBWtP0` | superseded |
+| `Eta-SASA-ESM2` | 4 | `RARSu37G4FkiF7SM9ymgB7x0XYtYM0YU8Pw_4hPa3jvQ8` | `RAeGQbuaKdL82xN1MBbkzLemD7twqcJYfxZdGVUWTX8G0` | superseded |
+| `Eta-pLDDT-AlphaFold2` | 5 | `RABB4kADKKy-TSQhvWkwvY7Rk907mFd6dQ-Qv2QSfuwuA` | `RAyaXL_U120427BOikVY6A_eSSxWTtInmUqUHdB4W7EYk` | superseded |
+| `Eta-pLDDT-ESM2` | 5 | `RAJ0NJ-vXIIBmxdR5eR-ndXTc5gQYhBKSvSAtHmvkaSrA` | `RAOevfPSd_NZh3bek1YA8M9ZWFwGFP_pTJZ4Txjw0UWz4` | superseded |
 
 **Final observations (Types 2, 6, 7, 8 — 12 instances).**
 
-| instance_id | Type | Trusty URI |
-|---|---|---|
-| `type2_alpha` (Alpha occurrence) | 2 | `RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0` |
-| `type2_epsilon` | 2 | `RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA` |
-| `type2_eta` | 2 | `RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0` |
-| `type6_alpha` (Alpha AgMata) | 6 | `RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ` |
-| `type6_epsilon` | 6 | `RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY` |
-| `type6_eta` | 6 | `RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g` |
-| `type7_alpha` (Alpha DMS) | 7 | `RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs` |
-| `type7_epsilon` | 7 | `RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE` |
-| `type7_eta` | 7 | `RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0` |
-| `type8_alpha` (Alpha WHO) | 8 | `RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk` |
-| `type8_epsilon` | 8 | `RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg` |
-| `type8_eta` | 8 | `RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4` |
+> **Footnote — file-name vs referent-local-name asymmetry.** Observation instances (Types 2, 6, 7, 8 × 3 variants = 12 instances) use file-name patterns of the form `type{2,6,7,8}_<variant>` (e.g., `type2_alpha`) in the v1 generator outputs and cache, while their FDO referent local names follow `<Variant>-{Occurrence,AgMata,DMS,WHO}` (e.g., `Alpha-Occurrence`). This v1 catalogue-level asymmetry is preserved in v2 (byte-identity of assertion-graph local names). Both fields are needed for cross-referencing: file-name when locating cached or generator-source artifacts; referent local name when constructing or resolving FDO referent URIs of the form `<Trusty>/<referent-local-name>`. The full mapping is in `docs/v2-cleanup/supersession_registry.md`. For v3 mints or fresh catalogues, consider harmonizing file names to match referent local names.
+
+| instance_id | Type | v1 Trusty URI | v2 Trusty URI (live) | Notes |
+|---|---|---|---|---|
+| `type2_alpha` (referent: `Alpha-Occurrence`) | 2 | `RAyjkMnXEnRF09TI4R531mYM4LKEm3HL5seHnVgQcqHN0` | `RAHiypVLAG5QdV2Dl09EAuvXJAsaTiOIS9JwNEGSFVPSg` | superseded |
+| `type2_epsilon` (referent: `Epsilon-Occurrence`) | 2 | `RATGfqd-Sy27F_M9NXKkbL-GzIO9IYXJguGTXBb2VEyQA` | `RAScF7yrx-LR-kvrvuW58TVoc-TEjqBIwG-CV9IlvmFUk` | superseded |
+| `type2_eta` (referent: `Eta-Occurrence`) | 2 | `RAnwHIpm48gC4xB4d6ZxG1cDonBDEWGM-RyMf56_a5bk0` | `RAhhXSQQgmCfZau05NMwwYGae21iwK_qjgOs7GzDyHn9w` | superseded |
+| `type6_alpha` (referent: `Alpha-AgMata`) | 6 | `RArJqTu2lE7v02BrY-UmChPKJEwR004azwXfZhZ3d5ZjQ` | `RAZtTGo_ObQHC1hN7XIdW1JYbbRCuZqUofeUM-jsWJjds` | superseded |
+| `type6_epsilon` (referent: `Epsilon-AgMata`) | 6 | `RAmPs3MytCSM__DOeyHDJQP9mwYJU6UXKKU8WGhrw5_KY` | `RAMKsiqGr-f_FCX0lIrqfyilnwgS0GGpoUS7-3kQvZFJA` | superseded |
+| `type6_eta` (referent: `Eta-AgMata`) | 6 | `RAcm_5ysAXUPBHcvhNVo_Xnu6OGO0SBEGvzqb4wGfVm-g` | `RARHGQesSG3Bq1t5nkw_NwPxJj8pDTSQKwABa45dQ6Cw8` | superseded |
+| `type7_alpha` (referent: `Alpha-DMS`) | 7 | `RARb0NfCsCVn6tTY3m1sXor6mEbZzIZ6WzBSEjtmftLgs` | `RAgsEHPr-WCHfLH2RNMFCVw4BHgqP3GvnGPfV5SqEkPRY` | superseded |
+| `type7_epsilon` (referent: `Epsilon-DMS`) | 7 | `RAfI_EQBRQvVh3LRb0WLQFvXra2gINrvxaOZQprZ0KngE` | `RAs9zpNLdQ2G1UQqQPktjJho7GLdsrHWAVORbxPyC_BRA` | superseded |
+| `type7_eta` (referent: `Eta-DMS`) | 7 | `RAmrs8u-EM7ejf5shyxo9OVXf2fgAcmB_HB4F-smPQJL0` | `RAymn8p9SjkROiji7aVPDRVdD3A33Ad5uuoYPTEkaMkrA` | superseded |
+| `type8_alpha` (referent: `Alpha-WHO`) | 8 | `RApoAkERvI9mPGcz-ExkSSDvXbNAYZygNFW2IAZpaRsGk` | `RAnX2nF3Xep8CEn5GGZbRrjPQHVORHx_0tHM4cagWFVJ8` | superseded |
+| `type8_epsilon` (referent: `Epsilon-WHO`) | 8 | `RAn5yBad0gMJPsVE5rIiJvWP1GemI-2Wmi91KcCOSFQSg` | `RA-uT1JVPfe5gGFAo32mUvfynHAYLlBpqgt8rUy_qhrP4` | superseded |
+| `type8_eta` (referent: `Eta-WHO`) | 8 | `RAJRZGtEnHkqBERKZg34r8iX7sbEemtqOURYyRgB0MSa4` | `RAQmYYtUl5ZE31-1yFhP9rda1KSq_TDQipwlfCZPouAHc` | superseded |
 
 #### A.4 Stage 4 — Standing views (16 nanopubs)
 
@@ -2261,6 +2265,19 @@ Eleven pin-action nanopubs (one per template) attach each template to the Space 
 | Variants by WHO | `RAywsGEhq4acHjLNY6rALv2vvhjGwqYsFeFayr3hwZ4iM` |
 | Obs per method | `RA-XrE3QY1r0Llm5TLurg0VcasOT_hfta-AM_4qp1srZo` |
 | Alpha knowlet | `RA-QuZXXV9ni6b2YW0cM4ADyzYi-Uo4FQDR0p2pdR9tUk` |
+
+##### Stage 4 v2 — Alpha knowlet view set (from PROMPT 5)
+
+The Alpha knowlet view set was re-minted in PROMPT 5 to point at the v2 Alpha-RBD-Variant referent (after the Stage 3 v2 cleanup in PROMPT 3 superseded the v1 Stage 3 catalogue). The other 12 Stage 4 nanopubs (catalogue summary, variants by WHO, observations per method × 4 each) are generic and require no re-mint; their v1 URIs in the tables above remain authoritative.
+
+| Role | v2 Trusty URI |
+|---|---|
+| (1) SPARQL query | `RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM` |
+| (2) Pin-action | `RAEUR-AJ6AbnFBylxYVZ2y4eyY3UIRn5gBTCSugIDF04w` |
+| (3) `gen:View` wrapper | `RArre4b4u68anFDe6CknbAVLLtOBSGy1Izm-J3XGjILTs` (referent: `<Trusty>/fdt-alpha-knowlet-view`) |
+| (4) `gen:ViewDisplay` | `RAM9wl0_gIlu3Txr3st7Um1lNsMFLwOKcbaBMRdWNmwrY` |
+
+Each v2 nanopub carries `npx:supersedes <v1-Trusty>` for the v1 Alpha-knowlet entry in the tables above. Cross-reference URI form is asymmetric: `gen:hasViewQuery` targets the bare query Trusty URI (artifact addressing); `gen:isDisplayOfView` targets the wrapper's `gen:View` referent URI (FDO addressing). See `docs/v2-cleanup/stage4_mutation_map.md` for the full ground-truth analysis and `docs/v2-cleanup/supersession_registry.md` for the authoritative mapping.
 
 #### A.5 External templates and resources
 
@@ -2379,9 +2396,9 @@ This section catalogues the error modes the demonstration build encountered or i
 
 **Resolution:** for new builds, promote upstream FDOs to non-draft before Stage 3 instance minting begins. For the demonstration catalogue, the cleanup is deferred to a coordinated revision pass (see `minting/stage2-templates/Post_demonstration_cleanup.md` on `main`). The pass will mint v2 of each draft FDO with `npx:supersedes` linking to the v1 draft, then re-mint affected instances pointing at the v2 referents.
 
-The same cleanup pass corrects:
-- The Epsilon `gisaid_seq_id` value in `MAC_FDT_SPS_v1_3.md` and `FDT4Claude_small_v1_2.csv` (`L124R` → `L452R`; the demonstration instances already carry the correct value).
-- The "AphaFold2" → "AlphaFold2" typo in the AlphaFold Dataset FDO label.
+The cleanup pass also resolved the following catalogue-level data inconsistencies:
+- Epsilon `gisaid_seq_id`: `L124R` → `L452R` in `MAC_FDT_SPS_v1_4.md` and `FDT4Claude_small_v1_2.csv` (corrected during the PROMPT 4 doc batch; the demonstration instances always carried the correct value, so no nanopub re-mint was required). Historical SPS revisions (v1.2, v1.3) retain the typo as audit trail.
+- "AphaFold2" → "AlphaFold2" typo in the AlphaFold Dataset FDO `rdfs:label`: fixed during the v2 upstream re-mint (PROMPT 2.0); the v2 Dataset FDO carries the corrected label.
 
 #### C.2 Bare Trusty URI vs referent URI
 
@@ -2446,6 +2463,40 @@ The same cleanup pass corrects:
 **Cause:** Type 2's `mac:hasSurveillanceMethod` is *optional* per SPS v1.4 (an occurrence might be authored without surveillance-source attribution if data provenance is uncertain). Optional fields are not enforced at signing time.
 
 **Resolution:** for catalogues where the method link is universally available, the generator can promote the field to mandatory in the per-type config (`"flags": ["mandatory"]`). The demonstration catalogue declares the field on every Type 2 instance even though the template makes it optional. New catalogues should make the same project-level decision.
+
+#### C.10 Prefix separator on unsigned TriG (`#` vs `/`)
+
+**Symptom:** the signer produces a nanopub whose FDO referent URIs use `#` as the separator (`<Trusty>#<local-name>`), breaking catalogue convention. Downstream artifacts that reference `<Trusty>/<local-name>` (the `/`-form) resolve to a URI carrying only cached label triples, not the FDO assertion graph. SPARQL queries that join via `dct:isPartOf` to the FDO's referent return zero rows for the relevant entries.
+
+**Cause:** `nanopub-py 2.0.1` hard-codes `#` as the separator between the Trusty URI hash and the local-name suffix during canonicalization (`sign_utils.py:85`, `trustyuri/rdf/RdfUtils.py:30`). There is no configuration option or constructor parameter to override this. Whatever separator the input file uses, the signed output is forcibly `#`.
+
+**Resolution.** Two-part:
+
+1. **Source-file convention:** in the unsigned TriG, bind both `this:` and `sub:` prefixes with URIs ending in `/`, not `#` and not bare:
+
+   ```turtle
+   @prefix this: <http://purl.org/nanopub/temp/np-instance/> .
+   @prefix sub:  <http://purl.org/nanopub/temp/np-instance/> .
+   ```
+
+   Mixed-form prefixes (one with `/`, one without) produce `//` (double-slash) artifacts in the signed output under `nanopub-java`, while `nanopub-py 2.0.1` forces `#` regardless.
+
+2. **Signer choice:** sign with `nanopub-java 1.88.0` (or later), which preserves the `/`-form FDO referent convention. Empirically validated during the v2 cleanup pass: nanopub-java's signing pipeline preserves the input prefix form on `/`-terminated URIs across 3 upstream re-mints and 38 Stage 3 mints (P12–P25).
+
+   The intermediate `#`-form upstream v2 mints produced by `nanopub-py 2.0.1` (Project v2, ESM Dataset v2, AF Dataset v2 — see commit log around PROMPT 2.0) were retracted and re-minted with `nanopub-java` after this defect was discovered.
+
+   The three published retraction nanopubs are on-network for verification:
+   - Project `#`-form retraction: `https://w3id.org/np/RAkTZbU-GalW2x1Z6z6phvslQ0asgZNl2HrVAt2L8C6tU`
+   - ESM Dataset `#`-form retraction: `https://w3id.org/np/RAdaYZwuFkfAO919GrSbaTuQdrSXEvbyR7xMg8Z8DBAeI`
+   - AF Dataset `#`-form retraction: `https://w3id.org/np/RAdl00pIEMmQpRqxoteu1nuLWBJa9Q4WE02R01rQ86a1c`
+
+   For future minting work in this repo, use:
+
+   ```bash
+   java -jar nanopub-1.88.0-jar-with-dependencies.jar sign <unsigned.trig>
+   ```
+
+   JDK 21 or later required (the jar is compiled with class file version 65). The v2 cleanup pass empirically validated under JDK 21 — system JDK 14 failed to load the jar with `UnsupportedClassVersionError`. The jar is downloadable from https://github.com/Nanopublication/nanopub-java/releases.
 
 ---
 
