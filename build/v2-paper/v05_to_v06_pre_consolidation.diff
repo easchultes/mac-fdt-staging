@@ -1,0 +1,91 @@
+--- /Users/erikschultes/Desktop/mac-fdt-staging/paper/FDT_paper_consolidated_draft_v0_5.md	2026-05-21 22:22:53
++++ /Users/erikschultes/Desktop/mac-fdt-staging/paper/FDT_paper_consolidated_draft_v0_6_pre_consolidation.md	2026-06-02 17:24:36
+@@ -273,7 +273,7 @@
+ | MAC seq_id (RBD) | N169Y | L120R | E152K |
+ | Parent protein | UniProt P0DTC2 | UniProt P0DTC2 | UniProt P0DTC2 |
+ | RBD sequence length | 195 aa | 195 aa | 195 aa |
+-| Anchor Trusty URI | `<TURI-A-Alpha>` | `<TURI-A-Epsilon>` | `<TURI-A-Eta>` |
++| Anchor Trusty URI | `https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE/Alpha-RBD-Variant` | `https://w3id.org/np/RADWPV5jeyK-7pxen6hMrxjP4hPNLk3EJTibcxJCInv30/Epsilon-RBD-Variant` | `https://w3id.org/np/RA8yS9sU1tq87fXelVb4Q7uwjpoDXOsoelXM5--tfu6IQ/Eta-RBD-Variant` |
+ 
+ The complete 195-residue RBD sequences for the three variants are recorded in `MAC_FDT_SPS_v1.0.md` (sequence appendix) and are carried by `mac:hasRBDSequence` in each anchor FDO.
+ 
+@@ -287,20 +287,20 @@
+ 
+ | Variant | Occurrence date | Collection location | GeoNames feature | Trusty URI |
+ |---|---|---|---|---|
+-| Alpha | late 2020 – 2021 | `https://sws.geonames.org/6269131/` | England | `<TURI-O-Alpha-RWO>` |
+-| Epsilon | March 2020 | `https://sws.geonames.org/5332921/` | California, US | `<TURI-O-Epsilon-RWO>` |
+-| Eta | 15 December 2020 | `https://sws.geonames.org/2328926/` | Nigeria | `<TURI-O-Eta-RWO>` |
++| Alpha | late 2020 – 2021 | `https://sws.geonames.org/6269131/` | England | `https://w3id.org/np/RAHiypVLAG5QdV2Dl09EAuvXJAsaTiOIS9JwNEGSFVPSg/Alpha-Occurrence` |
++| Epsilon | March 2020 | `https://sws.geonames.org/5332921/` | California, US | `https://w3id.org/np/RAScF7yrx-LR-kvrvuW58TVoc-TEjqBIwG-CV9IlvmFUk/Epsilon-Occurrence` |
++| Eta | 15 December 2020 | `https://sws.geonames.org/2328926/` | Nigeria | `https://w3id.org/np/RAhhXSQQgmCfZau05NMwwYGae21iwK_qjgOs7GzDyHn9w/Eta-Occurrence` |
+ 
+ **Table 4b.** Types 3–5 — Computational structural predictions (two FDOs per variant per metric: ESM and AlphaFold II).
+ 
+ | Variant | Method | RMSD (Å) | SASA (Å²) | pLDDT (0–100) | Trusty URI (RMSD) | Trusty URI (SASA) | Trusty URI (pLDDT) |
+ |---|---|---:|---:|---:|---|---|---|
+-| Alpha | ESM | 13.379 | 16494.878 | 23.674 | `<TURI-O-Alpha-RMSD-ESM>` | `<TURI-O-Alpha-SASA-ESM>` | `<TURI-O-Alpha-pLDDT-ESM>` |
+-| Alpha | AlphaFold II | 2.278 | 10141.237 | 93.744 | `<TURI-O-Alpha-RMSD-AF>` | `<TURI-O-Alpha-SASA-AF>` | `<TURI-O-Alpha-pLDDT-AF>` |
+-| Epsilon | ESM | 12.802 | 17620.863 | 23.736 | `<TURI-O-Epsilon-RMSD-ESM>` | `<TURI-O-Epsilon-SASA-ESM>` | `<TURI-O-Epsilon-pLDDT-ESM>` |
+-| Epsilon | AlphaFold II | 2.976 | 10181.969 | 94.193 | `<TURI-O-Epsilon-RMSD-AF>` | `<TURI-O-Epsilon-SASA-AF>` | `<TURI-O-Epsilon-pLDDT-AF>` |
+-| Eta | ESM | 2.477 | 18026.597 | 23.150 | `<TURI-O-Eta-RMSD-ESM>` | `<TURI-O-Eta-SASA-ESM>` | `<TURI-O-Eta-pLDDT-ESM>` |
+-| Eta | AlphaFold II | 2.720 | 10226.641 | 94.054 | `<TURI-O-Eta-RMSD-AF>` | `<TURI-O-Eta-SASA-AF>` | `<TURI-O-Eta-pLDDT-AF>` |
++| Alpha | ESM | 13.379 | 16494.878 | 23.674 | `https://w3id.org/np/RAf8cMF_qJFg1LAVkriSe7X1yoIz4Kg6GVaO0qrMYoaLg/Alpha-RMSD-ESM2` | `https://w3id.org/np/RATDFrbGzT9BSFCTLpQDf4HZWNpd4ReXlzvuJJ5oaTKrQ/Alpha-SASA-ESM2` | `https://w3id.org/np/RAZc567NsX-8k7XJrKAnoBcwFI92miXJcdWrcD6U7rPPE/Alpha-pLDDT-ESM2` |
++| Alpha | AlphaFold II | 2.278 | 10141.237 | 93.744 | `https://w3id.org/np/RAaZJ0IuCVz8QaGyDWn10j8TBlpIifMDxqi7HzglNuz80/Alpha-RMSD-AlphaFold2` | `https://w3id.org/np/RA2aycCXga1Q6CU9uN28ZLQqAVDXUuIgPsP8QW07LD5ws/Alpha-SASA-AlphaFold2` | `https://w3id.org/np/RArrrQfjNxWFA6C4F3-QB5qJEsQOkTeivRX7_PmWWO_hQ/Alpha-pLDDT-AlphaFold2` |
++| Epsilon | ESM | 12.802 | 17620.863 | 23.736 | `https://w3id.org/np/RA7EJKrmgtLHuKzT8FBNPLo-8HMgCLzBvR2Mfxpl5iJrI/Epsilon-RMSD-ESM2` | `https://w3id.org/np/RASLEpL6BamsPTgEH1FDfQ9whKu_V3-B7hHe3mVJOsuIQ/Epsilon-SASA-ESM2` | `https://w3id.org/np/RA7QLv-gPyZjD6BWOBekq7ZWKu4hVFMraGwwJOhArOeJU/Epsilon-pLDDT-ESM2` |
++| Epsilon | AlphaFold II | 2.976 | 10181.969 | 94.193 | `https://w3id.org/np/RAN_Wf7LjMSofwyG0x4uhLNln8kgPnbKzl7ZHjXGKLOc4/Epsilon-RMSD-AlphaFold2` | `https://w3id.org/np/RAE9pIZSm1uZcf3AzCBLnhC6jzl5q53sHdd6xt-z4Qglk/Epsilon-SASA-AlphaFold2` | `https://w3id.org/np/RAwjLl2XsUTPoaFrv45EmHr7K-HNlN--f3-pUTxmgDNnA/Epsilon-pLDDT-AlphaFold2` |
++| Eta | ESM | 2.477 | 18026.597 | 23.150 | `https://w3id.org/np/RAPh6zDXbnsMP304CGWT3OcY8ielo_GVifxC7oDsVB8HM/Eta-RMSD-ESM2` | `https://w3id.org/np/RAeGQbuaKdL82xN1MBbkzLemD7twqcJYfxZdGVUWTX8G0/Eta-SASA-ESM2` | `https://w3id.org/np/RAOevfPSd_NZh3bek1YA8M9ZWFwGFP_pTJZ4Txjw0UWz4/Eta-pLDDT-ESM2` |
++| Eta | AlphaFold II | 2.720 | 10226.641 | 94.054 | `https://w3id.org/np/RAVHbFaBJ4Ezq3LpEvHlQR2y6FbyOeA6Ltk3wk-hZZTyE/Eta-RMSD-AlphaFold2` | `https://w3id.org/np/RAjsJgM13kFOaExAskq-K-7KcEf1anAAbrBz_TROBWtP0/Eta-SASA-AlphaFold2` | `https://w3id.org/np/RAyaXL_U120427BOikVY6A_eSSxWTtInmUqUHdB4W7EYk/Eta-pLDDT-AlphaFold2` |
+ 
+ Values are reported to three decimal places for legibility; the published FDOs carry the full-precision values from the source dataset. The substantial divergence between ESM and AlphaFold II in RMSD and pLDDT — particularly evident in the Alpha and Epsilon rows — is a known property of the two methods' predictive regimes [REF-Lin-ESM2; REF-Jumper-AlphaFold2] and reflects a real cross-method difference that the per-method, per-FDO representation makes individually citable.
+ 
+@@ -308,35 +308,35 @@
+ 
+ | Variant | AgMata score | Trusty URI |
+ |---|---:|---|
+-| Alpha | 0.7005 | `<TURI-O-Alpha-AgMata>` |
+-| Epsilon | 0.7195 | `<TURI-O-Epsilon-AgMata>` |
+-| Eta | 0.6806 | `<TURI-O-Eta-AgMata>` |
++| Alpha | 0.7005 | `https://w3id.org/np/RAZtTGo_ObQHC1hN7XIdW1JYbbRCuZqUofeUM-jsWJjds/Alpha-AgMata` |
++| Epsilon | 0.7195 | `https://w3id.org/np/RAMKsiqGr-f_FCX0lIrqfyilnwgS0GGpoUS7-3kQvZFJA/Epsilon-AgMata` |
++| Eta | 0.6806 | `https://w3id.org/np/RARHGQesSG3Bq1t5nkw_NwPxJj8pDTSQKwABa45dQ6Cw8/Eta-AgMata` |
+ 
+ **Table 4d.** Type 7 — Experimental DMS observation (one FDO per variant; method: Bloom Lab DMS).
+ 
+ | Variant | bind (log K_D) | Δbind | expr (log MFI) | Δexpr | conf_bind | conf_expr | Trusty URI |
+ |---|---:|---:|---:|---:|---:|---:|---|
+-| Alpha | 9.814 | 1.042 | 10.053 | −0.133 | 0.0732 | 0.0714 | `<TURI-O-Alpha-DMS>` |
+-| Epsilon | 8.939 | 0.167 | 10.254 | 0.068 | 0.0730 | 0.0705 | `<TURI-O-Epsilon-DMS>` |
+-| Eta | 9.013 | 0.241 | 10.219 | 0.033 | 0.0723 | 0.0698 | `<TURI-O-Eta-DMS>` |
++| Alpha | 9.814 | 1.042 | 10.053 | −0.133 | 0.0732 | 0.0714 | `https://w3id.org/np/RAgsEHPr-WCHfLH2RNMFCVw4BHgqP3GvnGPfV5SqEkPRY/Alpha-DMS` |
++| Epsilon | 8.939 | 0.167 | 10.254 | 0.068 | 0.0730 | 0.0705 | `https://w3id.org/np/RAs9zpNLdQ2G1UQqQPktjJho7GLdsrHWAVORbxPyC_BRA/Epsilon-DMS` |
++| Eta | 9.013 | 0.241 | 10.219 | 0.033 | 0.0723 | 0.0698 | `https://w3id.org/np/RAymn8p9SjkROiji7aVPDRVdD3A33Ad5uuoYPTEkaMkrA/Eta-DMS` |
+ 
+ **Table 4e.** Type 8 — WHO variant classification (one FDO per variant; time-stamped).
+ 
+ | Variant | WHO classification | Classification date | Trusty URI |
+ |---|---|---|---|
+-| Alpha | `mac:VOC` (Variant of Concern) | 18 December 2020 | `<TURI-O-Alpha-WHO>` |
+-| Epsilon | `mac:VOI` (Variant of Interest) | 5 March 2021 | `<TURI-O-Epsilon-WHO>` |
+-| Eta | `mac:VOI` (Variant of Interest) | 5 March 2021 | `<TURI-O-Eta-WHO>` |
++| Alpha | `mac:VOC` (Variant of Concern) | 18 December 2020 | `https://w3id.org/np/RAnX2nF3Xep8CEn5GGZbRrjPQHVORHx_0tHM4cagWFVJ8/Alpha-WHO` |
++| Epsilon | `mac:VOI` (Variant of Interest) | 5 March 2021 | `https://w3id.org/np/RA-uT1JVPfe5gGFAo32mUvfynHAYLlBpqgt8rUy_qhrP4/Epsilon-WHO` |
++| Eta | `mac:VOI` (Variant of Interest) | 5 March 2021 | `https://w3id.org/np/RAQmYYtUl5ZE31-1yFhP9rda1KSq_TDQipwlfCZPouAHc/Eta-WHO` |
+ 
+ **Table 5.** Method library $\mathcal{M}$ (five FDOs; shared across all FDTs in the catalogue). Method FDOs use `cito:citesAsAuthority` to link to the authoritative published description of each method (Item 4 resolution; replaces `schema:citation` from earlier drafts).
+ 
+ | Type | Method | Class URI | `cito:citesAsAuthority` (DOI) | `schema:url` (resource URL) | Trusty URI |
+ |---|---|---|---|---|---|
+-| 9 | ESM2 | `mac:ComputationalMethod` | `10.1126/science.ade2574` [REF-Lin-ESM2] | `github.com/facebookresearch/esm` | `<TURI-M-ESM>` |
+-| 9 | AlphaFold 2 | `mac:ComputationalMethod` | `10.1038/s41586-021-03819-2` [REF-Jumper-AlphaFold2] | `github.com/google-deepmind/alphafold` | `<TURI-M-AF>` |
+-| 9 | Bio2Byte AgMata | `mac:ComputationalMethod` | `10.1093/bioinformatics/btac149` [REF-Bio2Byte] | `bio2byte.be/b2btools/` | `<TURI-M-Bio2Byte>` |
+-| 10 | Bloom Lab SARS-CoV-2 RBD DMS | `mac:ExperimentalMethod` | `10.1016/j.cell.2020.08.012` [REF-Starr-2020] | `github.com/jbloomlab/SARS-CoV-2-RBD_DMS` | `<TURI-M-Bloom>` |
+-| 11 | GISAID EpiCoV | `mac:ObservationalMethod` | `10.2807/1560-7917.ES.2017.22.13.30494` [REF-Shu-2017]; `10.46234/ccdcw2021.255` [REF-Khare-2021] | `gisaid.org` | `<TURI-M-GISAID>` |
++| 9 | ESM2 | `mac:ComputationalMethod` | `10.1126/science.ade2574` [REF-Lin-ESM2] | `github.com/facebookresearch/esm` | `https://w3id.org/np/RAV_9iAUAyUyNLhVQxpTaE54ko_liTnBpIarZBnkBcbgw/ESM2-Method` |
++| 9 | AlphaFold 2 | `mac:ComputationalMethod` | `10.1038/s41586-021-03819-2` [REF-Jumper-AlphaFold2] | `github.com/google-deepmind/alphafold` | `https://w3id.org/np/RAPz4KzBYjUUaURNGn4pR7PpJ5VAvv43v5dYK7gyG1DXk/AlphaFold2-Method` |
++| 9 | Bio2Byte AgMata | `mac:ComputationalMethod` | `10.1093/bioinformatics/btac149` [REF-Bio2Byte] | `bio2byte.be/b2btools/` | `https://w3id.org/np/RAfY9JAThg7kIl7-63YT2KdVN7y8INAyqpnow339n3tpU/AgMata-Method` |
++| 10 | Bloom Lab SARS-CoV-2 RBD DMS | `mac:ExperimentalMethod` | `10.1016/j.cell.2020.08.012` [REF-Starr-2020] | `github.com/jbloomlab/SARS-CoV-2-RBD_DMS` | `https://w3id.org/np/RAWQDkXVW2tB6LEgirShh03PKJOznYQFVLx8-YXhWfnew/BloomLab-DMS-Method` |
++| 11 | GISAID EpiCoV | `mac:ObservationalMethod` | `10.2807/1560-7917.ES.2017.22.13.30494` [REF-Shu-2017]; `10.46234/ccdcw2021.255` [REF-Khare-2021] | `gisaid.org` | `https://w3id.org/np/RAdSYycNtllf-CCXJ5HMMUaF-arNhDj0oGdiZyCBC08o0/GISAID-Method` |
+ 
+ The hub topology of $\mathrm{FDT}(\text{Alpha})$ is illustrated in **Figure 1**. The topology of $\mathrm{FDT}(\text{Epsilon})$ and $\mathrm{FDT}(\text{Eta})$ is structurally identical; only the anchor identity and the observation values differ.
+ 
