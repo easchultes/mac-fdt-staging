@@ -1,0 +1,67 @@
+@prefix this: <https://w3id.org/np/RAuBX8xpaOsxfO8WvzFo0xpkTwFjLkmnAsYE1IRpNTOjE> .
+@prefix sub: <https://w3id.org/np/RAuBX8xpaOsxfO8WvzFo0xpkTwFjLkmnAsYE1IRpNTOjE/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:statusUpdate a <https://w3id.org/kpxl/gen/terms/StatusUpdate>;
+    dct:description """v2 catalogue cleanup pass closed (PR #5, https://github.com/easchultes/mac-fdt-staging/pull/5). 48 nanopub operations on the live NSN across 5 commits:
+
+- 3 upstream /-form v2 re-mints (StayAhead Project FDO, ESM Dataset FDO, AlphaFold Dataset FDO) supersede their v1 predecessors directly.
+- 3 retractions of intermediate #-form upstream defectives. The nanopub-py 2.0.1 signing pipeline hard-codes # as the FDO referent separator; MAC catalogue convention is /. Defect worked around by switching the signer to nanopub-java 1.88.0. Implementation Guide §6 Appendix C.10 documents the pitfall.
+- 38 Stage 3 v2 instance mints (3 Type 1 anchors + 5 method FDOs + 18 computational predictions + 12 final observations). Authoritative v1→v2 mapping at docs/v2-cleanup/supersession_registry.md.
+- 4 Stage 4 v2 mints (Alpha knowlet view set), re-minted against the Alpha-RBD-Variant v2 referent.
+
+SPARQL verification on query.knowledgepixels.com/repo/full: 38 + 4 npx:supersedes pairs, 38 dct:isPartOf to Project v2, 21 dct:source to Dataset v2 (12 ESM + 9 AF), 57 mac:* intra-Stage-3 cross-refs to Pass-1 v2 referents.
+
+Three asymmetric Stage 4 URI-form conventions documented (gen:hasViewQuery bare-Trusty; gen:isDisplayOfView referent; pin-action no introduced referent). Honest commit history preserved on PR #5: the false-start #-form upstream mint remains visible as audit trail.
+
+FDT paper v1.0 consolidated on sibling branch paper-v06-consolidation (HEAD 061eefb): §5 Trusty URI tables populated with v2 referents (38 substitutions HTTP GET-verified), §6.4 substrate-landscape calibration, §6.6 regulatory-salience paragraph (EU AI Act, model collapse), §6.7 three-paper companion sequence, §6.8 (new) catalogue refinement with Git-parallel architectural framing, 15 new references, target venue updated to Digital Twin (Taylor & Francis).
+
+Tobias second-PR addendum draft (docs/tobias_skill_addendum.md) ready for the nanopub-skill repo: 4 operational findings (npx:retracts subject convention, registry content negotiation, SPARQL DISTINCT on /repo/full, publish-to-GET propagation lag), each with Origin: PROMPT traceability footers.
+
+Workstreams unblocked: FDT paper v1.0 → Digital Twin (T&F); Tobias second PR → nanopub-skill; FDT pattern paper (3 domains); 45 Implementation Guide narrative refs deferred; external touchpoints (StayAhead report, MAC_FAIR_v2 manuscript, slides) catalogued in docs/v2-cleanup/downstream_doc_register.md.
+
+Earlier status nanopub attempt (https://w3id.org/np/RAeNRMdW7E7NbJ8kYqvzcoetiGxLZTLELHH6gjHovPPI4) and its pin-action (https://w3id.org/np/RAHUY7A3Oak7NvXfvkgF7yw7ZUeLFp82mtVZz2iHKW0S0) used the wrong type (fabio:Statement) and pinning predicate (gen:hasPinnedQuery), so they didn't appear in the Status Updates view; this one uses the correct gen:StatusUpdate template (RAFpk14hjqsgCRi1kEwLq7F9BcRPoK1E8PrqhaZvxQuac).""";
+    dct:isPartOf <https://w3id.org/spaces/knowledgepixels/incubator/officehours/20260603>;
+    <http://schema.org/about> <https://w3id.org/spaces/knowledgepixels/incubator/project4>,
+      <https://w3id.org/spaces/mac/r/ontology/MAC-Ontology>;
+    rdfs:label "MAC FDT v2 catalogue cleanup pass — closed; FDT paper v1.0 consolidated; nanopub-skill addendum ready";
+    rdfs:seeAlso <https://github.com/easchultes/mac-fdt-staging/pull/5>, <https://github.com/easchultes/mac-fdt-staging/tree/paper-v06-consolidation> .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-06-03T12:30:00Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:statusUpdate;
+    rdfs:label "MAC FDT v2 status update for KP office hours 2026-06-03";
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RA0J4vUn_dekg-U1kK3AOEt02p9mT2WO03uGxLDec1jLw>,
+      <https://w3id.org/np/RAMEgudZsQ1bh1fZhfYnkthqH6YSXpghSE_DEN1I-6eAI>, <https://w3id.org/np/RARW4MsFkHuwjycNElvEVtuMjpf4yWDL10-0C5l2MqqRQ>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAFpk14hjqsgCRi1kEwLq7F9BcRPoK1E8PrqhaZvxQuac> .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3w/IUb755GIzp3ueODYkgELhyq4Clygb5Kspge50xo+n8uC/IvXwi+ukRjEpdfX/JZ09yKUCJ2AMMr/QchrsP1Xhg9Q3fEZ4E12XqFd5jX00Qs0K5XZwjBaV8NdDTJW9I4gpcyh0cry7hSBAWHkXEkqbK+lQvR4UFAKejFq6u/wIDAQAB";
+    npx:hasSignature "GaD9HJumX6CprjBCb8PWk1w+JLcoEfpCcNGXWsJGfAfby7HMRGiY7K3HLlT8fULlaxyLb+J22zMwLgQbHwUxgZLqOandFRCmWEkzrDZRjwsgZgzcQFAfHEF9gkW1deU6N6W556PR/d9GdHOmXWw80Js/kDWtx1yVmzrzJ7gSrPE=";
+    npx:hasSignatureTarget this:;
+    npx:signedBy orcid:0000-0001-8888-635X .
+}

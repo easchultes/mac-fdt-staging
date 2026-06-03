@@ -1,0 +1,42 @@
+@prefix this: <http://purl.org/nanopub/temp/status_v4_20260603/> .
+@prefix sub: <http://purl.org/nanopub/temp/status_v4_20260603/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:statusUpdate a <https://w3id.org/kpxl/gen/terms/StatusUpdate>;
+    dct:description "MAC FDT v2 catalogue cleanup pass closed (PR #5). 48 nanopub operations on the live NSN across 5 commits: 3 upstream /-form v2 re-mints (Project + 2 Datasets), 3 retractions of #-form defectives produced by nanopub-py 2.0.1 (separator defect; switched signer to nanopub-java 1.88.0), 38 Stage 3 v2 instance mints, 4 Stage 4 v2 mints (Alpha knowlet view set). SPARQL on /repo/full confirms full supersession chain. FDT paper v1.0 consolidated on sibling branch (target venue updated to Digital Twin, Taylor & Francis). Tobias second-PR addendum draft (4 operational findings on the nanopub-skill experience) ready for review.";
+    dct:isPartOf <https://w3id.org/spaces/knowledgepixels/incubator/officehours/20260603>;
+    <http://schema.org/about> <https://w3id.org/spaces/knowledgepixels/incubator/project4>;
+    rdfs:label "MAC FDT v2 catalogue cleanup status";
+    rdfs:seeAlso <https://github.com/easchultes/mac-fdt-staging/pull/5> .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-06-03T12:56:33Z"^^xsd:dateTime;
+    dct:creator orcid:0000-0001-8888-635X;
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:introduces sub:statusUpdate;
+    npx:wasCreatedAt <https://nanodash.knowledgepixels.com/>;
+    nt:wasCreatedFromProvenanceTemplate <https://w3id.org/np/RA7lSq6MuK_TIC6JMSHvLtee3lpLoZDOqLJCLXevnrPoU>;
+    nt:wasCreatedFromPubinfoTemplate <https://w3id.org/np/RACJ58Gvyn91LqCKIO9zu1eijDQIeEff28iyDrJgjSJF8>,
+      <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    nt:wasCreatedFromTemplate <https://w3id.org/np/RAFpk14hjqsgCRi1kEwLq7F9BcRPoK1E8PrqhaZvxQuac> .
+}

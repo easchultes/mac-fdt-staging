@@ -125,6 +125,47 @@ The receiving registry is `registry.petapico.org`. Read-side resolution may reac
 
 ---
 
+## Section 5 — Future-dated `dct:created` is registry-rejected as "Nanopublication not supported"
+
+**Observation.** When hand-authoring a TriG with a hand-chosen `dct:created` timestamp that turns out to be in the future relative to the registry's wall clock at the moment of publish, all three registries reject with:
+
+```
+HTTP 400 — Error processing nanopub: Nanopublication not supported
+```
+
+The error message is misleading: it suggests structural unsupportedness (the same wording that surfaces for other policy violations, e.g., the `npx:retracts` subject-form rejection in Section 1), but the actual gate is purely temporal.
+
+Empirical reproduction from KP Office Hours 2026-06-03:
+
+- **Reject 1** (`RAuBX8xpaOsxfO8WvzFo0xpkTwFjLkmnAsYE1IRpNTOjE`): correct `gen:StatusUpdate` template, `dct:created "2026-06-03T12:30:00Z"` — about 25 minutes in the future at sign time. Rejected by all three registries.
+- **Reject 2** (`RAgdgiB6u3qSqiWF_3_GY0sEA0ToW3I1xzxN_lcBcONPY`): structurally narrowed to match a known-working reference nanopub, `dct:created "2026-06-03T12:45:00Z"` — still ~10 minutes future. Rejected.
+- **Success** (`RAE9JU48QNC6cejadZoXte7JX1C2eEiYFjUv6to3w2Hec`): identical structure to Reject 2, `dct:created` set by `date -u` immediately before `nanopub-java sign` → `2026-06-03T12:56:33Z`, NOT future-dated. Published cleanly on first publish attempt; appeared in the Status Updates view within 60 seconds (matching the indexing-lag estimate in Section 4).
+
+The same RSA-1024 signing key signed all three attempts. `nanopub-java check` reported `1 trusty with signature` for all three (signature validates locally regardless of timestamp). So the gate is registry-side and timestamp-only.
+
+This is **not** what Erik initially hypothesized when the rejections first surfaced — RSA key length and NanoDash-pipeline-required signing were ruled out by the eventual success on the third attempt with the same key and the same signing pipeline. Surfacing it here for two reasons: (i) the misleading error message wasted significant diagnostic effort that a clearer message (e.g., "future-dated dct:created not allowed") would have saved; (ii) the failure mode is easy to trip on accidentally when scripted timestamps are baked into a TriG template at code-write time rather than injected at sign time.
+
+**Suggested skill additions.**
+
+1. **Registry error message clarity.** The `400 Nanopublication not supported` error masks a class of distinct registry-side policy rejections (Section 1's `npx:retracts` subject-form gate is another). Where the gate is identifiable, the message should reflect it — e.g., `400 Nanopublication rejected: dct:created in the future` for this case.
+
+2. **Skill guidance on timestamp injection.** Recommend `date -u` at sign time rather than hand-written timestamps. For pipelines that produce unsigned TriG from templates, the `dct:created` field should be a placeholder filled at sign time, not at template-write time. Example pattern:
+
+```bash
+# In the unsigned TriG, leave a placeholder:
+#   this: dct:created "TIMESTAMP_PLACEHOLDER"^^xsd:dateTime ;
+NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+sed -i "s/TIMESTAMP_PLACEHOLDER/$NOW/" unsigned.trig
+java -jar nanopub-1.88.0-jar-with-dependencies.jar sign unsigned.trig
+java -jar nanopub-1.88.0-jar-with-dependencies.jar publish signed.unsigned.trig
+```
+
+3. **Skill guidance on small clock skew.** Even a non-malicious local clock that is a few minutes fast relative to NTP can produce this rejection silently. A `date -u` command run on a machine with a synced clock is the safe default.
+
+*Origin: PROMPT 6 post-mortem — KP Office Hours 2026-06-03 status update three-attempt sequence. Tobias diagnosed the root cause live at the office hours; v4 mint succeeded with `date -u`-injected timestamp on the next attempt.*
+
+---
+
 ## Closing
 
 These observations are offered as input to the nanopub-skill maintenance work; they are not yet vetted against the broader ecosystem (other registry mirrors, other client implementations, other jar versions). Operationally validated against:
@@ -134,5 +175,6 @@ These observations are offered as input to the nanopub-skill maintenance work; t
 - `registry.knowledgepixels.com` (resolution-side, also SPARQL endpoint)
 - `w3id.org/np/<Trusty>` (canonical resolution alias)
 - JDK 21 (the jar requires class file version 65)
+- Registry timestamp policy for `dct:created` (Section 5; observed during KP Office Hours 2026-06-03)
 
 Contact: Erik Schultes <https://orcid.org/0000-0001-8888-635X>
