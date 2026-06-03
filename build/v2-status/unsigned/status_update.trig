@@ -1,0 +1,66 @@
+@prefix this: <http://purl.org/nanopub/temp/status_20260603/> .
+@prefix sub: <http://purl.org/nanopub/temp/status_20260603/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:mac-fdt-v2-cleanup-status a <http://purl.org/spar/fabio/Statement> ;
+    dct:title "MAC FDT v2 Catalogue Cleanup — Status Update for KP Office Hours 2026-06-03" ;
+    dct:date "2026-06-03"^^xsd:date ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    rdfs:label "MAC FDT v2 status update (2026-06-03)" ;
+    dct:description """**MAC FDT v2 catalogue cleanup pass — CLOSED.**
+
+48 nanopub operations on the live Nanopublication Server Network across 5 commits on branch cleanup-upstream-v2:
+
+- 3 upstream /-form v2 re-mints (StayAhead Project FDO + ESM Dataset FDO + AlphaFold Dataset FDO) supersede v1 directly.
+- 3 retractions of intermediate #-form upstream defectives. The nanopub-py 2.0.1 signing pipeline hard-codes # as the FDO referent separator; the MAC catalogue convention is /. Defect surfaced and worked around by switching the signer to nanopub-java 1.88.0 (preserves /). Implementation Guide §6 Appendix C.10 documents the pitfall; the three retraction nanopubs are on-network for verification.
+- 38 Stage 3 v2 instance mints: 3 Type 1 anchors (Alpha N169Y, Epsilon L120R, Eta E152K), 5 method FDOs (ESM2, AlphaFold 2, Bio2Byte AgMata, Bloom Lab DMS, GISAID), 18 computational predictions (RMSD/SASA/pLDDT × 3 variants × 2 methods), 12 final observations (real-world occurrence × 3 + AgMata × 3 + DMS × 3 + WHO × 3). Authoritative v1→v2 mapping at docs/v2-cleanup/supersession_registry.md.
+- 4 Stage 4 v2 mints (Alpha knowlet view set: query + pin-action + wrapper + view-display), re-minted June 2 against the Alpha-RBD-Variant v2 referent.
+
+SPARQL verification on query.knowledgepixels.com/repo/full: 38 distinct npx:supersedes Stage 3 v2→v1 pairs; 4 distinct npx:supersedes Stage 4 v2→v1 pairs; 38 distinct dct:isPartOf to Project v2 referent; 21 distinct dct:source to Dataset v2 referents (12 ESM + 9 AlphaFold); 57 distinct mac:* intra-Stage-3 cross-references to Pass-1 v2 referents. All counts confirmed with SELECT DISTINCT (raw COUNT(*) over-reports 3× because /repo/full indexes triples across multiple graph views — note for the Tobias addendum).
+
+Three asymmetric Stage 4 URI-form conventions locked + documented: gen:hasViewQuery targets bare query Trusty URI (query as artifact); gen:isDisplayOfView targets gen:View referent URI (View FDO); pin-action nanopubs have no introduced referent (target Space directly). Material for the nanopub-skill second-PR addendum.
+
+Honest commit history preserved on PR #5: the false-start #-form upstream commit 7f7389e remains visible as audit trail rather than rebased away — the false start is the empirical evidence for the nanopub-py defect.
+
+FDT paper v1.0 consolidated on sibling branch paper-v06-consolidation (HEAD 061eefb): §5 Trusty URI tables fully populated with v2 referents (38 substitutions, all HTTP GET-verified at consolidation time); §6.4 expanded with substrate-landscape calibration and variant-PID novelty recalibration; §6.6 regulatory-salience paragraph (EU AI Act, model collapse); §6.7 three-paper companion sequence; §6.8 (new) catalogue refinement and audit trail with Git-parallel architectural framing; 15 new references; target venue updated from Frontiers in Big Data to Digital Twin (Taylor & Francis). No predicate, class, scientific-claim, or SPARQL changes — only catalogue addressing and §6 narrative.
+
+Tobias second-PR addendum draft (docs/tobias_skill_addendum.md) ready for submission to the nanopub-skill repo: four operational findings — npx:retracts subject convention, registry content negotiation, SPARQL DISTINCT on /repo/full, publish-to-GET propagation lag. Each section carries an Origin: PROMPT footer for traceability back to the cleanup-pass phase that produced the observation.
+
+Workstreams unblocked: FDT paper v1.0 ready for review and submission to Digital Twin (Taylor & Francis); FDT pattern paper (3 domains: COVID variants, AMR, mass spectrometry); 45 Implementation Guide narrative refs (mechanical find-replace, deferred); external touchpoints (StayAhead final report, MAC_FAIR_v2 manuscript, slides/posters) catalogued in docs/v2-cleanup/downstream_doc_register.md for work when drafts stabilize.
+
+PR #5 remains open (awaiting paper §4 + Tobias addendum citations before merge). Paper consolidation branch paper-v06-consolidation pushed to origin (PR not yet opened). Branch ahead of main by 6 commits (PR #5) + 2 commits (paper v1.0)."""@en ;
+    dct:references <https://github.com/easchultes/mac-fdt-staging/pull/5> ,
+                   <https://w3id.org/np/RAXPu-iuezz8swvd6RWIba3VzV0cp94Aq3pTzVst9_nPk/StayAhead-Project> ,
+                   <https://w3id.org/np/RAbvDm28nNtScXcTXEKHbyYdx1yDXQ5zOViy_Dn7LOkkk/STAYAHEAD-Dataset2> ,
+                   <https://w3id.org/np/RAuqwhkDJgVHU8_Fk2gsMw483Iml75Kc09XKR6h0ybO3Q/STAYAHEAD-Dataset1> ,
+                   <https://w3id.org/np/RAngbyT2iZe4xYUcPnTnDFKDaiL5-tSmoUYzF9RK3LHdE/Alpha-RBD-Variant> ,
+                   <https://w3id.org/np/RAPZD8J9dac_FbBmOsjx_5vggqTFlprf_UpYUHgfJGHaM/alpha-knowlet> ;
+    prov:wasGeneratedBy <https://w3id.org/spaces/knowledgepixels/incubator/officehours/20260603> .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo orcid:0000-0001-8888-635X .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-06-03T09:00:00Z"^^xsd:dateTime ;
+    dct:creator orcid:0000-0001-8888-635X ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    npx:introduces sub:mac-fdt-v2-cleanup-status ;
+    rdfs:label "MAC FDT v2 status update for KP office hours 2026-06-03" .
+}
